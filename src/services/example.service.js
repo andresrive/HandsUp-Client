@@ -3,7 +3,7 @@ import axios from 'axios';
 class ExampleService {
   constructor() {
     this.api = axios.create({
-      baseURL: process.env.REACT_APP_SERVER_URL || "http://localhost:5005"
+      baseURL: process.env.REACT_APP_SERVER_URL || "http://localhost:5005/api"
     });
 
     // Automatically set JWT token in the headers for every request
@@ -26,7 +26,7 @@ class ExampleService {
 
   // GET /api/examples
   getAll = async () => {
-    return this.api.get('/api/packs');
+    return this.api.get('/packs');
   }
 
   // GET /api/examples/:id
