@@ -3,7 +3,7 @@ import axios from "axios";
 class AuthService {
   constructor() {
     this.api = axios.create({
-      baseURL: process.env.REACT_APP_SERVER_URL || "http://localhost:5005",
+      baseURL: process.env.REACT_APP_SERVER_URL || "http://localhost:5005/api",
     });
 
     // Automatically set JWT token on the request headers for every request
@@ -20,19 +20,19 @@ class AuthService {
   }
 
   login = (requestBody) => {
-    return this.api.post("/auth/login", requestBody);
+    return this.api.post("/api/auth/login", requestBody);
     // same as
     // return axios.post("http://localhost:5005/auth/login");
   };
 
   signup = (requestBody) => {
-    return this.api.post("/auth/signup", requestBody);
+    return this.api.post("/api/auth/signup", requestBody);
     // same as
     // return axios.post("http://localhost:5005/auth/singup");
   };
 
   verify = () => {
-    return this.api.get("/auth/verify");
+    return this.api.get("/api/auth/verify");
     // same as
     // return axios.post("http://localhost:5005/auth/verify");
   };
