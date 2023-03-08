@@ -9,6 +9,7 @@ Hello! We are Andres, Raul and Adrian. We are full-stack developers. This projec
 
 ## Deployment
 You can check the app fully deployed [here]()
+
 If you wish to view the API deployment instead, check [here]()
 
 ## Work Structure
