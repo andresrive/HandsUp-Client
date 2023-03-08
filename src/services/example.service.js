@@ -26,7 +26,7 @@ class ExampleService {
 
   // GET /api/examples
   getAll = async () => {
-    return this.api.get('/api/examples');
+    return this.api.get('/api/packs');
   }
 
   // GET /api/examples/:id
