@@ -6,19 +6,21 @@ import authService from "../../services/auth.service";
 function SignupPage() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [name, setName] = useState("");
+  const [passwordRepeat, setPasswordRepeat] = useState("");
+  const [username, setUsername] = useState("");
   const [errorMessage, setErrorMessage] = useState(undefined);
 
   const navigate = useNavigate();
 
   const handleEmail = (e) => setEmail(e.target.value);
   const handlePassword = (e) => setPassword(e.target.value);
-  const handleName = (e) => setName(e.target.value);
+  const handlePasswordRepeat = (e) => setPasswordRepeat(e.target.value)
+  const handleUsername = (e) => setUsername(e.target.value);
 
   const handleSignupSubmit = (e) => {
     e.preventDefault();
     // Create an object representing the request body
-    const requestBody = { email, password, name };
+    const requestBody = { email, password, username };
 
     // Send a request to the server using axios
     /* 
@@ -55,14 +57,21 @@ function SignupPage() {
 
         <label>Password:</label>
         <input
-          type="password"
+          type="text"
           name="password"
           value={password}
           onChange={handlePassword}
         />
+        <label>Repeat Password:</label>
+        <input
+          type="text"
+          name="passwordRepeat"
+          value={passwordRepeat}
+          onChange={handlePasswordRepeat}
+        />
 
-        <label>Name:</label>
-        <input type="text" name="name" value={name} onChange={handleName} />
+        <label>User Name:</label>
+        <input type="text" name="name" value={username} onChange={handleUsername} />
 
         <button type="submit">Sign Up</button>
       </form>
