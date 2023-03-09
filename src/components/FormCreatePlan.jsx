@@ -36,8 +36,6 @@ export default function FormCreatePlan() {
         createPlan({ title, description, images })
             //importar la date de calendar?
             .then(res => {
-
-
                 setTitle("")
                 setDescription("")
                 setImages("")
