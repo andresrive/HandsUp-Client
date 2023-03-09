@@ -92,7 +92,7 @@
     .hero {
     width: 100%;
     height: 100vh;
-    /* background-image: url(${mountainLarge}) center no-repeat; */
+    background: url('../../assets/mountain-large.jpg') center no-repeat;
     background-size: cover;
     position: relative;
     }

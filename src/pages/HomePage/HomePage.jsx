@@ -1,10 +1,13 @@
 import "./HomePage.css";
+import Navbar from "../../components/Navbar/Navbar";
 
 function HomePage() {
   return (
-    <div>
-      <h1>Home page</h1>
-    </div>
+    <>
+      <Navbar />
+      <section className="hero"></section>
+      <section className="demo-content"></section>
+    </>
   );
 }
 

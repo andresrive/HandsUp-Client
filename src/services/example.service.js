@@ -3,7 +3,7 @@ import axios from 'axios';
 class ExampleService {
   constructor() {
     this.api = axios.create({
-      baseURL: process.env.REACT_APP_SERVER_URL || "http://localhost:5005"
+      baseURL: process.env.REACT_APP_SERVER_URL || "http://localhost:5005/"
     });
     this.api.interceptors.request.use((config) => {
       const storedToken = localStorage.getItem("authToken");
@@ -21,7 +21,7 @@ class ExampleService {
   }
 
   getAll = async () => {
-    return this.api.get('/api/examples');
+    return this.api.get('/plans');
   }
 
   getOne = async (id) => {

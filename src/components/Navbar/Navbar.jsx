@@ -1,53 +1,54 @@
 import "./Navbar.css";
 import { Link } from "react-router-dom";
-import { useContext, useEffect, useRef } from "react";
+import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../../context/auth.context";
-import mountainLarge from '../';
 
 function Navbar() {
   const { isLoggedIn, user, logOutUser } = useContext(AuthContext);
-  const headerRef = useRef(null);
+  const [isScrolled, setIsScrolled] = useState(false);
 
   useEffect(() => {
-    const isScrolling = () => {
-      const headerScroll = document.querySelector('.primary-header')
-      let windowPosition = window.scrollY > 250
-      headerScroll.classList.toggle('active', windowPosition)
-    }
-    window.addEventListener('scroll', isScrolling)
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 250);
+    };
 
-    return () => {
-      window.removeEventListener('scroll', isScrolling)
-    }
-  }, [])
+    window.addEventListener('scroll', handleScroll);
+
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
   return (
-    <header className="primary-header" ref={headerRef}>
-			<nav className="navbar container">
-				<Link to="#" className="logo">HandsUp 🙌🏼.</Link>
-				<ul className="nav-list">
-					<li>
-						<Link to="#" className="nav-link">Home</Link>
-					</li>
-					<li>
-						<Link to="#" className="nav-link">Pricing</Link>
-					</li>
-					<li>
-						<Link to="#" className="nav-link">Dates</Link>
-					</li>
-					<li>
-						<Link to="#" className="nav-link">Testimonials</Link>
-					</li>
-					<li>
-						<Link to="#" className="nav-link">Contact</Link>
-					</li>
-				</ul>
-				<Link to="#" className="button">Book now</Link>
-			</nav>
-		</header>
-
-
-  )
+	<>
+    <header className={`primary-header ${isScrolled ? 'active' : ''}`}>
+      <nav className="navbar container">
+        <Link to="#" className="logo">
+          HANDSUP
+        </Link>
+        <ul className="nav-list">
+          <li>
+            <Link to="/" className="nav-link">
+              Home
+            </Link>
+          </li>
+          <li>
+            <Link to="/plans" className="nav-link">
+              Plans
+            </Link>
+          </li>
+          <li>
+            <Link to="/packs" className="nav-link">
+              Packs
+            </Link>
+          </li>
+        </ul>
+        <Link to="/signup" className="button">
+          Sign Up
+        </Link>
+      </nav>
+    </header>
+	
+	</>
+  );
 }
 
 export default Navbar;
