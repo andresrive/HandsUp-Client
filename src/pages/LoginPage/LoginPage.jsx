@@ -39,6 +39,7 @@ function LoginPage() {
       })
       .catch((error) => {
         // If the request resolves with an error, set the error message in the state
+        console.log(error)
         const errorDescription = error.response.data.message;
         setErrorMessage(errorDescription);
       });

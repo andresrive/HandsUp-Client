@@ -25,17 +25,17 @@ function App() {
 
       <Routes>
         <Route path="/" element={<HomePage />} />
-        <Route path="/profile"element={<IsPrivate><ProfilePage /></IsPrivate>}/>
-        <Route path="/signup"element={<IsAnon><SignupPage /></IsAnon>}/>
-        <Route path="/login"element={<IsAnon><LoginPage /></IsAnon>}/>
+        <Route path="/profile" element={<IsPrivate><ProfilePage /></IsPrivate>} />
+        <Route path="/signup" element={<IsAnon><SignupPage /></IsAnon>} />
+        <Route path="/login" element={<IsAnon><LoginPage /></IsAnon>} />
 
-        <Route path="/plans/create"element={<IsPrivate><PlanCreatePage/></IsPrivate>} />
-        <Route path="/plans/:planId"element={<IsAnon><PlanDetailsPage/></IsAnon>} />
+        <Route path="/plans/create" element={<IsPrivate><PlanCreatePage /></IsPrivate>} />
+        {/* <Route path="/plans/:planId"element={<IsAnon><PlanDetailsPage/></IsAnon>} />
         <Route path="/plans/:planId/edit"element={<IsPrivate><PlanEditPage/></IsPrivate>} />
 
         <Route path="/packs/create"element={<IsPrivate><PacksCreatePage/></IsPrivate>} />
         <Route path="/packs/:packId"element={<IsAnon><PacksDetailsPage/></IsAnon>} />
-        <Route path="/packs/:packId/edit"element={<IsPrivate><PacksEditPage/></IsPrivate>} />
+        <Route path="/packs/:packId/edit"element={<IsPrivate><PacksEditPage/></IsPrivate>} /> */}
       </Routes>
     </div>
   );
