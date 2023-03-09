@@ -1,6 +1,7 @@
 import { useState, useEffect} from 'react'
 import { Link } from 'react-router-dom'
 import routeService from '../../services/route.service'
+
 export default function PlansPage() {
     const [plans, setPlans] = useState([])
 
@@ -12,7 +13,7 @@ export default function PlansPage() {
         
     },[])
   return (
-    <div>
+    <div className='demo-content'>
         <h1>All plans</h1>
         <ul className="list-unstyled">
           {plans.map((plan) => (
