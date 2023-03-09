@@ -5,8 +5,8 @@ function HomePage() {
   return (
     <>
       <Navbar />
-      <section className="hero"></section>
-      <section className="demo-content"></section>
+      {/* <section className="hero"></section>
+      <section className="demo-content"></section> */}
     </>
   );
 }
