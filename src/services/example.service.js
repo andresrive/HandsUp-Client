@@ -1,9 +1,9 @@
 import axios from 'axios';
 
-class ExampleService {
+class RouteService {
   constructor() {
     this.api = axios.create({
-      baseURL: process.env.REACT_APP_SERVER_URL || "http://localhost:5005"
+      baseURL: process.env.REACT_APP_SERVER_URL || "http://localhost:5005/api"
     });
     this.api.interceptors.request.use((config) => {
       const storedToken = localStorage.getItem("authToken");
@@ -17,28 +17,31 @@ class ExampleService {
   }
 
   createOne = async (requestBody) => {
-    return this.api.post('/api/examples', requestBody);
+    return this.api.post('/examples', requestBody);
   }
 
-  getAll = async () => {
-    return this.api.get('/api/packs');
+  getAllPacks = async () => {
+    return this.api.get('/packs');
+  }
+  getAllPlans = async () => {
+    return this.api.get('/plans');
   }
 
   getOne = async (id) => {
-    return this.api.get(`/api/examples/${id}`);
+    return this.api.get(`/examples/${id}`);
   }
 
   updateOne = async (id, requestBody) => {
-    return this.api.put(`/api/examples/${id}`, requestBody);
+    return this.api.put(`/examples/${id}`, requestBody);
   }
 
   deleteProject = async (id) => {
-    return this.api.delete(`/api/examples/${id}`);
+    return this.api.delete(`/examples/${id}`);
   } 
 
 
 }
 
-const exampleService = new ExampleService();
+const routeService = new RouteService();
 
-export default exampleService;
+export default routeService;
