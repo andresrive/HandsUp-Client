@@ -1,4 +1,5 @@
 import "./HomePage.css";
+import { Link } from 'react-router-dom'
 import Navbar from "../../components/Navbar/Navbar";
 import videoBg from "../../assets/videobg.mp4";
 
@@ -12,7 +13,7 @@ export default function HomePage() {
         </video>
         <div className="homepage-video-overlay">
           <h1>Bring your backpack, we'll bring the friends</h1>
-          <button class="btn">Get Started</button>
+          <Link className="btn" to="/signup">Get Started</Link>
         </div>
       </div>
     </>

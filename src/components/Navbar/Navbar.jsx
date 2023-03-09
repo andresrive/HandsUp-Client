@@ -1,12 +1,20 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { Link } from "react-router-dom";
 import { useContext } from "react";
 import { AuthContext } from "../../context/auth.context";
+import LoginModal from "../../pages/LoginPage/LoginModal";
 
-import { Modal, Button, Form } from "react-bootstrap";
 
 export default function Navbar() {
-  const [showModal, setShowModal] = useState(false);
+  const [showLoginModal, setShowLoginModal] = useState(false);
+
+  const handleLoginClick = () => {
+    setShowLoginModal(true);
+  };
+
+  const handleLoginClose = () => {
+    setShowLoginModal(false);
+  };
 
   const { logOutUser } = useContext(AuthContext);
 
@@ -99,47 +107,22 @@ export default function Navbar() {
             </li>
           </ul>
           <div className="d-flex">
-            {/* <Link className="btn btn-outline-success me-2" type="button" to="/login">
-              Log in
-            </Link> */}
-            <Link
+            <button
               className="btn btn-outline-success me-2"
               type="button"
-              onClick={() => setShowModal(true)}
+              onClick={handleLoginClick}
             >
               Log in
-            </Link>
-            <Modal show={showModal} onHide={() => setShowModal(false)}>
-              <Modal.Header closeButton>
-                <Modal.Title>Log in</Modal.Title>
-              </Modal.Header>
-              <Modal.Body>
-                <Form>
-                  <Form.Group controlId="formBasicEmail">
-                    <Form.Label>Email address</Form.Label>
-                    <Form.Control type="email" placeholder="Enter email" />
-                  </Form.Group>
+            </button>
+            {showLoginModal && (
+                <LoginModal onClose={handleLoginClose} />
+            )}
 
-                  <Form.Group controlId="formBasicPassword">
-                    <Form.Label>Password</Form.Label>
-                    <Form.Control type="password" placeholder="Password" />
-                  </Form.Group>
-                </Form>
-              </Modal.Body>
-              <Modal.Footer>
-                <Button variant="secondary" onClick={() => setShowModal(false)}>
-                  Close
-                </Button>
-                <Button variant="primary" to="" onClick={() => setShowModal(false)}>
-                  Log in
-                </Button>
-              </Modal.Footer>
-            </Modal>
             <Link
               className="btn btn-outline-success"
               onClick={() => {
                 logOutUser();
-                setShowModal(false);
+                setShowLoginModal(false);
               }}
               to="/"
             >
