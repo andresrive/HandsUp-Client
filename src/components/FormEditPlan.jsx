@@ -1,38 +1,29 @@
 import { useState } from "react"
-import routeService from "../../services/route.service"
-import { useNavigate, Link, useParams } from "react-router-dom"
+import routeService from "../services/route.service"
+import { useNavigate, Link } from "react-router-dom"
 
-
-export default function PlanEditPage() {
-
-    const { planId } = useParams()
+export default function FormEditPlan({ plansId }) {
 
     const navigate = useNavigate()
 
     const [title, setTitle] = useState("")
     const [description, setDescription] = useState("")
     const [images, setImages] = useState("")
-    const [date, setDate] = useState("")
+    const [date, setDate] = useState(Date.now)
 
 
     const handleSubmit = (e) => {
         e.preventDefault()
-        routeService.updateOnePlan(planId, { title, description, images, date })
+        routeService.updateOnePlan(plansId, { title, description, images, date })
             .then(result => {
                 setTitle("")
                 setDescription("")
                 setImages("")
-                setDate("")
-                navigate(`/plans/${planId}`)
+                setDate(Date.now)
+                navigate(`/plans/${plansId}`)
             })
             .catch(err => console.log(err))
 
-    }
-    console.log(planId)
-    const deleteHandler = (planId) => {
-        routeService.deletePlan(planId)
-            .then(response => navigate("/plans"))
-            .catch(err => console.log(err))
     }
 
     return (<>
@@ -54,8 +45,7 @@ export default function PlanEditPage() {
                 <input className="form-control" type="date" value={date} onChange={(e) => setDate(e.target.value)} id="formDate" />
             </div>
             <button className="btn btn-info" type="submit">Edit plan</button>
-            <Link to={`/plans/${planId}`}><button className="btn btn-warning">Go back</button></Link>
-            <button className="btn btn-danger" type="button" onClick={() => deleteHandler(planId)}>Delete plan</button>
+            <Link to={`/plans/${plansId}`}><button>Go back</button></Link>
         </form>
     </>)
 }

@@ -1,8 +1,7 @@
 import { useState } from "react";
 // import Calendar from "./Calendar";
-import { uploadImage, createPlan } from "../api/service"
+import { uploadImage, createPlan } from "../services/upload.service"
 import { useNavigate } from "react-router-dom"
-
 
 
 export default function FormCreatePlan() {
@@ -10,7 +9,7 @@ export default function FormCreatePlan() {
     const [title, setTitle] = useState("")
     const [description, setDescription] = useState("")
     const [images, setImages] = useState("")
-    const [date, setDate] = useState(Date.now)
+    const [date, setDate] = useState("")
 
     const navigate = useNavigate()
 
@@ -42,7 +41,7 @@ export default function FormCreatePlan() {
                 setTitle("")
                 setDescription("")
                 setImages("")
-                setDate(Date.now)
+                setDate("")
                 navigate("/")
 
             })
@@ -69,7 +68,7 @@ export default function FormCreatePlan() {
                 <label htmlFor="formDate" className="form-label">Add a date</label>
                 <input className="form-control" type="date" value={date} onChange={(e) => setDate(e.target.value)} id="formDate" />
             </div>
-            <button className="btn btn-info">Create plan</button>
+            <button type="submit" className="btn btn-info">Create plan</button>
         </form>
     </>)
 }
