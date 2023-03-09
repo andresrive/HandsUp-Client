@@ -1,11 +1,11 @@
 import { useState, useEffect} from 'react'
 import { Link } from 'react-router-dom'
-import exampleService from '../../services/example.service'
+import routeService from '../../services/route.service'
 export default function PlansPage() {
     const [plans, setPlans] = useState([])
 
     useEffect(() => {
-        exampleService.getAll()
+        routeService.getAllPlans()
         .then ((response) => {
             setPlans(response.data)
         })

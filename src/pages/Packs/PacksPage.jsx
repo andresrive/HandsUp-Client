@@ -1,5 +1,24 @@
-export default function PacksPage() {
+import axios from "axios";
+import { useEffect, useState } from "react";
+import routeService from "../../services/route.service";
+
+function PacksPage (){
+    const [packs, setPacks] = useState([]);
+    
+
+    useEffect(()=> {
+        routeService.getAllPacks()
+        .then(response => {
+            console.log(response.data)
+            setPacks(response.data)
+        })
+        .catch(err => console.log(err))
+    },[])
     return(
-        <h1>Hola PACKS</h1>
+        <div>
+        <h1>Packages</h1>
+        </div>
     )
 }
+
+export default PacksPage;
