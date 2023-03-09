@@ -1,5 +1,5 @@
 import { useState } from "react";
-import Calendar from "./Calendar";
+// import Calendar from "./Calendar";
 import { uploadImage, createPlan } from "../api/service"
 import { useNavigate } from "react-router-dom"
 
@@ -10,6 +10,7 @@ export default function FormCreatePlan() {
     const [title, setTitle] = useState("")
     const [description, setDescription] = useState("")
     const [images, setImages] = useState("")
+    const [date, setDate] = useState(Date.now)
 
     const navigate = useNavigate()
 
@@ -41,7 +42,9 @@ export default function FormCreatePlan() {
                 setTitle("")
                 setDescription("")
                 setImages("")
+                setDate(Date.now)
                 navigate("/")
+
             })
             .catch(err => console.log("Error while adding the new movie: ", err))
 
@@ -62,7 +65,9 @@ export default function FormCreatePlan() {
                 <input className="form-control" type="file" onChange={(e) => handleFileUpload(e)} id="formFileMultiple" />
             </div>
             <div className="mb-3">
-                <Calendar />
+                {/* <Calendar /> */}
+                <label htmlFor="formDate" className="form-label">Add a date</label>
+                <input className="form-control" type="date" value={date} onChange={(e) => setDate(e.target.value)} id="formDate" />
             </div>
             <button className="btn btn-info">Create plan</button>
         </form>
