@@ -14,6 +14,7 @@ function PacksPage (){
         })
         .catch(err => console.log(err))
     },[])
+    
     return(
         <div>
         <h1>Packages</h1>
