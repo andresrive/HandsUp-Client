@@ -1,10 +1,14 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import { useContext } from 'react';
-import { AuthContext } from '../../context/auth.context';
+import { useContext } from "react";
+import { AuthContext } from "../../context/auth.context";
+
+import { Modal, Button, Form } from "react-bootstrap";
 
 export default function Navbar() {
-const { logOutUser } = useContext(AuthContext);
+  const [showModal, setShowModal] = useState(false);
+
+  const { logOutUser } = useContext(AuthContext);
 
   const [dropdownOpen, setDropdownOpen] = useState(false);
   const [dropdownOpen2, setDropdownOpen2] = useState(false);
@@ -95,10 +99,50 @@ const { logOutUser } = useContext(AuthContext);
             </li>
           </ul>
           <div className="d-flex">
-            <Link className="btn btn-outline-success me-2" type="button" to="/login">
+            {/* <Link className="btn btn-outline-success me-2" type="button" to="/login">
+              Log in
+            </Link> */}
+            <Link
+              className="btn btn-outline-success me-2"
+              type="button"
+              onClick={() => setShowModal(true)}
+            >
               Log in
             </Link>
-            <Link className="btn btn-outline-success" onClick={logOutUser} to="/">
+            <Modal show={showModal} onHide={() => setShowModal(false)}>
+              <Modal.Header closeButton>
+                <Modal.Title>Log in</Modal.Title>
+              </Modal.Header>
+              <Modal.Body>
+                <Form>
+                  <Form.Group controlId="formBasicEmail">
+                    <Form.Label>Email address</Form.Label>
+                    <Form.Control type="email" placeholder="Enter email" />
+                  </Form.Group>
+
+                  <Form.Group controlId="formBasicPassword">
+                    <Form.Label>Password</Form.Label>
+                    <Form.Control type="password" placeholder="Password" />
+                  </Form.Group>
+                </Form>
+              </Modal.Body>
+              <Modal.Footer>
+                <Button variant="secondary" onClick={() => setShowModal(false)}>
+                  Close
+                </Button>
+                <Button variant="primary" to="" onClick={() => setShowModal(false)}>
+                  Log in
+                </Button>
+              </Modal.Footer>
+            </Modal>
+            <Link
+              className="btn btn-outline-success"
+              onClick={() => {
+                logOutUser();
+                setShowModal(false);
+              }}
+              to="/"
+            >
               Log Out
             </Link>
           </div>
@@ -107,4 +151,3 @@ const { logOutUser } = useContext(AuthContext);
     </nav>
   );
 }
-

@@ -12,12 +12,7 @@ export default function HomePage() {
         </video>
         <div className="homepage-video-overlay">
           <h1>Bring your backpack, we'll bring the friends</h1>
-          <button class="learn-more">
-            <span class="circle" aria-hidden="true">
-              <span class="icon arrow"></span>
-            </span>
-            <span class="button-text">Get Started</span>
-          </button>
+          <button class="btn">Get Started</button>
         </div>
       </div>
     </>
