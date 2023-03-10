@@ -5,13 +5,13 @@ import "./ProfilePage.css";
 function ProfilePage() {
 
   const [selectedRange, setSelectedRange] = useState('');
-  const [fromValue, setFromValue] = useState('');
-  const [toValue, setToValue] = useState('');
+  const [fromDate, setfromDate] = useState('');
+  const [toDate, settoDate] = useState('');
 
-  const handleRangeChange = () => {
+  const handleRangeChange = (selectedRange, fromDate, toDate) => {
     setSelectedRange(selectedRange);
-    setFromValue(fromValue);
-    setToValue(toValue);
+    setfromDate(fromDate);
+    settoDate(toDate);
   }
 
   return (

@@ -6,11 +6,11 @@ import 'react-day-picker/dist/style.css';
 export default function App(props) {
     const { onRangeChange } = props
     const [selectedRange, setSelectedRange] = useState('');
-    const [fromValue, setFromValue] = useState('');
-    const [toValue, setToValue] = useState('');
+    const [fromDate, setfromDate] = useState('');
+    const [toDate, settoDate] = useState('');
 
     const handleFromChange = (e) => {
-        setFromValue(e.target.value);
+        setfromDate(e.target.value);
         const date = parse(e.target.value, 'y-MM-dd', new Date());
         if (!isValid(date)) {
             return setSelectedRange({ from: undefined, to: undefined });
@@ -23,7 +23,7 @@ export default function App(props) {
     };
 
     const handleToChange = (e) => {
-        setToValue(e.target.value);
+        settoDate(e.target.value);
         const date = parse(e.target.value, 'y-MM-dd', new Date());
         if (!isValid(date)) {
             return setSelectedRange({ from: selectedRange?.from, to: undefined });
@@ -33,22 +33,22 @@ export default function App(props) {
         } else {
             setSelectedRange({ from: selectedRange?.from, to: date });
         }
-        onRangeChange(selectedRange, fromValue, toValue)
+        onRangeChange(selectedRange, fromDate, toDate)
     };
 
     const handleRangeSelect = (range) => {
         setSelectedRange(range);
         if (range?.from) {
-            setFromValue(format(range.from, 'y-MM-dd'));
+            setfromDate(format(range.from, 'y-MM-dd'));
         } else {
-            setFromValue('');
+            setfromDate('');
         }
         if (range?.to) {
-            setToValue(format(range.to, 'y-MM-dd'));
+            settoDate(format(range.to, 'y-MM-dd'));
         } else {
-            setToValue('');
+            settoDate('');
         }
-        onRangeChange(range, fromValue, toValue)
+        onRangeChange(range, fromDate, toDate)
     };
 
     return (
@@ -61,7 +61,7 @@ export default function App(props) {
                     <input
                         size={10}
                         placeholder="From Date"
-                        value={fromValue}
+                        value={fromDate}
                         onChange={handleFromChange}
                         className="input-reset pa2 ma bg-white black ba"
                     />
@@ -69,7 +69,7 @@ export default function App(props) {
                     <input
                         size={10}
                         placeholder="To Date"
-                        value={toValue}
+                        value={toDate}
                         onChange={handleToChange}
                         className="input-reset pa2 bg-white black ba"
                     />

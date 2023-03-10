@@ -22,7 +22,7 @@ function PlanDetailsPage() {
 
     return (
         <div className="card mb-3">
-            <img src={plan.image} className="card-img-top mx-auto" alt={plan.title} style={{ width: "200px", height: "200px" }} />
+            <img src={plan.images} className="card-img-top mx-auto" alt={plan.title} style={{ width: "200px", height: "200px" }} />
             <div className="card-body">
                 <h5 className="card-title">Name: {plan.title}</h5>
                 <p className="card-text">

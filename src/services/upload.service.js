@@ -11,7 +11,7 @@ const errorHandler = (err) => {
 };
 
 const uploadImage = (file) => {
-    return api.post("/plans/create", file)
+    return api.post("/upload", file)
         .then(res => res.data)
         .catch(errorHandler);
 };
