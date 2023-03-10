@@ -1,10 +1,11 @@
 import React, { useState } from 'react';
 import { format, isAfter, isBefore, isValid, parse } from 'date-fns';
-import { DateRange, DayPicker } from 'react-day-picker';
+import { DayPicker } from 'react-day-picker';
 import 'react-day-picker/dist/style.css';
 
-export default function App() {
-    const [selectedRange, setSelectedRange] = useState();
+export default function App(props) {
+    const { onRangeChange } = props
+    const [selectedRange, setSelectedRange] = useState('');
     const [fromValue, setFromValue] = useState('');
     const [toValue, setToValue] = useState('');
 
@@ -32,6 +33,7 @@ export default function App() {
         } else {
             setSelectedRange({ from: selectedRange?.from, to: date });
         }
+        onRangeChange(selectedRange, fromValue, toValue)
     };
 
     const handleRangeSelect = (range) => {
@@ -46,6 +48,7 @@ export default function App() {
         } else {
             setToValue('');
         }
+        onRangeChange(range, fromValue, toValue)
     };
 
     return (

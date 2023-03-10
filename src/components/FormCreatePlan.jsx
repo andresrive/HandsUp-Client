@@ -10,6 +10,7 @@ export default function FormCreatePlan() {
     const [description, setDescription] = useState("")
     const [images, setImages] = useState("")
     const [date, setDate] = useState("")
+    const [destination, setDestination] = useState("")
 
     const navigate = useNavigate()
 
@@ -19,7 +20,10 @@ export default function FormCreatePlan() {
 
         const uploadData = new FormData()
 
-        uploadData.append("images", e.target.files[0])
+        console.log("IMAGES: ", images)
+        console.log("E.TARGET: ", e.target.files)
+
+        uploadData.append("images", e.target)
 
         uploadImage(uploadData)
             .then(response => {
@@ -33,7 +37,9 @@ export default function FormCreatePlan() {
 
         console.log("handleSubmit: ", e)
 
-        createPlan({ title, description, images })
+
+
+        createPlan({ title, description, images, date, destination })
             //importar la date de calendar?
             .then(res => {
 
@@ -42,6 +48,7 @@ export default function FormCreatePlan() {
                 setDescription("")
                 setImages("")
                 setDate("")
+                setDestination("")
                 navigate("/")
 
             })
@@ -61,12 +68,19 @@ export default function FormCreatePlan() {
             </div>
             <div className="mb-3">
                 <label htmlFor="formFileMultiple" className="form-label">Add your images here</label>
-                <input className="form-control" type="file" onChange={(e) => handleFileUpload(e)} id="formFileMultiple" />
+                <input className="form-control" type="file" onChange={(e) => {
+                    console.log("File selected:", e.target.files);
+                    setImages(e.target.files[0]);
+                }} id="formFileMultiple" name="photo" />
             </div>
             <div className="mb-3">
                 {/* <Calendar /> */}
                 <label htmlFor="formDate" className="form-label">Add a date</label>
                 <input className="form-control" type="date" value={date} onChange={(e) => setDate(e.target.value)} id="formDate" />
+            </div>
+            <div className="mb-3">
+                <label htmlFor="formDestination" className="form-label">Add a destination</label>
+                <input className="form-control" type="text" value={destination} onChange={(e) => setDestination(e.target.value)} id="formDestination" />
             </div>
             <button type="submit" className="btn btn-info">Create plan</button>
         </form>
