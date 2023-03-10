@@ -6,11 +6,7 @@ import LoginModal from "../../pages/LoginPage/LoginModal";
 
 
 export default function Navbar() {
-  const [showLoginModal, setShowLoginModal] = useState(false);
-
-  const handleLoginClick = () => {
-    setShowLoginModal(true);
-  };
+  const [showLoginModal, setShowLoginModal] = useState(true);
 
   const handleLoginClose = () => {
     setShowLoginModal(false);
@@ -107,22 +103,14 @@ export default function Navbar() {
             </li>
           </ul>
           <div className="d-flex">
-            <button
-              className="btn btn-outline-success me-2"
-              type="button"
-              onClick={handleLoginClick}
-            >
-              Log in
-            </button>
             {showLoginModal && (
                 <LoginModal onClose={handleLoginClose} />
             )}
-
             <Link
               className="btn btn-outline-success"
               onClick={() => {
                 logOutUser();
-                setShowLoginModal(false);
+                setShowLoginModal(true);
               }}
               to="/"
             >

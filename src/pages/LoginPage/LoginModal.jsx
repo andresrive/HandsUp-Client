@@ -2,7 +2,7 @@ import { useState, useContext } from "react";
 import { Modal, Button, Form } from "react-bootstrap";
 import { AuthContext } from "../../context/auth.context";
 import authService from "../../services/auth.service";
-import "./LoginModal.css";
+
 
 function LoginModal() {
   const [showModal, setShowModal] = useState(false);
