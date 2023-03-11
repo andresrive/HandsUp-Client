@@ -1,6 +1,7 @@
 import { useState } from "react"
 import routeService from "../services/route.service"
 import { useNavigate, Link } from "react-router-dom"
+import { uploadImage } from "../services/upload.service"
 
 export default function FormEditPlan({ plansId }) {
 
@@ -11,15 +12,32 @@ export default function FormEditPlan({ plansId }) {
     const [images, setImages] = useState("")
     const [date, setDate] = useState(Date.now)
 
+    const handleFileUpload = (e) => {
+
+
+        const uploadData = new FormData();
+        uploadData.append("images", e.target.files[0]);
+
+
+
+        uploadImage(uploadData)
+            .then(response => {
+                console.log("response is: ", response);
+                // response carries "fileUrl" which we can use to update the state
+                setImages(response.fileUrl);
+            })
+            .catch(err => console.log("Error while uploading the file: ", err));
+    };
+
 
     const handleSubmit = (e) => {
         e.preventDefault()
-        routeService.updateOnePlan(plansId, { title, description, images, date })
+        routeService.updateOnePlan(plansId, { title, description, images })
             .then(result => {
                 setTitle("")
                 setDescription("")
                 setImages("")
-                setDate(Date.now)
+                setDate("")
                 navigate(`/plans/${plansId}`)
             })
             .catch(err => console.log(err))
@@ -37,8 +55,8 @@ export default function FormEditPlan({ plansId }) {
                 <label htmlFor="floatingDescription">Description</label>
             </div>
             <div className="mb-3">
-                <label htmlFor="formFileMultiple" className="form-label">Add your images here</label>
-                <input className="form-control" type="text" value={images} onChange={(e) => setImages(e.target.value)} id="formFileMultiple" />
+                <label htmlFor="formFileMultiple" className="form-label">Add your image here</label>
+                <input className="form-control" type="file" onChange={(e) => handleFileUpload(e)} id="formFileMultiple" name="images" />
             </div>
             <div className="mb-3">
                 <label htmlFor="formDate" className="form-label">Add a date</label>

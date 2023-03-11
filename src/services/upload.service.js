@@ -22,5 +22,17 @@ const createPlan = (newPlan) => {
         .catch(errorHandler)
 };
 
+const createPack = (newPack) => {
+    return api.post("/packs/create", newPack)
+        .then(res => res.data)
+        .catch(errorHandler)
+};
 
-export { uploadImage, createPlan }
+const addAvatar = (avatar) => {
+    return api.put("/profile", avatar)
+        .then(res => res.data)
+        .catch(errorHandler)
+}
+
+
+export { uploadImage, createPlan, createPack, addAvatar }

@@ -35,6 +35,10 @@ class RouteService {
     return this.api.put(`/plans/${id}/edit`, requestBody);
   }
 
+  updateProfile = async (requestBody) => {
+    return this.api.put(`/profile`, requestBody);
+  }
+
   deletePlan = async (id) => {
     return this.api.delete(`/plans/${id}/delete`);
   }
