@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import authService from "../../services/auth.service";
 import { Modal, Button, Form } from "react-bootstrap";
+import LoginModal from "./LoginModal";
 
 export default function SignUpModal({ onClose }) {
   const [email, setEmail] = useState("");
@@ -35,65 +36,84 @@ export default function SignUpModal({ onClose }) {
     setErrorMessage(undefined); // limpiar mensaje de error al cerrar
     onClose();
   };
+  const [showModal, setShowModal] = useState(false);
+
+  const handleModalOpen = () => {
+    setShowModal(true);
+  };
 
   return (
     <Modal show={true} onHide={handleClose}>
-      <Modal.Header closeButton>
-        <Modal.Title>Sign Up</Modal.Title>
-      </Modal.Header>
-
-      <Modal.Body>
-        <Form.Group controlId="formBasicUsername">
-          <Form.Label>User Name:</Form.Label>
-          <Form.Control
-            type="text"
-            placeholder="Enter username"
-            value={username}
-            onChange={handleUsername}
-          />
-        </Form.Group>
-
-        <Form onSubmit={handleSignupSubmit}>
-          <Form.Group controlId="formBasicEmail">
-            <Form.Label>Email:</Form.Label>
+      <div className="modal-content">
+        <div className="modal-header">
+          <h2>Sign Up</h2>
+          <button className="close-button" onClick={handleClose}>
+            x
+          </button>
+        </div>
+        <div className="modal-body">
+          <Form.Group controlId="formBasicUsername">
+            <Form.Label>User Name:</Form.Label>
             <Form.Control
-              type="email"
-              placeholder="Enter email"
-              value={email}
-              onChange={handleEmail}
+              type="text"
+              placeholder="Enter username"
+              value={username}
+              onChange={handleUsername}
             />
           </Form.Group>
 
-          <Form.Group controlId="formBasicPassword">
-            <Form.Label>Password:</Form.Label>
-            <Form.Control
-              type="password"
-              placeholder="Password"
-              value={password}
-              onChange={handlePassword}
-            />
-          </Form.Group>
+          <Form onSubmit={handleSignupSubmit}>
+            <Form.Group controlId="formBasicEmail">
+              <Form.Label>Email:</Form.Label>
+              <Form.Control
+                type="email"
+                placeholder="Enter email"
+                value={email}
+                onChange={handleEmail}
+              />
+            </Form.Group>
 
-          <Form.Group controlId="formBasicPasswordRepeat">
-            <Form.Label>Repeat Password:</Form.Label>
-            <Form.Control
-              type="password"
-              placeholder="Repeat Password"
-              value={passwordRepeat}
-              onChange={handlePasswordRepeat}
-            />
-          </Form.Group>
+            <Form.Group controlId="formBasicPassword">
+              <Form.Label>Password:</Form.Label>
+              <Form.Control
+                type="password"
+                placeholder="Password"
+                value={password}
+                onChange={handlePassword}
+              />
+            </Form.Group>
 
-          <Button variant="primary" type="submit">
-            Sign Up
-          </Button>
-        </Form>
+            <Form.Group controlId="formBasicPasswordRepeat">
+              <Form.Label>Repeat Password:</Form.Label>
+              <Form.Control
+                type="password"
+                placeholder="Repeat Password"
+                value={passwordRepeat}
+                onChange={handlePasswordRepeat}
+              />
+            </Form.Group>
 
-        {errorMessage && <p className="error-message">{errorMessage}</p>}
+            <button
+              className="close-button"
+              type="button"
+              onClick={handleClose}
+            >
+              Close
+            </button>
+            <Button variant="primary" type="submit">
+              Sign Up
+            </Button>
+          </Form>
 
-        <p>Already have account?</p>
-        <Link to={"/login"}> Login</Link>
-      </Modal.Body>
+          {errorMessage && <p className="error-message">{errorMessage}</p>}
+
+          <p>Already have an account?</p>
+          <Link to="#" onClick={handleModalOpen}>
+            Log in
+          </Link>
+          <LoginModal showModal={showModal} setShowModal={setShowModal} />
+        </div>
+      </div>
     </Modal>
   );
 }

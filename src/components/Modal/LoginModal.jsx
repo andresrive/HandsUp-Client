@@ -2,12 +2,13 @@ import { useState, useContext } from "react";
 import { Modal, Button, Form } from "react-bootstrap";
 import { AuthContext } from "../../context/auth.context";
 import authService from "../../services/auth.service";
+import "./LoginModal.css";
 
 function LoginModal({ showModal, setShowModal }) {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [errorMessage, setErrorMessage] = useState(undefined);
-  
+
   const { storeToken, authenticateUser } = useContext(AuthContext);
 
   const handleEmail = (e) => setEmail(e.target.value);
@@ -40,12 +41,22 @@ function LoginModal({ showModal, setShowModal }) {
           <Form onSubmit={handleLoginSubmit}>
             <Form.Group controlId="formBasicEmail">
               <Form.Label>Email address</Form.Label>
-              <Form.Control type="email" placeholder="Enter email" value={email} onChange={handleEmail} />
+              <Form.Control
+                type="email"
+                placeholder="Enter email"
+                value={email}
+                onChange={handleEmail}
+              />
             </Form.Group>
 
             <Form.Group controlId="formBasicPassword">
               <Form.Label>Password</Form.Label>
-              <Form.Control type="password" placeholder="Password" value={password} onChange={handlePassword} />
+              <Form.Control
+                type="password"
+                placeholder="Password"
+                value={password}
+                onChange={handlePassword}
+              />
             </Form.Group>
             {errorMessage && <p className="error-message">{errorMessage}</p>}
             <Button variant="secondary" onClick={() => setShowModal(false)}>

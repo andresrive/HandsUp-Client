@@ -1,4 +1,4 @@
-import FormEditPlan from '../FormEditPlan'
+import FormEditPlan from './FormEditPlan'
 
 export default function Modal({ planId }) {
     return (<>
