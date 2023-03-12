@@ -2,7 +2,7 @@ import "./HomePage.css";
 import { useState } from "react";
 import Navbar from "../../components/Navbar/Navbar";
 import videoBg from "../../assets/videobg.mp4";
-import SignUpModal from "../SignupPage/SignUpModal";
+import SignUpModal from "../../components/Modal/SignUpModal";
 
 export default function HomePage() {
   const [showModal, setShowModal] = useState(false);

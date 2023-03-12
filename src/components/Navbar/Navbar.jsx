@@ -2,17 +2,16 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import { useContext } from "react";
 import { AuthContext } from "../../context/auth.context";
-import LoginModal from "../../pages/LoginPage/LoginModal";
-
+import LoginModal from "../Modal/LoginModal";
 
 export default function Navbar() {
-  const [showLoginModal, setShowLoginModal] = useState(true);
+  const [showLoginModal, setShowLoginModal] = useState(false);
 
   const handleLoginClose = () => {
     setShowLoginModal(false);
   };
 
-  const { logOutUser } = useContext(AuthContext);
+  const { isLoggedIn, logOutUser } = useContext(AuthContext);
 
   const [dropdownOpen, setDropdownOpen] = useState(false);
   const [dropdownOpen2, setDropdownOpen2] = useState(false);
@@ -103,19 +102,26 @@ export default function Navbar() {
             </li>
           </ul>
           <div className="d-flex">
-            {showLoginModal && (
-                <LoginModal onClose={handleLoginClose} />
+            {isLoggedIn ? (
+              <Link
+                className="btn btn-outline-success"
+                onClick={() => {
+                  logOutUser();
+                  setShowLoginModal(true);
+                }}
+                to="/"
+              >
+                Log Out
+              </Link>
+            ) : (
+              <button
+                className="btn btn-outline-success"
+                onClick={() => setShowLoginModal(true)}
+              >
+                Log In
+              </button>
             )}
-            <Link
-              className="btn btn-outline-success"
-              onClick={() => {
-                logOutUser();
-                setShowLoginModal(true);
-              }}
-              to="/"
-            >
-              Log Out
-            </Link>
+            <LoginModal showModal={showLoginModal} setShowModal={handleLoginClose} />
           </div>
         </div>
       </div>

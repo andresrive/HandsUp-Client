@@ -3,9 +3,7 @@ import { Modal, Button, Form } from "react-bootstrap";
 import { AuthContext } from "../../context/auth.context";
 import authService from "../../services/auth.service";
 
-
-function LoginModal() {
-  const [showModal, setShowModal] = useState(false);
+function LoginModal({ showModal, setShowModal }) {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [errorMessage, setErrorMessage] = useState(undefined);
@@ -34,9 +32,6 @@ function LoginModal() {
 
   return (
     <>
-      <Button variant="outline-success" onClick={() => setShowModal(true)}>
-        Log in
-      </Button>
       <Modal show={showModal} onHide={() => setShowModal(false)}>
         <Modal.Header closeButton>
           <Modal.Title>Log in</Modal.Title>
