@@ -3,7 +3,7 @@ import { Link, useNavigate } from "react-router-dom";
 import authService from "../../services/auth.service";
 import { Modal, Button, Form } from "react-bootstrap";
 
-export default function SignUpModal() {
+export default function SignUpModal({ onClose }) {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [passwordRepeat, setPasswordRepeat] = useState("");
@@ -22,6 +22,7 @@ export default function SignUpModal() {
     authService
       .signup(requestBody)
       .then((response) => {
+        onClose(); // cerrar modal al registrarse
         navigate("/login");
       })
       .catch((error) => {
@@ -30,7 +31,10 @@ export default function SignUpModal() {
       });
   };
 
-  const handleClose = () => navigate("/");
+  const handleClose = () => {
+    setErrorMessage(undefined); // limpiar mensaje de error al cerrar
+    onClose();
+  };
 
   return (
     <Modal show={true} onHide={handleClose}>
