@@ -1,6 +1,7 @@
 import { useState } from "react";
-import { uploadImage, createPlan } from "../services/upload.service"
+import { uploadImage } from "../services/upload.service"
 import { useNavigate } from "react-router-dom"
+import routeService from "../services/route.service"
 
 import Calendar from './Calendar'
 
@@ -51,7 +52,7 @@ export default function FormCreatePlan() {
         console.log("DATE TO:", fromDate)
         console.log("DATE FROM:", toDate)
 
-        createPlan({ title, description, images, destination })
+        routeService.createPlan({ title, description, images, destination })
             //importar la date de calendar?
             .then(res => {
                 setTitle("")
