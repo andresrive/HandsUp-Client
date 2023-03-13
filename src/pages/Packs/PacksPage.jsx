@@ -1,13 +1,13 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
-import exampleService from "../../services/example.service";
+import routeService from "../../services/route.service";
 
 function PackPage (){
     const [packs, setPacks] = useState();
     
 
     useEffect(()=> {
-        axios.get(exampleService.getAll())
+        axios.get(routeService.getAll())
         .then(response => {
             console.log(response.data)
             setPacks(response.data)
