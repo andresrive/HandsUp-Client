@@ -5,12 +5,6 @@ class RouteService {
     this.api = axios.create({
       baseURL: process.env.REACT_APP_SERVER_URL || "http://localhost:5005/api"
     });
-
-    this.headersObject = {
-      headers: {
-        Authorization: `Bearer ${localStorage.getItem("authToken")}`
-      }
-    }
     // this.api.interceptors.request.use((config) => {
     //   const storedToken = localStorage.getItem("authToken");
 
@@ -20,7 +14,14 @@ class RouteService {
 
     //   return config;
     // });
+
+    this.headersObject = {
+      headers: {
+        Authorization: `Bearer ${localStorage.getItem("authToken")}`
+      }
+    }
   }
+
 
   createPlan = async (requestBody) => {
     return this.api.post('/plans/create', requestBody, this.headersObject)
@@ -42,15 +43,21 @@ class RouteService {
   }
 
   updateOnePlan = async (id, requestBody) => {
-    return this.api.put(`/plans/${id}/edit`, requestBody);
+    return this.api.put(`/plans/${id}/edit`, requestBody, this.headersObject);
   }
 
+  getProfile = async () => {
+    return this.api.get(`/profile`, this.headersObject);
+  }
+
+
+
   updateProfile = async (requestBody) => {
-    return this.api.put(`/profile`, requestBody);
+    return this.api.put(`/profile`, requestBody, this.headersObject);
   }
 
   deletePlan = async (id) => {
-    return this.api.delete(`/plans/${id}/delete`);
+    return this.api.delete(`/plans/${id}/delete`, this.headersObject);
   }
 
 
