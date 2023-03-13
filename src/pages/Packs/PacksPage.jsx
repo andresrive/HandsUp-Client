@@ -1,6 +1,6 @@
-import axios from "axios";
 import { useEffect, useState } from "react";
 import routeService from "../../services/route.service";
+import Navbar from '../../components/Navbar/Navbar'
 
 function PacksPage (){
     const [packs, setPacks] = useState([]);
@@ -16,9 +16,12 @@ function PacksPage (){
     },[])
     
     return(
+        <>
+        <Navbar/>
         <div>
         <h1>Packages</h1>
         </div>
+        </>
     )
 }
 

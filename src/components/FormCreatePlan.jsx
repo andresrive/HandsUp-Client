@@ -1,8 +1,8 @@
 import { useState } from "react";
-import Calendar from "./Calendar";
-import { uploadImage, createPlan } from "../api/service"
+import { uploadImage, createPlan } from "../services/upload.service"
 import { useNavigate } from "react-router-dom"
 
+import Calendar from './Calendar'
 
 
 export default function FormCreatePlan() {
@@ -10,38 +10,57 @@ export default function FormCreatePlan() {
     const [title, setTitle] = useState("")
     const [description, setDescription] = useState("")
     const [images, setImages] = useState("")
+    const [date, setDate] = useState("")
+    const [destination, setDestination] = useState("")
+
+    const [selectedRange, setSelectedRange] = useState('');
+    const [fromDate, setfromDate] = useState('');
+    const [toDate, settoDate] = useState('');
+
+    const handleRangeChange = (selectedRange, fromDate, toDate) => {
+        setSelectedRange(selectedRange);
+        setfromDate(fromDate);
+        settoDate(toDate);
+    }
+
 
     const navigate = useNavigate()
 
     const handleFileUpload = (e) => {
 
-        console.log("handleFileUpload: ", e)
 
-        const uploadData = new FormData()
+        const uploadData = new FormData();
+        uploadData.append("images", e.target.files[0]);
 
-        uploadData.append("images", e.target.files[0])
+
 
         uploadImage(uploadData)
             .then(response => {
-                setImages(response.fileUrl)
+                console.log("response is: ", response);
+                // response carries "fileUrl" which we can use to update the state
+                setImages(response.fileUrl);
             })
-            .catch(err => console.log("Error while uploading the file", err))
-    }
+            .catch(err => console.log("Error while uploading the file: ", err));
+    };
+
 
     const handleSubmit = (e) => {
         e.preventDefault()
 
         console.log("handleSubmit: ", e)
+        console.log("DATE TO:", fromDate)
+        console.log("DATE FROM:", toDate)
 
-        createPlan({ title, description, images })
+        createPlan({ title, description, images, destination })
             //importar la date de calendar?
             .then(res => {
-
-
                 setTitle("")
                 setDescription("")
                 setImages("")
+                setDate("")
+                setDestination("")
                 navigate("/")
+
             })
             .catch(err => console.log("Error while adding the new movie: ", err))
 
@@ -58,13 +77,19 @@ export default function FormCreatePlan() {
                 <label htmlFor="floatingDescription">Description</label>
             </div>
             <div className="mb-3">
-                <label htmlFor="formFileMultiple" className="form-label">Add your images here</label>
-                <input className="form-control" type="file" onChange={(e) => handleFileUpload(e)} id="formFileMultiple" />
+                <label htmlFor="formFileMultiple" className="form-label">Add your image here</label>
+                <input className="form-control" type="file" onChange={(e) => handleFileUpload(e)} id="formFileMultiple" name="images" />
             </div>
             <div className="mb-3">
-                <Calendar />
+                <Calendar onRangeChange={handleRangeChange} />
+                {/* <label htmlFor="formDate" className="form-label">Add a date</label>
+                <input className="form-control" type="date" value={date} onChange={(e) => setDate(e.target.value)} id="formDate" /> */}
             </div>
-            <button className="btn btn-info">Create plan</button>
+            <div className="mb-3">
+                <label htmlFor="formDestination" className="form-label">Add a destination</label>
+                <input className="form-control" type="text" value={destination} onChange={(e) => setDestination(e.target.value)} id="formDestination" />
+            </div>
+            <button type="submit" className="btn btn-info">Create plan</button>
         </form>
     </>)
 }

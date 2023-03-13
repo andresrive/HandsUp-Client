@@ -27,17 +27,21 @@ class RouteService {
     return this.api.get('/plans');
   }
 
-  getOne = async (id) => {
-    return this.api.get(`/examples/${id}`);
+  getOnePlan = async (id) => {
+    return this.api.get(`/plans/${id}`);
   }
 
-  updateOne = async (id, requestBody) => {
-    return this.api.put(`/examples/${id}`, requestBody);
+  updateOnePlan = async (id, requestBody) => {
+    return this.api.put(`/plans/${id}/edit`, requestBody);
   }
 
-  deleteProject = async (id) => {
-    return this.api.delete(`/examples/${id}`);
-  } 
+  updateProfile = async (requestBody) => {
+    return this.api.put(`/profile`, requestBody);
+  }
+
+  deletePlan = async (id) => {
+    return this.api.delete(`/plans/${id}/delete`);
+  }
 
 
 }
