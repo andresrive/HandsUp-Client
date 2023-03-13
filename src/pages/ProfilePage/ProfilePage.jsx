@@ -6,11 +6,11 @@ import routeService from '../../services/route.service';
 
 function ProfilePage() {
 
-    const [username, setUsername] = useState("")
-    const [email, setEmail] = useState("")
-    const [images, setImages] = useState("")
+    const [username, setUsername] = useState("");
+    const [email, setEmail] = useState("");
+    const [avatarUrl, setAvatarUrl] = useState("");
 
-    const navigate = useNavigate()
+    const navigate = useNavigate();
 
     const handleFileUpload = (e) => {
         const uploadData = new FormData();
@@ -19,23 +19,22 @@ function ProfilePage() {
 
         addAvatar(uploadData)
             .then(response => {
-                setImages(response.fileUrl)
+                setAvatarUrl(response.fileUrl);
             })
             .catch(err => console.log("Error while uploading the file: ", err))
     }
 
-
     const handleSubmit = (e) => {
         e.preventDefault()
+        console.log("reqbody falso: ", username, email, avatarUrl)
 
-        routeService.updateProfile(username, email, images)
+        routeService.updateProfile({ username, email, avatarUrl })
             .then(result => {
+                console.log(result.data)
+                setUsername(username);
+                setEmail(email);
 
-                setUsername(username)
-                setEmail(email)
-                setImages(images)
-
-                navigate("/profile")
+                navigate("/profile");
 
             })
             .catch(err => console.log("Error while updating the profile: ", err))
@@ -46,7 +45,7 @@ function ProfilePage() {
             <h1>Profile page</h1>
 
             <form onSubmit={handleSubmit}>
-                <img src={images} className="card-img-top" alt="avatar" />
+                <img src={avatarUrl} className="card-img-top" alt="avatar" />
                 <div className="form-floating mb-3">
                     <input type="text" className="form-control" id="floatingUsername" value={username} onChange={(e) => setUsername(e.target.value)} />
                     <label htmlFor="floatingUsername">Username</label>
@@ -57,14 +56,16 @@ function ProfilePage() {
                 </div>
                 <div className="mb-3">
                     <label htmlFor="formAvatar" className="form-label">Change your avatar</label>
-                    <input className="form-control" type="file" value={images} onChange={(e) => handleFileUpload(e)} id="formAvatar" />
+                    <input className="form-control" type="file" onChange={(e) => handleFileUpload(e)} name="images" id="formAvatar" />
                 </div>
 
-                <button className="btn btn-info" type="submit">Edit plan</button>
+                <button className="btn btn-info" type="submit">Edit profile</button>
                 {/* <Link to={`/plans/${plansId}`}><button>Go back</button></Link> */}
             </form>
         </div>
     );
 }
 
+
 export default ProfilePage;
+
