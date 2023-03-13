@@ -4,6 +4,7 @@ import { useNavigate } from "react-router-dom"
 import routeService from "../services/route.service"
 
 import Calendar from './Calendar'
+import MyCkEditor from "../inputEditor/MyCkEditor";
 
 
 export default function FormCreatePlan() {
@@ -11,7 +12,6 @@ export default function FormCreatePlan() {
     const [title, setTitle] = useState("")
     const [description, setDescription] = useState("")
     const [images, setImages] = useState("")
-    const [date, setDate] = useState("")
     const [destination, setDestination] = useState("")
 
     const [selectedRange, setSelectedRange] = useState('');
@@ -24,6 +24,16 @@ export default function FormCreatePlan() {
         settoDate(toDate);
     }
 
+    const descriptionHandler = (content) => {
+        setDescription(content)
+        console.log(description)
+    }
+
+    // const calendarHandler = (to, from) => {
+    //     setfromDate(from)
+    //     settoDate(to)
+    //     console.log("TO Y FROM", to, from)
+    // }
 
     const navigate = useNavigate()
 
@@ -52,13 +62,12 @@ export default function FormCreatePlan() {
         console.log("DATE TO:", fromDate)
         console.log("DATE FROM:", toDate)
 
-        routeService.createPlan({ title, description, images, destination })
+        routeService.createPlan({ title, description, images, fromDate, toDate, destination })
             //importar la date de calendar?
             .then(res => {
                 setTitle("")
                 setDescription("")
                 setImages("")
-                setDate("")
                 setDestination("")
                 navigate("/")
 
@@ -74,8 +83,9 @@ export default function FormCreatePlan() {
                 <label htmlFor="floatingTitle">Title</label>
             </div>
             <div className="form-floating">
-                <textarea type="text" className="form-control" id="floatingDescription" style={{ height: 100 }} value={description} onChange={(e) => setDescription(e.target.value)} />
-                <label htmlFor="floatingDescription">Description</label>
+                {/* <textarea type="text" className="form-control" id="floatingDescription" style={{ height: 100 }} value={description} onChange={(e) => setDescription(e.target.value)} />
+                <label htmlFor="floatingDescription">Description</label> */}
+                <MyCkEditor descriptionHandler={descriptionHandler} />
             </div>
             <div className="mb-3">
                 <label htmlFor="formFileMultiple" className="form-label">Add your image here</label>

@@ -50,8 +50,6 @@ class RouteService {
     return this.api.get(`/profile`, this.headersObject);
   }
 
-
-
   updateProfile = async (requestBody) => {
     return this.api.put(`/profile`, requestBody, this.headersObject);
   }
