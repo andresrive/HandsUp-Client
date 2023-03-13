@@ -1,13 +1,14 @@
 import { useState } from "react"
 import routeService from "../../services/route.service"
 import { useNavigate, Link, useParams } from "react-router-dom"
+import MyEditor from "../../components/CKEDITOR/MyEditor"
 
 
 export default function PackEditPage() {
 
     const { packId } = useParams()
 
-    const navigate = useNavigate()
+    /* const navigate = useNavigate()
 
     const [title, setTitle] = useState("")
     const [description, setDescription] = useState("")
@@ -34,8 +35,10 @@ export default function PackEditPage() {
             .then(response => navigate("/packs"))
             .catch(err => console.log(err))
     }
-
-    return (<>
-        
-    </>)
+ */
+    return (
+        <div>
+        <MyEditor />
+        </div>
+    )
 }

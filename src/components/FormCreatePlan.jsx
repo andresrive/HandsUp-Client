@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom"
 import routeService from "../services/route.service"
 
 import Calendar from './Calendar'
-import MyCkEditor from "../inputEditor/MyCkEditor";
+/* import MyCkEditor from "../inputEditor/MyCkEditor"; */
 
 
 export default function FormCreatePlan() {
@@ -85,7 +85,7 @@ export default function FormCreatePlan() {
             <div className="form-floating">
                 {/* <textarea type="text" className="form-control" id="floatingDescription" style={{ height: 100 }} value={description} onChange={(e) => setDescription(e.target.value)} />
                 <label htmlFor="floatingDescription">Description</label> */}
-                <MyCkEditor descriptionHandler={descriptionHandler} />
+                {/* <MyCkEditor descriptionHandler={descriptionHandler} /> */}
             </div>
             <div className="mb-3">
                 <label htmlFor="formFileMultiple" className="form-label">Add your image here</label>
