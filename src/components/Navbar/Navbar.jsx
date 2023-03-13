@@ -27,7 +27,7 @@ export default function Navbar() {
   return (
     <nav className="navbar navbar-expand-lg navbar-light bg-light sticky-top shadow">
       <div className="container-fluid">
-        <Link className="navbar-brand" to="/">
+        <Link className="navbar-brand mx-5" to="/">
           HANDSUP
         </Link>
         <button
@@ -42,12 +42,7 @@ export default function Navbar() {
           <span className="navbar-toggler-icon"></span>
         </button>
         <div className="collapse navbar-collapse d-flex" id="navbarNavDropdown">
-          <ul className="navbar-nav me-auto">
-            <li className="nav-item">
-              <Link className="nav-link active" aria-current="page" to="/">
-                Home
-              </Link>
-            </li>
+          <ul className="links-nav navbar-nav ms-auto mx-4">
             <li
               className="nav-item dropdown"
               onMouseEnter={toggleDropdown}
@@ -80,7 +75,7 @@ export default function Navbar() {
               onMouseLeave={toggleDropdown2}
             >
               <Link
-                className="nav-link dropdown-toggle"
+                className="nav-link dropdown-toggle mx-4"
                 to="/packs"
                 id="navbarDropdownMenuLink2"
                 role="button"
@@ -94,17 +89,22 @@ export default function Navbar() {
                 aria-labelledby="navbarDropdownMenuLink2"
               >
                 <li>
-                  <Link className="dropdown-item" to="/packs/create">
+                  <Link className="dropdown-item  " to="/packs/create">
                     Create Pack
                   </Link>
                 </li>
               </ul>
             </li>
+            <li className="nav-item">
+              <Link className="nav-link active" aria-current="page" to="/">
+                Home
+              </Link>
+            </li>
           </ul>
           <div className="d-flex">
             {isLoggedIn ? (
-              <Link
-                className="btn btn-outline-success"
+              <button
+                className="buton"
                 onClick={() => {
                   logOutUser();
                   setShowLoginModal(true);
@@ -112,10 +112,10 @@ export default function Navbar() {
                 to="/"
               >
                 Log Out
-              </Link>
+              </button>
             ) : (
               <button
-                className="button-nav"
+                className="buton"
                 onClick={() => setShowLoginModal(true)}
               >
                 Log In

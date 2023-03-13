@@ -1,7 +1,7 @@
 import { useState } from "react"
-import routeService from "../services/route.service"
+import routeService from "../../services/route.service"
 import { useNavigate, Link } from "react-router-dom"
-import { uploadImage } from "../services/upload.service"
+import { uploadImage } from "../../services/upload.service"
 
 export default function FormEditPlan({ plansId }) {
 

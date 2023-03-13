@@ -1,10 +1,12 @@
 import { useState } from "react";
-import { uploadImage } from "../services/upload.service"
+import { uploadImage } from "../../services/upload.service"
 import { useNavigate } from "react-router-dom"
-import routeService from "../services/route.service"
+import routeService from "../../services/route.service"
 
-import Calendar from './Calendar'
-import MyCkEditor from "../inputEditor/MyCkEditor";
+import './FormCreatePlan.css'
+import Navbar from '../Navbar/Navbar'
+import Calendar from '../Calendar'
+import MyCkEditor from "../../inputEditor/MyCkEditor";
 
 
 export default function FormCreatePlan() {
@@ -76,15 +78,15 @@ export default function FormCreatePlan() {
 
     }
 
-    return (<>
+    return (
+    <>
+    <Navbar/>
         <form onSubmit={handleSubmit}>
             <div className="form-floating mb-3">
                 <input type="text" className="form-control" id="floatingTitle" value={title} onChange={(e) => setTitle(e.target.value)} />
                 <label htmlFor="floatingTitle">Title</label>
             </div>
             <div className="form-floating">
-                {/* <textarea type="text" className="form-control" id="floatingDescription" style={{ height: 100 }} value={description} onChange={(e) => setDescription(e.target.value)} />
-                <label htmlFor="floatingDescription">Description</label> */}
                 <MyCkEditor descriptionHandler={descriptionHandler} />
             </div>
             <div className="mb-3">
@@ -93,8 +95,6 @@ export default function FormCreatePlan() {
             </div>
             <div className="mb-3">
                 <Calendar onRangeChange={handleRangeChange} />
-                {/* <label htmlFor="formDate" className="form-label">Add a date</label>
-                <input className="form-control" type="date" value={date} onChange={(e) => setDate(e.target.value)} id="formDate" /> */}
             </div>
             <div className="mb-3">
                 <label htmlFor="formDestination" className="form-label">Add a destination</label>
@@ -102,5 +102,6 @@ export default function FormCreatePlan() {
             </div>
             <button type="submit" className="btn btn-info">Create plan</button>
         </form>
-    </>)
+    </>
+    )
 }
