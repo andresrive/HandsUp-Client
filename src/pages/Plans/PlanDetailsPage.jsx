@@ -1,7 +1,6 @@
 import { useState, useEffect } from "react";
 import { useParams, Link } from "react-router-dom";
 import routeService from "../../services/route.service";
-// import Modal from "../../components/Modal/Modal";
 
 function PlanDetailsPage() {
     const { planId } = useParams();
@@ -10,6 +9,10 @@ function PlanDetailsPage() {
 
     const [plan, setPlan] = useState({});
 
+    const [html, setHtml] = useState("")
+    useEffect(() => {
+        setHtml(plan.description)
+    }, [plan.description])
 
     useEffect(() => {
         routeService.getOnePlan(planId)
@@ -25,9 +28,10 @@ function PlanDetailsPage() {
             <img src={plan.images} className="card-img-top mx-auto" alt={plan.title} style={{ width: "200px", height: "200px" }} />
             <div className="card-body">
                 <h5 className="card-title">Name: {plan.title}</h5>
-                <p className="card-text">
-                    <strong>Description:</strong> {plan.description}
-                </p>
+                <div className="card-text">
+                    <p><strong>Description:</strong></p>
+                    <div dangerouslySetInnerHTML={{ __html: html }}></div>
+                </div>
             </div>
             {/* <Modal /> */}
             <Link to={`/plans/${planId}/edit`}><button>Edit plan</button></Link>
