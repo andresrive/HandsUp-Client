@@ -5,19 +5,29 @@ class RouteService {
     this.api = axios.create({
       baseURL: process.env.REACT_APP_SERVER_URL || "http://localhost:5005/api"
     });
-    this.api.interceptors.request.use((config) => {
-      const storedToken = localStorage.getItem("authToken");
 
-      if (storedToken) {
-        config.headers = { Authorization: `Bearer ${storedToken}` };
+    this.headersObject = {
+      headers: {
+        Authorization: `Bearer ${localStorage.getItem("authToken")}`
       }
+    }
+    // this.api.interceptors.request.use((config) => {
+    //   const storedToken = localStorage.getItem("authToken");
 
-      return config;
-    });
+    //   if (storedToken) {
+    //     config.headers = { Authorization: `Bearer ${storedToken}` };
+    //   }
+
+    //   return config;
+    // });
   }
 
-  createOne = async (requestBody) => {
-    return this.api.post('/examples', requestBody);
+  createPlan = async (requestBody) => {
+    return this.api.post('/plans/create', requestBody, this.headersObject)
+  }
+
+  createPack = async (requestBody) => {
+    return this.api.post('/packs/create', requestBody, this.headersObject)
   }
 
   getAllPacks = async () => {
