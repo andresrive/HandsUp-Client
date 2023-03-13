@@ -1,8 +1,8 @@
 import { useState } from "react";
-import { uploadImage, createPlan } from "../services/upload.service"
+import { uploadImage, addAvatar } from "../../services/upload.service.js"
 import { useNavigate } from "react-router-dom"
 
-import Calendar from './Calendar'
+import Calendar from '../Calendar'
 
 
 export default function FormCreatePack() {
@@ -55,7 +55,7 @@ export default function FormCreatePack() {
         console.log("DATE TO:", fromDate)
         console.log("DATE FROM:", toDate)
 
-        createPlan({ title, description, images, destination, price, itinerary })
+        addAvatar({ title, description, images, destination, price, itinerary })
             //importar la date de calendar?
             .then(res => {
                 setTitle("")
@@ -108,31 +108,3 @@ export default function FormCreatePack() {
         </form>
     </>)
 }
-
-
-
-
-
-// import { uploadImage } from "../services/upload.service"
-
-// const handleFileUpload = (e) => {
-
-
-//     const uploadData = new FormData();
-//     uploadData.append("images", e.target.files[0]);
-
-
-
-//     uploadImage(uploadData)
-//         .then(response => {
-//             console.log("response is: ", response);
-//             // response carries "fileUrl" which we can use to update the state
-//             setImages(response.fileUrl);
-//         })
-//         .catch(err => console.log("Error while uploading the file: ", err));
-// };
-
-
-// //INPUT IMAGEN
-// <label htmlFor="formFileMultiple" className="form-label">Add your images here</label>
-// <input className="form-control" type="file" value={images} onChange={(e) => handleFileUpload(e)} id="formFileMultiple" />

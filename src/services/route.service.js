@@ -27,16 +27,11 @@ class RouteService {
     return this.api.post('/plans/create', requestBody, this.headersObject)
   }
 
-<<<<<<< HEAD
-  createPack = async (requestBody) => {
-    return this.api.post('/packs/create', requestBody, this.headersObject)
-=======
   createOnePack = async (requestBody) => {
     return this.api.post('/packs/create', requestBody);
   }
   createOnePlan = async (requestBody) => {
     return this.api.post('/plans/create', requestBody);
->>>>>>> raul
   }
 
   getAllPacks = async () => {

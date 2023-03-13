@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import routeService from "../../services/route.service";
 import { Link } from "react-router-dom";
+import Navbar from "../../components/Navbar/Navbar";
 
 function PacksDetailsPage() {
     const { packId } = useParams();
@@ -15,8 +16,10 @@ function PacksDetailsPage() {
             .catch((err) => console.log(err));
     }, []);
 
-    return(
-<div class="container mt-5">
+    return(<>
+        <Navbar />
+   
+        <div class="container mt-5">
             <div class="row">
                 <div class="col-lg-8">
                     <article>
@@ -126,6 +129,7 @@ function PacksDetailsPage() {
                 </div>
             </div>
         </div>
+        </>
     )
         
 }
