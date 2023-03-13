@@ -20,7 +20,7 @@ function PlanDetailsPage() {
                 setPlan(result.data);
             })
             .catch((err) => console.log(err));
-    }, []);
+    }, [planId]);
 
 
     return (
