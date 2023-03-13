@@ -1,6 +1,6 @@
-import axios from "axios";
 import { useEffect, useState } from "react";
 import routeService from "../../services/route.service";
+import Navbar from '../../components/Navbar/Navbar'
 
 function PackPage (){
     const [packs, setPacks] = useState();
@@ -15,9 +15,12 @@ function PackPage (){
         .catch(err => console.log(err))
     })
     return(
+        <>
+        <Navbar/>
         <div>
         
         </div>
+        </>
     )
 }
 
