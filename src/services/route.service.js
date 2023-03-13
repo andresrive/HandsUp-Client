@@ -16,8 +16,11 @@ class RouteService {
     });
   }
 
-  createOne = async (requestBody) => {
-    return this.api.post('/examples', requestBody);
+  createOnePack = async (requestBody) => {
+    return this.api.post('/packs/create', requestBody);
+  }
+  createOnePlan = async (requestBody) => {
+    return this.api.post('/plans/create', requestBody);
   }
 
   getAllPacks = async () => {
@@ -27,6 +30,9 @@ class RouteService {
     return this.api.get('/plans');
   }
 
+  getOnePack = async (id) => {
+    return this.api.get(`/packs/${id}`);
+  }
   getOnePlan = async (id) => {
     return this.api.get(`/plans/${id}`);
   }
@@ -34,6 +40,10 @@ class RouteService {
   updateOnePlan = async (id, requestBody) => {
     return this.api.put(`/plans/${id}/edit`, requestBody);
   }
+  updateOnePack = async (id, requestBody) => {
+    return this.api.put(`/packs/${id}/edit`, requestBody);
+  }
+
 
   updateProfile = async (requestBody) => {
     return this.api.put(`/profile`, requestBody);
@@ -41,6 +51,9 @@ class RouteService {
 
   deletePlan = async (id) => {
     return this.api.delete(`/plans/${id}/delete`);
+  }
+  deletePack = async (id) => {
+    return this.api.delete(`/packs/${id}/delete`);
   }
 
 

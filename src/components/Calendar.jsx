@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+/* import React, { useState } from 'react';
 import { format, isAfter, isBefore, isValid, parse } from 'date-fns';
 import { DayPicker } from 'react-day-picker';
 import 'react-day-picker/dist/style.css';
@@ -78,3 +78,4 @@ export default function App(props) {
         />
     );
 }
+ */
