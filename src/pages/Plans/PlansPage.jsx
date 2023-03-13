@@ -1,9 +1,17 @@
+<<<<<<< HEAD
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import routeService from "../../services/route.service";
 import Navbar from "../../components/Navbar/Navbar";
 import "./PlanPage.css";
 import PlanImage from "../../assets/plans-page.jpeg";
+=======
+import { useState, useEffect } from 'react'
+import { Link } from 'react-router-dom'
+import routeService from '../../services/route.service'
+import Navbar from '../../components/Navbar/Navbar'
+import MyChatComponent from '../../components/talkjs/MyChatComponent'
+>>>>>>> raul
 
 export default function PlansPage() {
   const [plans, setPlans] = useState([]);
@@ -40,7 +48,14 @@ export default function PlansPage() {
             </div>
           </div>
         ))}
+<<<<<<< HEAD
       </div>
+=======
+      </ul>
+
+    </div>
+    <MyChatComponent />
+>>>>>>> raul
     </>
   );
 }
