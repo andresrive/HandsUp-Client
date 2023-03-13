@@ -25,7 +25,7 @@ export default function Navbar() {
   };
 
   return (
-    <nav className="navbar navbar-expand-lg navbar-light bg-light">
+    <nav className="navbar navbar-expand-lg navbar-light bg-light sticky-top shadow">
       <div className="container-fluid">
         <Link className="navbar-brand" to="/">
           HANDSUP
@@ -41,7 +41,7 @@ export default function Navbar() {
         >
           <span className="navbar-toggler-icon"></span>
         </button>
-        <div className="collapse navbar-collapse" id="navbarNavDropdown">
+        <div className="collapse navbar-collapse d-flex" id="navbarNavDropdown">
           <ul className="navbar-nav me-auto">
             <li className="nav-item">
               <Link className="nav-link active" aria-current="page" to="/">
@@ -115,7 +115,7 @@ export default function Navbar() {
               </Link>
             ) : (
               <button
-                className="btn btn-outline-success"
+                className="button-nav"
                 onClick={() => setShowLoginModal(true)}
               >
                 Log In

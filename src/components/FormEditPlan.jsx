@@ -55,8 +55,8 @@ export default function FormEditPlan({ plansId }) {
                 <label htmlFor="floatingDescription">Description</label>
             </div>
             <div className="mb-3">
-                <label htmlFor="formFileMultiple" className="form-label">Add your image here</label>
-                <input className="form-control" type="file" onChange={(e) => handleFileUpload(e)} id="formFileMultiple" name="images" />
+                <label htmlFor="formFile" className="form-label">Add your image here</label>
+                <input className="form-control" type="file" onChange={(e) => handleFileUpload(e)} id="formFile" name="images" />
             </div>
             <div className="mb-3">
                 <label htmlFor="formDate" className="form-label">Add a date</label>

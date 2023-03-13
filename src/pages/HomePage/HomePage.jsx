@@ -7,6 +7,7 @@ import Cards from "../../components/Card&Carrusel/Cards";
 import ImageHome from '../../assets/imagehome.jpg'
 import Carrusel from "../../components/Card&Carrusel/Carrusel";
 
+
 export default function HomePage() {
   const [showModal, setShowModal] = useState(false);
 
@@ -23,7 +24,7 @@ export default function HomePage() {
         </video>
         <div className="homepage-video-overlay">
           <h1>Bring your backpack, we'll bring the friends</h1>
-          <button className="btn" onClick={handleGetStarted}>
+          <button className="bton" onClick={handleGetStarted}>
             Get Started
           </button>
           {showModal && <SignUpModal onClose={() => setShowModal(false)} />}
@@ -33,7 +34,7 @@ export default function HomePage() {
       <div className="homepage-container">
         <img src={ImageHome} alt="imageHome" />
         <div className="carrusel-container">
-        <h2 className="text-center">Maybe Prefer a Complete Adventure</h2>
+          <h2 className="text-center">Maybe Prefer a Complete Adventure</h2>
           <Carrusel />
         </div>
       </div>

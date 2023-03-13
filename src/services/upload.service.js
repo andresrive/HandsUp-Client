@@ -16,23 +16,11 @@ const uploadImage = (file) => {
         .catch(errorHandler);
 };
 
-const createPlan = (newPlan) => {
-    return api.post("/plans/create", newPlan)
-        .then(res => res.data)
-        .catch(errorHandler)
-};
-
-const createPack = (newPack) => {
-    return api.post("/packs/create", newPack)
-        .then(res => res.data)
-        .catch(errorHandler)
-};
-
 const addAvatar = (avatar) => {
-    return api.put("/profile", avatar)
+    return api.post("/upload", avatar)
         .then(res => res.data)
         .catch(errorHandler)
 }
 
 
-export { uploadImage, createPlan, createPack, addAvatar }
+export { uploadImage, addAvatar }

@@ -1,5 +1,5 @@
 import { useState, useContext } from "react";
-import { Modal, Button, Form } from "react-bootstrap";
+import { Modal, Form } from "react-bootstrap";
 import { AuthContext } from "../../context/auth.context";
 import authService from "../../services/auth.service";
 import "./LoginModal.css";
@@ -33,15 +33,16 @@ function LoginModal({ showModal, setShowModal }) {
 
   return (
     <>
-      <Modal show={showModal} onHide={() => setShowModal(false)}>
-        <Modal.Header closeButton>
-          <Modal.Title>Log in</Modal.Title>
+      <Modal className="my-modal" show={showModal} onHide={() => setShowModal(false)}>
+        <Modal.Header className="modal-header" closeButton>
+          <Modal.Title className="modal-title">Welcome to HandsUp! 🙌🏼</Modal.Title>
         </Modal.Header>
-        <Modal.Body>
+        <Modal.Body className="modal-body">
           <Form onSubmit={handleLoginSubmit}>
-            <Form.Group controlId="formBasicEmail">
-              <Form.Label>Email address</Form.Label>
-              <Form.Control
+            <Form.Group  className="form-group" controlId="formBasicEmail">
+              <Form.Label className="form-label">Email address</Form.Label>
+              <Form.Control 
+                className="form-control"
                 type="email"
                 placeholder="Enter email"
                 value={email}
@@ -49,9 +50,10 @@ function LoginModal({ showModal, setShowModal }) {
               />
             </Form.Group>
 
-            <Form.Group controlId="formBasicPassword">
-              <Form.Label>Password</Form.Label>
+            <Form.Group className="form-group" controlId="formBasicPassword">
+              <Form.Label className="form-label">Password</Form.Label>
               <Form.Control
+                className="form-control"
                 type="password"
                 placeholder="Password"
                 value={password}
@@ -59,12 +61,12 @@ function LoginModal({ showModal, setShowModal }) {
               />
             </Form.Group>
             {errorMessage && <p className="error-message">{errorMessage}</p>}
-            <Button variant="secondary" onClick={() => setShowModal(false)}>
+            <button className="btn-secondary2" onClick={() => setShowModal(false)}>
               Close
-            </Button>
-            <Button variant="primary" type="submit">
+            </button>
+            <button className="btn-primary1" type="submit">
               Log in
-            </Button>
+            </button>
           </Form>
         </Modal.Body>
       </Modal>

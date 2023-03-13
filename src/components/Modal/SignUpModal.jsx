@@ -52,9 +52,10 @@ export default function SignUpModal({ onClose }) {
           </button>
         </div>
         <div className="modal-body">
-          <Form.Group controlId="formBasicUsername">
-            <Form.Label>User Name:</Form.Label>
+          <Form.Group className="form-group" controlId="formBasicUsername">
+            <Form.Label className="modal.form" >User Name:</Form.Label>
             <Form.Control
+              className="form-control"
               type="text"
               placeholder="Enter username"
               value={username}
@@ -63,7 +64,7 @@ export default function SignUpModal({ onClose }) {
           </Form.Group>
 
           <Form onSubmit={handleSignupSubmit}>
-            <Form.Group controlId="formBasicEmail">
+            <Form.Group className="form-group" controlId="formBasicEmail">
               <Form.Label>Email:</Form.Label>
               <Form.Control
                 type="email"
@@ -73,8 +74,8 @@ export default function SignUpModal({ onClose }) {
               />
             </Form.Group>
 
-            <Form.Group controlId="formBasicPassword">
-              <Form.Label>Password:</Form.Label>
+            <Form.Group className="form-group" controlId="formBasicPassword">
+              <Form.Label className="form-label" >Password:</Form.Label>
               <Form.Control
                 type="password"
                 placeholder="Password"
@@ -83,9 +84,10 @@ export default function SignUpModal({ onClose }) {
               />
             </Form.Group>
 
-            <Form.Group controlId="formBasicPasswordRepeat">
-              <Form.Label>Repeat Password:</Form.Label>
+            <Form.Group className="form-group" controlId="formBasicPasswordRepeat">
+              <Form.Label className="form-label">Repeat Password:</Form.Label>
               <Form.Control
+              className="form-control"
                 type="password"
                 placeholder="Repeat Password"
                 value={passwordRepeat}
