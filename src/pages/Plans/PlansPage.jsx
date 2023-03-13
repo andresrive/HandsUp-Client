@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import routeService from '../../services/route.service'
+import Navbar from '../../components/Navbar/Navbar'
 
 export default function PlansPage() {
   const [plans, setPlans] = useState([])
@@ -13,6 +14,8 @@ export default function PlansPage() {
 
   }, [])
   return (
+    <>
+    <Navbar/>
     <div className='demo-content'>
       <h1>All plans</h1>
       <ul className="list-unstyled">
@@ -37,5 +40,6 @@ export default function PlansPage() {
       </ul>
 
     </div>
+    </>
   );
 }

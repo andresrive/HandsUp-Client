@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import routeService from "../../services/route.service";
+import Navbar from '../../components/Navbar/Navbar'
 
 function PacksPage (){
     const [packs, setPacks] = useState([]);
@@ -14,9 +15,12 @@ function PacksPage (){
         .catch(err => console.log(err))
     },[])
     return(
+        <>
+        <Navbar/>
         <div>
         <h1>Packages</h1>
         </div>
+        </>
     )
 }
 
