@@ -23,7 +23,7 @@ export default function HomePage() {
         </video>
         <div className="homepage-video-overlay">
           <h1>Bring your backpack, we'll bring the friends</h1>
-          <button className="btn" onClick={handleGetStarted}>
+          <button className="bton" onClick={handleGetStarted}>
             Get Started
           </button>
           {showModal && <SignUpModal onClose={() => setShowModal(false)} />}

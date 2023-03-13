@@ -1,6 +1,11 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;900&display=swap');
+
 .homepage-video-container {
     position: relative;
     height: 600px; /* ajusta la altura según tus necesidades */
+    font-family: 'Poppins', sans-serif;
+    font-weight: bold;
   }
   
   .homepage-video-container video {
@@ -20,8 +25,9 @@
   }
   
   .homepage-video-overlay h1 {
-    font-size: 3rem;
+    font-size: 4rem;
     margin-bottom: 1rem;
+    
   }
   
   .homepage-video-overlay button {
@@ -31,32 +37,32 @@
   
   
   /* Button */
-  .btn {
+  .bton {
     position: relative;
-    font-size: 13px;
+    font-size: 5px;
     text-decoration: none;
-    padding: 1em 2.5em;
+    padding: 0.3em 1.2em;
     display: inline-block;
     border-radius: 6em;
     transition: all .2s;
     border: none;
-    font-family: inherit;
+    font-family: 'Poppins', sans-serif;;
     font-weight: 500;
     color: black;
     background-color: white;
    }
    
-   .btn:hover {
+   .bton:hover {
     transform: translateY(-3px);
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
    }
    
-   .btn:active {
+   .bton:active {
     transform: translateY(-1px);
     box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
    }
    
-   .btn::after {
+   .bton::after {
     content: "";
     display: inline-block;
     height: 100%;
@@ -69,11 +75,11 @@
     transition: all .4s;
    }
    
-   .btn::after {
+   .bton::after {
     background-color: #fff;
    }
    
-   .btn:hover::after {
+   .bton:hover::after {
     transform: scaleX(1.4) scaleY(1.6);
     opacity: 0;
    }
@@ -85,7 +91,7 @@
     background-repeat: no-repeat;
     width: 100%;
     height: 100%;
-    margin-top: 5%
+    margin-top: 2%
   }
   .homepage-container {
     margin: 50px;
