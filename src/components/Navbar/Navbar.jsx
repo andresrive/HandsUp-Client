@@ -1,3 +1,47 @@
+// import { useState } from "react";
+// import { Link } from "react-router-dom";
+// import { useContext } from "react";
+// import { AuthContext } from "../../context/auth.context";
+// import LoginModal from "../Modal/LoginModal";
+
+// export default function Navbar() {
+//   const [showLoginModal, setShowLoginModal] = useState(false);
+
+//   const handleLoginClose = () => {
+//     setShowLoginModal(false);
+//   };
+
+//   const { isLoggedIn, logOutUser } = useContext(AuthContext);
+
+//   const [dropdownOpen, setDropdownOpen] = useState(false);
+//   const [dropdownOpen2, setDropdownOpen2] = useState(false);
+
+//   const toggleDropdown = () => {
+//     setDropdownOpen(!dropdownOpen);
+//   };
+
+//   const toggleDropdown2 = () => {
+//     setDropdownOpen2(!dropdownOpen2);
+//   };
+
+//   return (
+//     <nav className="navbar navbar-expand-lg navbar-light bg-light sticky-top shadow">
+//       <div className="container-fluid">
+//         <Link className="navbar-brand mx-5" to="/">
+//           HANDSUP
+//         </Link>
+//         <button
+//           className="navbar-toggler"
+//           type="button"
+//           data-bs-toggle="collapse"
+//           data-bs-target="#navbarNavDropdown"
+//           aria-controls="navbarNavDropdown"
+//           aria-expanded="false"
+//           aria-label="Toggle navigation"
+//         >
+//           <span className="navbar-toggler-icon"></span>
+//         </button>
+//         <div className="collapse navbar-collapse d-flex" id="navbarNavDropdown">
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import { useContext } from "react";
@@ -15,6 +59,7 @@ export default function Navbar() {
 
   const [dropdownOpen, setDropdownOpen] = useState(false);
   const [dropdownOpen2, setDropdownOpen2] = useState(false);
+  const [navbarOpen, setNavbarOpen] = useState(false);
 
   const toggleDropdown = () => {
     setDropdownOpen(!dropdownOpen);
@@ -22,6 +67,10 @@ export default function Navbar() {
 
   const toggleDropdown2 = () => {
     setDropdownOpen2(!dropdownOpen2);
+  };
+
+  const toggleNavbar = () => {
+    setNavbarOpen(!navbarOpen);
   };
 
   return (
@@ -33,15 +82,15 @@ export default function Navbar() {
         <button
           className="navbar-toggler"
           type="button"
-          data-bs-toggle="collapse"
-          data-bs-target="#navbarNavDropdown"
-          aria-controls="navbarNavDropdown"
-          aria-expanded="false"
+          onClick={toggleNavbar}
           aria-label="Toggle navigation"
         >
           <span className="navbar-toggler-icon"></span>
         </button>
-        <div className="collapse navbar-collapse d-flex" id="navbarNavDropdown">
+        <div
+          className={`collapse navbar-collapse ${navbarOpen ? "show" : "collapse"}`}
+          id="navbarNavDropdown"
+        >
           <ul className="links-nav navbar-nav ms-auto mx-4">
             <li
               className="nav-item dropdown"
@@ -126,5 +175,6 @@ export default function Navbar() {
         </div>
       </div>
     </nav>
+    
   );
 }
