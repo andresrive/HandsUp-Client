@@ -24,7 +24,7 @@ export default function SignUpModal({ onClose }) {
       .signup(requestBody)
       .then((response) => {
         onClose(); // cerrar modal al registrarse
-        navigate("/login");
+        navigate("/");
       })
       .catch((error) => {
         const errorDescription = error.response.data.message;

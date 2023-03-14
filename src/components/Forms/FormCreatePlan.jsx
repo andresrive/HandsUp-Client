@@ -87,7 +87,13 @@ export default function FormCreatePlan() {
                 <label htmlFor="floatingTitle">Title</label>
             </div>
             <div className="form-floating">
+<<<<<<< HEAD:src/components/Forms/FormCreatePlan.jsx
                 <MyCkEditor descriptionHandler={descriptionHandler} />
+=======
+                {/* <textarea type="text" className="form-control" id="floatingDescription" style={{ height: 100 }} value={description} onChange={(e) => setDescription(e.target.value)} />
+                <label htmlFor="floatingDescription">Description</label> */}
+                {/* <MyCkEditor descriptionHandler={descriptionHandler} /> */}
+>>>>>>> raul:src/components/FormCreatePlan.jsx
             </div>
             <div className="mb-3">
                 <label htmlFor="formFileMultiple" className="form-label">Add your image here</label>
