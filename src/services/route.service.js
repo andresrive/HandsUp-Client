@@ -42,6 +42,10 @@ class RouteService {
     return this.api.get(`/plans/${id}`);
   }
 
+  joinPlan = async (id, requestBody) => {
+    return this.api.post(`/plans/${id}`, requestBody, this.headersObject)
+  }
+
   updateOnePlan = async (id, requestBody) => {
     return this.api.put(`/plans/${id}/edit`, requestBody, this.headersObject);
   }
