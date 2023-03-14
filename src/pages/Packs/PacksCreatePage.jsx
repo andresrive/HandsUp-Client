@@ -1,5 +1,5 @@
 
-import FormCreatePack from "../../components/FormCreatePack/FormCreatePack";
+import FormCreatePack from "../../components/Forms/FormCreatePack";
 
 function PackCreate() {
 
