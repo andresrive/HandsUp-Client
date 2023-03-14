@@ -6,6 +6,7 @@
     max-width: 800px;
     margin-right: auto;
     margin-left: 5%;
+    position: relative;
   }
   
   .details-Page .card {
@@ -15,6 +16,7 @@
     margin: 0 10px 20px 10px;
     width: 100%;
     max-width: 700px;
+    position: relative;
   }
   
   .details-Page .details-img {
@@ -71,3 +73,16 @@
     transform: translateY(10px);
     transition: 100ms;
   }
+  .details-Page .chat {
+    position: absolute;
+    top: 0;
+    right: -550px; /* ajusta esta posición para que el chat quede donde necesites */
+    width: 300px;
+    height: 100%;
+    background-color: #fff;
+    box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.3);
+  }
+
+
+
+  

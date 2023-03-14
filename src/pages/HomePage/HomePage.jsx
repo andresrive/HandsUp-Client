@@ -15,9 +15,6 @@ export default function HomePage() {
   const handleGetStarted = () => {
     setShowModal(true);
   };
-
-  
-
   return (
     <>
       
