@@ -104,6 +104,7 @@ export default function Navbar() {
                 role="button"
                 data-bs-toggle="dropdown"
                 aria-expanded="false"
+                onClick={() => console.log("Clicked Plans Link")}
               >
                 Plans
               </Link>

@@ -95,13 +95,13 @@ export default function SignUpModal({ onClose }) {
               />
             </Form.Group>
 
-            <button
+            {/* <button
               className="close-button"
               type="button"
               onClick={handleClose}
             >
               Close
-            </button>
+            </button> */}
             <Button variant="primary" type="submit">
               Sign Up
             </Button>
