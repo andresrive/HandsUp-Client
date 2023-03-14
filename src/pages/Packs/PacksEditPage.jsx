@@ -2,6 +2,7 @@ import { useState } from "react"
 import routeService from "../../services/route.service"
 import { useNavigate, Link, useParams } from "react-router-dom"
 import MyEditor from "../../components/CKEDITOR/MyEditor"
+import Navbar from "../../components/Navbar/Navbar"
 
 
 export default function PackEditPage() {
@@ -37,8 +38,9 @@ export default function PackEditPage() {
     }
  */
     return (
-        <div>
+        <>
+        <Navbar />
         <MyEditor />
-        </div>
+        </>
     )
 }

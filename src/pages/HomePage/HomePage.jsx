@@ -1,5 +1,5 @@
 import "./HomePage.css";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Navbar from "../../components/Navbar/Navbar";
 import videoBg from "../../assets/video3.mp4";
 import SignUpModal from "../../components/Modal/SignUpModal";
@@ -10,13 +10,17 @@ import Carrusel from "../../components/Card&Carrusel/Carrusel";
 
 export default function HomePage() {
   const [showModal, setShowModal] = useState(false);
+  const [loading, setLoading] = useState(true)
 
   const handleGetStarted = () => {
     setShowModal(true);
   };
 
+  
+
   return (
     <>
+      
       <Navbar />
       <div className="homepage-video-container">
         <video autoPlay loop muted>
