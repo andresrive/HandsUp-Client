@@ -27,7 +27,7 @@ export default function HomePage() {
           <source src={videoBg} type="video/mp4" />
         </video>
         <div className="homepage-video-overlay">
-          <h1>Bring your backpack, we'll bring the friends</h1>
+          <h1>Choose a destination <br/> we will bring the friends</h1>
           <button className="bton" onClick={handleGetStarted}>
             Get Started
           </button>

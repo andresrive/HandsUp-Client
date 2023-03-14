@@ -9,7 +9,7 @@ import SearchBar from "../../components/SearchBar/SearchBar";
 export default function PlansPage() {
   const [plans, setPlans] = useState([]);
 
-  const [filteredPlans, setFilteredPlans] = useState('')
+  const [filteredPlans, setFilteredPlans] = useState("");
 
   useEffect(() => {
     routeService.getAllPlans().then((response) => {
@@ -20,10 +20,17 @@ export default function PlansPage() {
   return (
     <>
       <Navbar />
-      <div className="planPage-container">
+      <div class="planPage-container">
+        <img src={PlanImage} alt="imageHome" />
+        <div class="search-bar-container">
+          <SearchBar plans={plans} setFilteredPlans={setFilteredPlans} />
+        </div>
+      </div>
+
+      {/* <div className="planPage-container">
         <img src={PlanImage} alt="imageHome" />
       </div>
-      <SearchBar plans={plans} setFilteredPlans={setFilteredPlans} />
+      <SearchBar plans={plans} setFilteredPlans={setFilteredPlans} /> */}
       <div className="plan-container container-page row row-cols-1 row-cols-md-5 g-4 me-5 ms-5 mt-4">
         {(filteredPlans || plans).map((plan) => (
           <div key={plan._id} className="col">
