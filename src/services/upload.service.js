@@ -16,11 +16,6 @@ const uploadImage = (file) => {
         .catch(errorHandler);
 };
 
-const addAvatar = (avatar) => {
-    return api.post("/upload", avatar)
-        .then(res => res.data)
-        .catch(errorHandler)
-}
 
 
-export { uploadImage, addAvatar }
+export { uploadImage }
