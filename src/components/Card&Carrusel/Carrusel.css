@@ -1,0 +1,16 @@
+.container-carrusel {
+    margin-top: 4rem;
+  }
+  
+  .col-carrusel {
+    margin-right: 1rem;
+    margin-bottom: 1rem;
+  }
+  
+  .card-img-full-height-carrusel {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+  }
+  
+  

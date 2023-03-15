@@ -40,6 +40,7 @@ export default function SignUpModal({ onClose }) {
 
   const handleModalOpen = () => {
     setShowModal(true);
+    onClose()
   };
 
   return (
@@ -87,7 +88,7 @@ export default function SignUpModal({ onClose }) {
             <Form.Group className="form-group" controlId="formBasicPasswordRepeat">
               <Form.Label className="form-label">Repeat Password:</Form.Label>
               <Form.Control
-              className="form-control"
+                className="form-control"
                 type="password"
                 placeholder="Repeat Password"
                 value={passwordRepeat}

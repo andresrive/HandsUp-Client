@@ -27,6 +27,10 @@ class RouteService {
     return this.api.post('/plans/create', requestBody, this.headersObject)
   }
 
+  createPack = async (requestBody) => {
+    return this.api.post('/packs/create', requestBody, this.headersObject)
+  }
+
   createOnePack = async (requestBody) => {
     return this.api.post('/packs/create', requestBody);
   }
@@ -46,6 +50,10 @@ class RouteService {
   }
   getOnePlan = async (id) => {
     return this.api.get(`/plans/${id}`);
+  }
+
+  joinPlan = async (id, requestBody) => {
+    return this.api.post(`/plans/${id}`, requestBody, this.headersObject)
   }
 
   updateOnePlan = async (id, requestBody) => {

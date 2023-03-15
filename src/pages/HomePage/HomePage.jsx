@@ -11,6 +11,7 @@ import Carrusel from "../../components/Card&Carrusel/Carrusel";
 export default function HomePage() {
   const [showModal, setShowModal] = useState(false);
   const [loading, setLoading] = useState(true)
+  
 
   const handleGetStarted = () => {
     setShowModal(true);

@@ -52,7 +52,7 @@ export default function FormCreatePlan() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    
+
     routeService
       .createPlan({ title, description, images, fromDate, toDate, destination })
       //importar la date de calendar?
@@ -63,7 +63,7 @@ export default function FormCreatePlan() {
         setDestination("");
         navigate("/");
       })
-      .catch((err) => console.log("Error while adding the new movie: ", err));
+      .catch((err) => console.log("Error while adding the new plan: ", err));
   };
 
   return (
