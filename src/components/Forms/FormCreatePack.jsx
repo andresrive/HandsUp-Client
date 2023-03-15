@@ -11,7 +11,6 @@ export default function FormCreatePack() {
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
   const [images, setImages] = useState("");
-  const [date, setDate] = useState("");
   const [destination, setDestination] = useState("");
   const [price, setPrice] = useState("");
   const [itinerary, setItinerary] = useState("");
@@ -49,13 +48,14 @@ export default function FormCreatePack() {
     e.preventDefault();
 
 
-    routeService.createOnePack({ title, description, images, destination, price, itinerary })
+    routeService
+      .createPack({ title, description, images, fromDate, toDate, destination, price, itinerary })
       //importar la date de calendar?
       .then((res) => {
         setTitle("");
-        setDescription("");
         setImages("");
-        setDate("");
+        settoDate("");
+        setfromDate("");
         setDestination("");
         setPrice("");
         setItinerary("");
@@ -70,7 +70,7 @@ export default function FormCreatePack() {
       <div className="form-container-packs mt-5">
         <form onSubmit={handleSubmit}>
           <div className="form-floating-packs  all-mb mb-3">
-            <label htmlFor="floatingTitle">Title</label>
+            <label className="form-label-packs" htmlFor="floatingTitle">Title</label>
             <input
               type="text"
               className="form-control-packs"
@@ -81,18 +81,12 @@ export default function FormCreatePack() {
           </div>
 
           <div className="form-floating-packs  all-mb mb-3">
-            <label htmlFor="floatingDescription">Description</label>
-            <input
-              className="form-control-packs"
-              type="text"
-              id="floatingDescription"
-              value={description}
-              onChange={(e) => setDescription(e.target.value)}
-            />
+            <label className="form-label-packs">Description</label>
+            <MyCkEditor descriptionHandler={descriptionHandler} />
           </div>
 
-          <div className="form-floating-packs  all-mb mb-3">
-            <label htmlFor="floatingItinerary">Itinerary</label>
+          <div className="form-floating-packs all-mb mb-3">
+            <label htmlFor="floatingItinerary" className="form-label-packs">Itinerary</label>
             <input
               type="text"
               className="form-control-packs"
@@ -148,15 +142,13 @@ export default function FormCreatePack() {
               id="formDestination"
             />
           </div>
-          <div className="form-floating-packs">
-            <MyCkEditor descriptionHandler={descriptionHandler} />
-          </div>
+
 
           <button type="submit" className="btn-packs">
             Create pack
           </button>
         </form>
-      </div>
+      </div >
     </>
   );
 }
