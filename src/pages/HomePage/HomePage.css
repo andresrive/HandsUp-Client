@@ -91,29 +91,43 @@ h2{
    }
 
   /* ImageHome */
-  .homepage-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    height: 90vh;
-    background-color: #fcffd6;
+  .homepage-img-container {
+    position: relative;
+    height: 100vh;
   }
   
-  
-  /* .carrusel-container {
-    max-width: 1000px;
+  .homepage-img-container img {
+    position: absolute;
+    top: 0;
+    left: 0;
     width: 100%;
-    margin: 0 auto;
-  } */
+    height: 100%;
+    object-fit: cover;
+  }
+  
+  .carrusel-img-container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, calc(-50% + 50px));
+    max-width: 90%;
+    width: 80%;
+    text-align: center;
+    z-index: 1;
+  }
   
   h2 {
+    margin-top: 0;
     margin-bottom: 2rem;
     font-size: 2rem;
     font-weight: bold;
     text-align: center;
     color: #333;
   }
+  
+  
+  
+  
 
   
   

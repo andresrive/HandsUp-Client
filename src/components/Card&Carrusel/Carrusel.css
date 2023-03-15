@@ -16,7 +16,7 @@
   scroll-snap-align: start;
 }
 
-/* Tarjetas de plan en el carrusel */
+
 .col-carrusel {
   width: 700px;
   padding: 0.5rem;
@@ -30,7 +30,7 @@
 
 .card-carrusel-img {
   width: 100%;
-  height: 350px; /* ajusta la altura según tus necesidades */
+  height: 350px; 
   object-fit: cover;
 }
 
