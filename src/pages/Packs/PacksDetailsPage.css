@@ -1,0 +1,86 @@
+.details-Page {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    margin-top: 5%;
+    max-width: 800px;
+    margin-right: auto;
+    margin-left: 5%;
+    position: relative;
+  }
+  
+  .details-Page .card {
+    box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.3);
+    display: flex;
+    flex-direction: column;
+    margin: 0 10px 20px 10px;
+    width: 100%;
+    max-width: 700px;
+    position: relative;
+  }
+  
+  .details-Page .details-img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    max-width: 700px;
+    max-height: 400px;
+  }
+  
+  .details-Page .details-body {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 20px;
+  }
+  
+  .details-Page .details-title {
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-bottom: 10px;
+  }
+  
+  .details-Page .details-text {
+    font-size: 1.1rem;
+    line-height: 1.5;
+    margin-bottom: 20px;
+  }
+ 
+  .details-Page .details-button {
+    padding: 10px 20px;
+    border-radius: 50px;
+    border: 0;
+    background-color: white;
+    box-shadow: rgb(0 0 0 / 5%) 0 0 8px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    font-size: 15px;
+    transition: all .5s ease;
+  }
+  
+  .details-Page .details-button:hover {
+    letter-spacing: 3px;
+    background-color: #0b0a0a; 
+    color: #FFF;
+
+  }
+  
+  .details-Page .details-button:active {
+    letter-spacing: 3px;
+    transform: translateY(10px);
+    transition: 100ms;
+  }
+  /* .details-Page .chat {
+    position: absolute;
+    top: 0;
+    right: -550px;
+    width: 300px;
+    height: 100%;
+    background-color: #fff;
+    box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.3);
+  } */
+
+
+
+  

@@ -2,9 +2,9 @@ import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import routeService from "../../services/route.service";
 import Navbar from "../../components/Navbar/Navbar";
-import "./PlanPage.css";
 import PlanImage from "../../assets/plans-page.jpeg";
 import SearchBar from "../../components/SearchBar/SearchBar";
+import "./PlanPage.css";
 
 export default function PlansPage() {
   const [plans, setPlans] = useState([]);
@@ -45,7 +45,7 @@ export default function PlansPage() {
                 <p className="card-text">{plan.destination}</p>
                 <p className="card-text">{plan.toDate}</p>
                 <Link to={`/plans/${plan._id}`} className=" btn-details">
-                  Details
+                  View
                 </Link>
               </div>
             </div>

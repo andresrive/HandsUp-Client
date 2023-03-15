@@ -1,13 +1,13 @@
 
-// import FormCreatePack from "../../components/Forms/FormCreatePack";
+import FormCreatePack from "../../components/Forms/FormCreatePack";
 
-// function PackCreate() {
+function PackCreate() {
 
-//     return (
-//         <div>
-//             <FormCreatePack />
-//         </div>
-//     )
-// }
+    return (
+        <div>
+            <FormCreatePack />
+        </div>
+    )
+}
 
-// export default PackCreate;
+export default PackCreate;

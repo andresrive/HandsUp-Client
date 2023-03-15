@@ -2,6 +2,7 @@ import { useState } from "react"
 import routeService from "../../services/route.service"
 import { useNavigate, Link } from "react-router-dom"
 import { uploadImage } from "../../services/upload.service"
+import './FormEditPlan.css'
 
 export default function FormEditPlan({ plansId }) {
 
@@ -44,7 +45,8 @@ export default function FormEditPlan({ plansId }) {
 
     }
 
-    return (<>
+    return (
+    <>
         <form onSubmit={handleSubmit}>
             <div className="form-floating mb-3">
                 <input type="text" className="form-control" id="floatingTitle" value={title} onChange={(e) => setTitle(e.target.value)} />
@@ -65,5 +67,6 @@ export default function FormEditPlan({ plansId }) {
             <button className="btn btn-info" type="submit">Edit plan</button>
             <Link to={`/plans/${plansId}`}><button>Go back</button></Link>
         </form>
-    </>)
+    </>
+    )
 }

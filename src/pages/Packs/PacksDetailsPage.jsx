@@ -136,3 +136,73 @@
 
 // export default PacksDetailsPage;
 
+import { useState, useEffect } from "react";
+import { useParams, Link } from "react-router-dom";
+import routeService from "../../services/route.service";
+import Navbar from "../../components/Navbar/Navbar";
+import "./PacksDetailsPage.css";
+import MyChatComponent from "../../components/talkjs/MyChatComponent";
+
+function PlanDetailsPage() {
+//   const [showChat, setShowChat] = useState(false);
+//   const handleShowChat = () => {
+//     setShowChat(!showChat);
+//   };
+  const { packId } = useParams();
+
+
+  const [pack, setPack] = useState({});
+
+  const [html, setHtml] = useState("");
+  useEffect(() => {
+    setHtml(pack.description);
+  }, [pack.description]);
+
+  useEffect(() => {
+    routeService
+      .getOnePack(packId)
+      .then((result) => {
+        setPack(result.data);
+      })
+      .catch((err) => console.log(err));
+  }, [packId]);
+
+  return (
+    <>
+      <Navbar />
+      <div className="details-container">
+      <div className="details-Page">
+        <div className="card">
+          <img
+            src={pack.images}
+            className="details-img card-img-top mx-auto"
+            alt={pack.title}
+          />
+          <div className="details-body card-body">
+            <h5 className="details-title card-title">Name: {pack.title}</h5>
+            <div className="details-text card-text">
+              <p>
+                <strong>Description:</strong>
+              </p>
+              <div dangerouslySetInnerHTML={{ __html: html }}></div>
+            </div>
+            <div className="button-group">
+              {/* <Link to=""> */}
+                <button className="details-button" /*onClick={handleShowChat}*/>
+                  Join plan
+                </button>
+              {/* </Link> */}
+              <Link to={`/packs/${packId}/edit`}>
+                <button className="details-button">Edit plan</button>
+              </Link>
+            </div>
+          </div>
+        </div>
+      </div>
+      {/* {showChat && <MyChatComponent plan={plan} />} */}
+      </div>
+    </>
+  );
+}
+export default PlanDetailsPage;
+

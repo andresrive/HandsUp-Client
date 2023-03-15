@@ -12,7 +12,6 @@ function PlanDetailsPage() {
   };
   const { planId } = useParams();
 
-
   const [plan, setPlan] = useState({});
 
   const [html, setHtml] = useState("");
@@ -33,35 +32,41 @@ function PlanDetailsPage() {
     <>
       <Navbar />
       <div className="details-container">
-      <div className="details-Page">
-        <div className="card">
-          <img
-            src={plan.images}
-            className="details-img card-img-top mx-auto"
-            alt={plan.title}
-          />
-          <div className="details-body card-body">
-            <h5 className="details-title card-title">Name: {plan.title}</h5>
-            <div className="details-text card-text">
-              <p>
-                <strong>Description:</strong>
-              </p>
-              <div dangerouslySetInnerHTML={{ __html: html }}></div>
-            </div>
-            <div className="button-group">
-              {/* <Link to=""> */}
+        <div className="details-Page">
+          <div className="card">
+            <img
+              src={plan.images}
+              className="details-img card-img-top mx-auto"
+              alt={plan.title}
+            />
+            <div className="details-body card-body">
+              <h5 className="details-title card-title">Name: {plan.title}</h5>
+              <div className="details-text card-text">
+                <p>
+                  <strong>Description:</strong>
+                </p>
+                <div dangerouslySetInnerHTML={{ __html: html }}></div>
+              </div>
+              <div className="button-group">
+                {/* <Link to=""> */}
                 <button className="details-button" onClick={handleShowChat}>
                   Join plan
                 </button>
-              {/* </Link> */}
-              <Link to={`/plans/${planId}/edit`}>
-                <button className="details-button">Edit plan</button>
-              </Link>
+                {/* </Link> */}
+                <Link to={`/plans/${planId}/edit`}>
+                  <button className="details-button">Edit plan</button>
+                </Link>
+              </div>
             </div>
           </div>
         </div>
-      </div>
+        {/* <div className="chat">
       {showChat && <MyChatComponent plan={plan} />}
+        
+      </div> */}
+      <div className={`chat ${showChat ? "showNow" : ""}`}>
+          {showChat && <MyChatComponent plan={plan} />}
+        </div>
       </div>
     </>
   );
