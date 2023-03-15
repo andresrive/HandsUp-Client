@@ -1,7 +1,7 @@
 import { useState } from "react";
-import { uploadImage, addAvatar } from "../../services/upload.service.js";
+import { uploadImage } from "../../services/upload.service.js";
 import { useNavigate } from "react-router-dom";
-
+import routeService from "../../services/route.service.js";
 import Calendar from "../Calendar";
 import MyCkEditor from "../../inputEditor/MyCkEditor";
 import Navbar from "../Navbar/Navbar";
@@ -49,7 +49,7 @@ export default function FormCreatePack() {
     e.preventDefault();
 
 
-    addAvatar({ title, description, images, destination, price, itinerary })
+    routeService.createOnePack({ title, description, images, destination, price, itinerary })
       //importar la date de calendar?
       .then((res) => {
         setTitle("");
@@ -61,12 +61,12 @@ export default function FormCreatePack() {
         setItinerary("");
         navigate("/packs");
       })
-      .catch((err) => console.log("Error while adding the new movie: ", err));
+      .catch((err) => console.log("Error while adding the new pack: ", err));
   };
 
   return (
     <>
-    <Navbar />
+      <Navbar />
       <div className="form-container-packs mt-5">
         <form onSubmit={handleSubmit}>
           <div className="form-floating-packs  all-mb mb-3">

@@ -1,7 +1,6 @@
 import React, { useState, useContext, useEffect } from 'react';
 import "./ProfilePage.css";
 import { Link, useNavigate } from "react-router-dom"
-import { addAvatar } from '../../services/upload.service';
 import routeService from '../../services/route.service';
 import { AuthContext } from '../../context/auth.context';
 
