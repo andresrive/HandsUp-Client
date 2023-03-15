@@ -3,19 +3,19 @@ import { useEffect, useState, useRef, useContext } from 'react';
 import { AuthContext } from '../../context/auth.context';
 
 
-function MyChatComponent({plan: {_id, title, images}}) {
-  const chatboxEl = useRef(); 
+function MyChatComponent({ plan: { _id, title, images } }) {
+  const chatboxEl = useRef();
   const { user } = useContext(AuthContext);
   console.log(user)
 
   // wait for TalkJS to load
   const [talkLoaded, setTalkLoaded] = useState(false);
-  
-  Talk.ready
-  .then(result =>{
-    setTalkLoaded(true)
 
-  })
+  Talk.ready
+    .then(result => {
+      setTalkLoaded(true)
+
+    })
   useEffect(() => {
     const plans = new Talk.User({
       id: _id,
@@ -34,9 +34,9 @@ function MyChatComponent({plan: {_id, title, images}}) {
 
         const currentUser = new Talk.User({
           id: user._id,
-          name: "Adrian",
-          email: 'henrymill@example.com',
-          photoUrl: 'henry.jpeg',
+          name: user.username,
+          email: user.email,
+          photoUrl: user.images,
           welcomeMessage: 'Hello!',
           role: 'default',
         });

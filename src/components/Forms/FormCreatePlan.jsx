@@ -2,7 +2,6 @@ import { useState } from "react";
 import { uploadImage } from "../../services/upload.service";
 import { useNavigate } from "react-router-dom";
 import routeService from "../../services/route.service";
-
 import "./FormCreatePlan.css";
 import Navbar from "../Navbar/Navbar";
 import Calendar from "../Calendar";
@@ -13,7 +12,6 @@ export default function FormCreatePlan() {
   const [description, setDescription] = useState("");
   const [images, setImages] = useState("");
   const [destination, setDestination] = useState("");
-
   const [selectedRange, setSelectedRange] = useState("");
   const [fromDate, setfromDate] = useState("");
   const [toDate, settoDate] = useState("");
@@ -22,7 +20,10 @@ export default function FormCreatePlan() {
     setSelectedRange(selectedRange);
     setfromDate(fromDate);
     settoDate(toDate);
+
   };
+
+
 
   const descriptionHandler = (content) => {
     setDescription(content);
@@ -61,7 +62,7 @@ export default function FormCreatePlan() {
         setDescription("");
         setImages("");
         setDestination("");
-        navigate("/");
+        navigate("/plans");
       })
       .catch((err) => console.log("Error while adding the new plan: ", err));
   };
@@ -108,7 +109,7 @@ export default function FormCreatePlan() {
             </div>
 
             <div className="col col-plans ">
-              <Calendar onRangeChange={handleRangeChange} />
+              <Calendar onRangeChange={handleRangeChange} dateTo={toDate} dateFrom={fromDate} />
             </div>
           </div>
 
@@ -116,9 +117,11 @@ export default function FormCreatePlan() {
             <MyCkEditor descriptionHandler={descriptionHandler} />
           </div>
 
+
           <button type="submit" className="btn-plans">
             Create plan
           </button>
+
         </form>
       </div>
     </>
