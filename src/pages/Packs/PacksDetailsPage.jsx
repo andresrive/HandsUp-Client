@@ -143,7 +143,7 @@ import Navbar from "../../components/Navbar/Navbar";
 import "./PacksDetailsPage.css";
 import MyChatComponent from "../../components/talkjs/MyChatComponent";
 
-function PlanDetailsPage() {
+function PackDetailsPage() {
 //   const [showChat, setShowChat] = useState(false);
 //   const handleShowChat = () => {
 //     setShowChat(!showChat);
@@ -189,11 +189,11 @@ function PlanDetailsPage() {
             <div className="button-group">
               {/* <Link to=""> */}
                 <button className="details-button" /*onClick={handleShowChat}*/>
-                  Join plan
+                  Join pack
                 </button>
               {/* </Link> */}
               <Link to={`/packs/${packId}/edit`}>
-                <button className="details-button">Edit plan</button>
+                <button className="details-button">Edit pack</button>
               </Link>
             </div>
           </div>
@@ -204,5 +204,5 @@ function PlanDetailsPage() {
     </>
   );
 }
-export default PlanDetailsPage;
+export default PackDetailsPage;
 
