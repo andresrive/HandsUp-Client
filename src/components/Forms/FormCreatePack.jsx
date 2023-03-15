@@ -112,7 +112,7 @@ export default function FormCreatePack() {
 
             <div className="col-packs  all-mb mb-3">
               <label className="form-label-packs">Select a date range</label>
-              <Calendar onRangeChange={handleRangeChange} />
+              <Calendar onRangeChange={handleRangeChange} dateTo={toDate} dateFrom={fromDate} />
             </div>
           </div>
 

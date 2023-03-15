@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import authService from "../services/auth.service";
 
 const AuthContext = React.createContext();
@@ -12,7 +13,7 @@ function AuthProviderWrapper(props) {
     localStorage.setItem("authToken", token);
   };
 
-
+  const navigate = useNavigate()
 
   const authenticateUser = () => {
     // Get the stored token from the localStorage
@@ -63,6 +64,7 @@ function AuthProviderWrapper(props) {
     // Upon logout, remove the token from the localStorage
     removeToken();
     authenticateUser();
+    navigate('/')
   };
 
   useEffect(() => {

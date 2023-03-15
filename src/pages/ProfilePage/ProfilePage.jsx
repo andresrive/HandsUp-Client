@@ -35,6 +35,10 @@ function ProfilePage() {
 
       {currentUser && user._id === currentUser._id && <div className="email-profile">{currentUser.email}</div>}
 
+      <Link to={`/profile/edit`}>
+        <button className="details-button">Edit profile</button>
+      </Link>
+
     </div>
     </>
   );
