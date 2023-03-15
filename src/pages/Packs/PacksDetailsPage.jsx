@@ -18,24 +18,24 @@
 
 //     return(<>
 //         <Navbar />
-   
+
 //         <div class="container mt-5">
 //             <div class="row">
 //                 <div class="col-lg-8">
 //                     <article>
 
 //                         <header class="mb-4">
-                            
+
 //                             <h1 class="fw-bolder mb-1">{packs.title}</h1>
-                            
+
 //                             <div class="text-muted fst-italic mb-2">Posted on January 1, 2022 by Start Bootstrap</div>
-                            
+
 //                             <Link class="badge bg-secondary text-decoration-none link-light" to="#">Home Page</Link>
 //                             <Link class="badge bg-secondary text-decoration-none link-light" to="/packs">Package Page</Link>
 //                         </header>
-                        
+
 //                         <figure class="mb-4"><img class="img-fluid rounded" src="https://dummyimage.com/900x400/ced4da/6c757d.jpg" alt="..." /></figure>
-                        
+
 //                         <section class="mb-5">
 //                             <p class="fs-5 mb-4">Science is an enterprise that should be cherished as an activity of the free human mind. Because it transforms who we are, how we live, and it gives us an understanding of our place in the universe.</p>
 //                             <p class="fs-5 mb-4">The universe is large and old, and the ingredients for life as we know it are everywhere, so there's no reason to think that Earth would be unique in that regard. Whether of not the life became intelligent is a different question, and we'll see if we find that.</p>
@@ -45,19 +45,19 @@
 //                             <p class="fs-5 mb-4">Venus has a runaway greenhouse effect. I kind of want to know what happened there because we're twirling knobs here on Earth without knowing the consequences of it. Mars once had running water. It's bone dry today. Something bad happened there as well.</p>
 //                         </section>
 //                     </article>
-                    
+
 //                     <section class="mb-5">
 //                         <div class="card bg-light">
 //                             <div class="card-body">
-                                
+
 //                                 <form class="mb-4"><textarea class="form-control" rows="3" placeholder="Join the discussion and leave a comment!"></textarea></form>
-                                
+
 //                                 <div class="d-flex mb-4">
-                                    
+
 //                                     <div class="flex-shrink-0"><img class="rounded-circle" src="https://dummyimage.com/50x50/ced4da/6c757d.jpg" alt="..." /></div>
 //                                     <div class="ms-3">
 //                                         <div class="fw-bold">Commenter Name</div>
-                                        
+
 //                                         <div class="d-flex mt-4">
 //                                             <div class="flex-shrink-0"><img class="rounded-circle" src="https://dummyimage.com/50x50/ced4da/6c757d.jpg" alt="..." /></div>
 //                                             <div class="ms-3">
@@ -65,7 +65,7 @@
 //                                                 And under those conditions, you cannot establish a capital-market evaluation of that enterprise. You can't get investors.
 //                                             </div>
 //                                         </div>
-                                        
+
 //                                         <div class="d-flex mt-4">
 //                                             <div class="flex-shrink-0"><img class="rounded-circle" src="https://dummyimage.com/50x50/ced4da/6c757d.jpg" alt="..." /></div>
 //                                             <div class="ms-3">
@@ -75,7 +75,7 @@
 //                                         </div>
 //                                     </div>
 //                                 </div>
-                                
+
 //                                 <div class="d-flex">
 //                                     <div class="flex-shrink-0"><img class="rounded-circle" src="https://dummyimage.com/50x50/ced4da/6c757d.jpg" alt="..." /></div>
 //                                     <div class="ms-3">
@@ -87,9 +87,9 @@
 //                         </div>
 //                     </section>
 //                 </div>
-                
+
 //                 <div class="col-lg-4">
-                    
+
 //                     <div class="card mb-4">
 //                         <div class="card-header">Search</div>
 //                         <div class="card-body">
@@ -99,7 +99,7 @@
 //                             </div>
 //                         </div>
 //                     </div>
-                    
+
 //                     <div class="card mb-4">
 //                         <div class="card-header">Categories</div>
 //                         <div class="card-body">
@@ -121,7 +121,7 @@
 //                             </div>
 //                         </div>
 //                     </div>
-                    
+
 //                     <div class="card mb-4">
 //                         <div class="card-header">Side Widget</div>
 //                         <div class="card-body">You can put anything you want inside of these side widgets. They are easy to use, and feature the Bootstrap 5 card component!</div>
@@ -131,26 +131,31 @@
 //         </div>
 //         </>
 //     )
-        
+
 // }
 
 // export default PacksDetailsPage;
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
 import { useParams, Link } from "react-router-dom";
 import routeService from "../../services/route.service";
 import Navbar from "../../components/Navbar/Navbar";
 import "./PacksDetailsPage.css";
+import { AuthContext } from "../../context/auth.context";
 import MyChatComponent from "../../components/talkjs/MyChatComponent";
 
-function PlanDetailsPage() {
-//   const [showChat, setShowChat] = useState(false);
-//   const handleShowChat = () => {
-//     setShowChat(!showChat);
-//   };
+function PackDetailsPage() {
+  //   const [showChat, setShowChat] = useState(false);
+  //   const handleShowChat = () => {
+  //     setShowChat(!showChat);
+  //   };
   const { packId } = useParams();
 
+  const { user } = useContext(AuthContext)
 
+  const [isLoggedIn, setIsLoggedIn] = useState()
+  const [currentUser, setCurrentUser] = useState(null)
+  const [isLoading, setIsLoading] = useState(true)
   const [pack, setPack] = useState({});
 
   const [html, setHtml] = useState("");
@@ -167,42 +172,50 @@ function PlanDetailsPage() {
       .catch((err) => console.log(err));
   }, [packId]);
 
+  useEffect(() => {
+    setCurrentUser(user);
+  }, [user]);
+
+  useEffect(() => {
+    setIsLoggedIn(true)
+  }, [user]);
+
   return (
     <>
       <Navbar />
       <div className="details-container">
-      <div className="details-Page">
-        <div className="card">
-          <img
-            src={pack.images}
-            className="details-img card-img-top mx-auto"
-            alt={pack.title}
-          />
-          <div className="details-body card-body">
-            <h5 className="details-title card-title">Name: {pack.title}</h5>
-            <div className="details-text card-text">
-              <p>
-                <strong>Description:</strong>
-              </p>
-              <div dangerouslySetInnerHTML={{ __html: html }}></div>
-            </div>
-            <div className="button-group">
-              {/* <Link to=""> */}
-                <button className="details-button" /*onClick={handleShowChat}*/>
-                  Join plan
-                </button>
-              {/* </Link> */}
-              <Link to={`/packs/${packId}/edit`}>
-                <button className="details-button">Edit plan</button>
-              </Link>
+        <div className="details-Page">
+          <div className="card">
+            <img
+              src={pack.images}
+              className="details-img card-img-top mx-auto"
+              alt={pack.title}
+            />
+            <div className="details-body card-body">
+              <h5 className="details-title card-title">Name: {pack.title}</h5>
+              <div className="details-text card-text">
+                <p>
+                  <strong>Description:</strong>
+                </p>
+                <div dangerouslySetInnerHTML={{ __html: html }}></div>
+              </div>
+              <div className="button-group">
+                {/* <Link to=""> */}
+                {isLoggedIn && currentUser &&
+                  <button className="details-button" /*onClick={handleShowChat}*/>
+                    Join plan
+                  </button>}
+                {/* </Link> */}
+                {!isLoading && currentUser._id === pack.author._id && currentUser.isCompany && <Link to={`/packs/${packId}/edit`}>
+                  <button className="details-button">Edit plan</button>
+                </Link>}
+              </div>
             </div>
           </div>
+          {/* {showChat && <MyChatComponent plan={plan} />} */}
         </div>
-      </div>
-      {/* {showChat && <MyChatComponent plan={plan} />} */}
       </div>
     </>
   );
 }
-export default PlanDetailsPage;
-
+export default PackDetailsPage
