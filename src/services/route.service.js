@@ -31,13 +31,6 @@ class RouteService {
     return this.api.post('/packs/create', requestBody, this.headersObject)
   }
 
-  createOnePack = async (requestBody) => {
-    return this.api.post('/packs/create', requestBody);
-  }
-  createOnePlan = async (requestBody) => {
-    return this.api.post('/plans/create', requestBody);
-  }
-
   getAllPacks = async () => {
     return this.api.get('/packs');
   }
@@ -60,13 +53,13 @@ class RouteService {
     return this.api.put(`/plans/${id}/edit`, requestBody, this.headersObject);
   }
 
+  updateOnePack = async (id, requestBody) => {
+    return this.api.put(`/packs/${id}/edit`, requestBody, this.headersObject);
+  }
+
   getProfile = async () => {
     return this.api.get(`/profile`, this.headersObject);
   }
-  updateOnePack = async (id, requestBody) => {
-    return this.api.put(`/packs/${id}/edit`, requestBody);
-  }
-
 
   updateProfile = async (requestBody) => {
     return this.api.put(`/profile`, requestBody, this.headersObject);
