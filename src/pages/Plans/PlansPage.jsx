@@ -26,11 +26,6 @@ export default function PlansPage() {
           <SearchBar plans={plans} setFilteredPlans={setFilteredPlans} />
         </div>
       </div>
-
-      {/* <div className="planPage-container">
-        <img src={PlanImage} alt="imageHome" />
-      </div>
-      <SearchBar plans={plans} setFilteredPlans={setFilteredPlans} /> */}
       <div className="plan-container container-page row row-cols-1 row-cols-md-5 g-4 me-5 ms-5 mt-4">
         {(filteredPlans || plans).map((plan) => (
           <div key={plan._id} className="col">

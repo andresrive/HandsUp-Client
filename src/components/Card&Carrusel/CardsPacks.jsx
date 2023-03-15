@@ -2,7 +2,7 @@ import Enjoy from '../../assets/enjoy.avif'
 import Meet from '../../assets/meet.avif'
 import Create from '../../assets/create-plan.jpeg'
 
-export default function Cards () {
+export default function CardsPacks () {
     return (
         <div className="container mt-5 custom-container">
         <div className="row">
@@ -10,7 +10,7 @@ export default function Cards () {
             <div className="card text-center shadow">
               <img src={Create} className="card-img-top card-img-small" alt="Imagen 1" />
               <div className="card-body">
-                <h5 className="card-title">Create Your Plan</h5>
+                <h5 className="card-title">Search Your Pack</h5>
                 <p className="card-text">
                   Neque porro quisquam est qui dolorem ipsum quia dolor sit
                   amet, consectetur, adipisci velit..."
@@ -22,7 +22,7 @@ export default function Cards () {
             <div className="card text-center shadow">
               <img src={Meet} className="card-img-top" alt="Imagen 2" />
               <div className="card-body">
-                <h5 className="card-title">Meet New People</h5>
+                <h5 className="card-title">Prepare Your BackPack</h5>
                 <p className="card-text">
                   Neque porro quisquam est qui dolorem ipsum quia dolor sit
                   amet, consectetur, adipisci velit..."

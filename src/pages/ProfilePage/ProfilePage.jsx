@@ -3,6 +3,7 @@ import "./ProfilePage.css";
 import { Link, useNavigate } from "react-router-dom"
 import routeService from '../../services/route.service';
 import { AuthContext } from '../../context/auth.context';
+import Navbar from '../../components/Navbar/Navbar'
 
 function ProfilePage() {
 
@@ -24,20 +25,22 @@ function ProfilePage() {
 
 
   return (
-    <div>
-      <h1>Profile page</h1>
+    <>
+      <Navbar/>
+    <div className='container-profile'>
 
-      {currentUser && user._id === currentUser._id && <img src={currentUser.images} className="card-img-top" alt="avatar" />}
+      {currentUser && user._id === currentUser._id && <img src={currentUser.images} className="card-img-top-avatar" alt="avatar" />}
 
-      {currentUser && user._id === currentUser._id && <div>{currentUser.username}</div>}
+      {currentUser && user._id === currentUser._id && <div className='username-profile'>{currentUser.username}</div>}
 
-      {currentUser && user._id === currentUser._id && <div>{currentUser.email}</div>}
+      {currentUser && user._id === currentUser._id && <div className="email-profile">{currentUser.email}</div>}
 
       <Link to={`/profile/edit`}>
         <button className="details-button">Edit profile</button>
       </Link>
 
     </div>
+    </>
   );
 }
 

@@ -218,4 +218,5 @@ function PackDetailsPage() {
     </>
   );
 }
-export default PackDetailsPage
+export default PackDetailsPage;
+
