@@ -136,21 +136,26 @@
 
 // export default PacksDetailsPage;
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
 import { useParams, Link } from "react-router-dom";
 import routeService from "../../services/route.service";
 import Navbar from "../../components/Navbar/Navbar";
 import "./PacksDetailsPage.css";
+import { AuthContext } from "../../context/auth.context";
 import MyChatComponent from "../../components/talkjs/MyChatComponent";
 
-function PlanDetailsPage() {
+function PackDetailsPage() {
 //   const [showChat, setShowChat] = useState(false);
 //   const handleShowChat = () => {
 //     setShowChat(!showChat);
 //   };
   const { packId } = useParams();
 
+  const { user } = useContext(AuthContext)
 
+  const [isLoggedIn, setIsLoggedIn] = useState()
+  const [currentUser, setCurrentUser] = useState(null)
+  const [isLoading, setIsLoading] = useState(true)
   const [pack, setPack] = useState({});
 
   const [html, setHtml] = useState("");
@@ -166,6 +171,14 @@ function PlanDetailsPage() {
       })
       .catch((err) => console.log(err));
   }, [packId]);
+
+  useEffect(() => {
+    setCurrentUser(user);
+}, [user]);
+
+  useEffect(() => {
+    setIsLoggedIn(true)
+  }, [user]);
 
   return (
     <>
@@ -188,13 +201,14 @@ function PlanDetailsPage() {
             </div>
             <div className="button-group">
               {/* <Link to=""> */}
+              {isLoggedIn && currentUser &&
                 <button className="details-button" /*onClick={handleShowChat}*/>
                   Join plan
-                </button>
+                </button>}
               {/* </Link> */}
-              <Link to={`/packs/${packId}/edit`}>
+              {!isLoading && currentUser._id === pack.author._id && currentUser.isCompany && <Link to={`/packs/${packId}/edit`}>
                 <button className="details-button">Edit plan</button>
-              </Link>
+              </Link>}
             </div>
           </div>
         </div>
@@ -204,5 +218,5 @@ function PlanDetailsPage() {
     </>
   );
 }
-export default PlanDetailsPage;
+export default PackDetailsPage;
 

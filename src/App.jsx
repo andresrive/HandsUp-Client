@@ -33,13 +33,13 @@ function App() {
         <Route path="/login" element={<IsAnon><LoginPage /></IsAnon>} />
 
         <Route path="/plans" element={<PlansPage />} />
+        <Route path="/plans/:planId" element={<PlanDetailsPage />} />
         <Route path="/plans/create" element={<IsPrivate><PlanCreatePage /></IsPrivate>} />
-        <Route path="/plans/:planId" element={<IsPrivate><PlanDetailsPage /></IsPrivate>} />
         <Route path="/plans/:planId/edit" element={<IsPrivate><PlanEditPage /></IsPrivate>} /> {/*isUserId*/}
 
         <Route path="/packs" element={<PacksPage />} />
+        <Route path="/packs/:packId" element={<PacksDetailsPage />} />
         <Route path="/packs/create" element={<IsPrivate><PacksCreatePage /></IsPrivate>} /> {/*isCompany*/}
-        <Route path="/packs/:packId" element={<IsPrivate><PacksDetailsPage /></IsPrivate>} />
         <Route path="/packs/:packId/edit" element={<IsPrivate><PacksEditPage /></IsPrivate>} />
       </Routes>
     </div>

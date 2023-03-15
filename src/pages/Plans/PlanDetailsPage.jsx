@@ -7,17 +7,28 @@ import { AuthContext } from "../../context/auth.context";
 import MyChatComponent from "../../components/talkjs/MyChatComponent";
 
 function PlanDetailsPage() {
+    const { planId } = useParams();
     const [showChat, setShowChat] = useState(false);
     const handleShowChat = () => {
-        setShowChat(!showChat);
-    };
-    const { planId } = useParams();
+        if(currentUser){
+            setShowChat(!showChat);
+        }
+        else{
+            
+        }
+    /* routeService.joinPlan(planId)
+    .then(response => {
+        console.log("Hola:", response)
+    }) */
+    
+    }
 
     const { user } = useContext(AuthContext)
 
+/*     const [isLoggedIn, setIsLoggedIn] = useState(false) */
     const [currentUser, setCurrentUser] = useState(null)
     const [plan, setPlan] = useState(0);
-    const [isLoading, setIsLoading] = useState(true)
+    const [loading, setLoading] = useState(true)
 
     //   const [plan, setPlan] = useState({});
 
@@ -30,27 +41,33 @@ function PlanDetailsPage() {
         routeService.getOnePlan(planId)
             .then((result) => {
                 setPlan(result.data);
-
+                setLoading(false)
             })
             .catch((err) => console.log(err));
-    }, [planId]);
+    }, []);
 
-    useEffect(() => {
-        if (plan) {
+    
+   /*  useEffect(() => {
+        if (plan !== 0) {
             setIsLoading(false)
         }
-    }, [plan])
+    }, [isLoading]) */
 
     useEffect(() => {
         setCurrentUser(user);
     }, [user]);
 
-    console.log("currentUser", currentUser)
+    /* useEffect(() => {
+        setIsLoggedIn(true)
+      }, [user]); */
+
+    console.log("currentUser", user)
     console.log("PLAN", plan)
 
     return (
         <>
             <Navbar />
+            {!loading &&
             <div className="details-container">
                 <div className="details-Page">
                     <div className="card">
@@ -69,11 +86,12 @@ function PlanDetailsPage() {
                             </div>
                             <div className="button-group">
                                 {/* <Link to=""> */}
+                                {/* {isLoggedIn && currentUser && */}
                                 <button className="details-button" onClick={handleShowChat}>
                                     Join plan
                                 </button>
                                 {/* </Link> */}
-                                {!isLoading && currentUser._id === plan.author._id && <Link to={`/plans/${planId}/edit`}>
+                                {user?._id === plan.author._id && <Link to={`/plans/${planId}/edit`}>
                                     <button className="details-button">Edit plan</button>
                                 </Link>}
                             </div>
@@ -87,7 +105,7 @@ function PlanDetailsPage() {
                 <div className={`chat ${showChat ? "showNow" : ""}`}>
                     {showChat && <MyChatComponent plan={plan} />}
                 </div>
-            </div>
+            </div>}
         </>
     );
 }
