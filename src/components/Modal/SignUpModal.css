@@ -1,0 +1,89 @@
+.my-modal-sign {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .modal-content-sign {
+    width: 500px;
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 5px;
+  }
+  
+  .modal-header-sign {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+  }
+  
+  .modal-title-sign {
+    font-size: 24px;
+    font-weight: bold;
+  }
+  
+  .close-button-sign {
+    font-size: 24px;
+    color: #999;
+    background: none;
+    border: none;
+    outline: none;
+    cursor: pointer;
+  }
+  
+  .modal-body-sign {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+  }
+  
+  .form-group-sign {
+    width: 100%;
+  }
+  
+  .form-label-sign {
+    display: block;
+    font-size: 18px;
+    margin-bottom: 5px;
+  }
+  
+  .form-control-sign {
+    width: 100%;
+    height: 40px;
+    padding: 5px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    font-size: 16px;
+  }
+  
+  .btn-primary1-sign {
+    background-color: #007bff;
+    border: none;
+    border-radius: 5px;
+    color: #fff;
+    font-size: 18px;
+    padding: 10px 20px;
+    cursor: pointer;
+  }
+  
+  .error-message-sign {
+    color: red;
+    font-size: 14px;
+    margin-top: 10px;
+  }
+  
+  p {
+    font-size: 16px;
+    margin-top: 20px;
+  }
+  
+  
+  
+  a:hover {
+    text-decoration: underline;
+  }
+  
+  

@@ -32,7 +32,7 @@ export default function Navbar() {
   return (
     <nav className="navbar navbar-expand-lg navbar-light bg-light sticky-top shadow">
       <div className="container-fluid">
-        <Link className="navbar-brand mx-5" to="/">
+        <Link className="title navbar-brand mx-5" to="/">
           HANDSUP
         </Link>
         <button

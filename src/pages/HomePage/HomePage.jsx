@@ -6,6 +6,9 @@ import SignUpModal from "../../components/Modal/SignUpModal";
 import Cards from "../../components/Card&Carrusel/Cards";
 import ImageHome from '../../assets/imagehome.jpg'
 import Carrusel from "../../components/Card&Carrusel/Carrusel";
+import CardsPacks from "../../components/Card&Carrusel/CardsPacks";
+
+
 
 
 export default function HomePage() {
@@ -33,10 +36,16 @@ export default function HomePage() {
         </div>
       </div>
       <Cards />
-      <div className="homepage-container">
-        <img src={ImageHome} alt="imageHome" />
-        <div className="carrusel-container">
+      <div className="homepage-container mt-5">
           <h2 className="text-center">Maybe Prefer a Complete Adventure</h2>
+        <div className="carrusel-container">
+          <Carrusel />
+        </div>
+      </div>
+        <CardsPacks/>
+        <div className="homepage-container mt-5">
+          <h2 className=" titles-home text-center">Maybe Prefer a Complete Adventure</h2>
+        <div className="carrusel-container">
           <Carrusel />
         </div>
       </div>

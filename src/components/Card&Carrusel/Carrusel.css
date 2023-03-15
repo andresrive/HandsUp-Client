@@ -1,16 +1,41 @@
-.container-carrusel {
-    margin-top: 4rem;
-  }
-  
-  .col-carrusel {
-    margin-right: 1rem;
-    margin-bottom: 1rem;
-  }
-  
-  .card-img-full-height-carrusel {
-    height: 100%;
-    width: 100%;
-    object-fit: cover;
-  }
-  
+
+.container-carrusel-img {
+  margin-top: 4rem;
+}
+
+.carrusel-container {
+  display: flex;
+  flex-wrap: nowrap;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+}
+
+.carrusel-item {
+  flex: 0 0 auto;
+  margin-right: 1rem;
+  scroll-snap-align: start;
+}
+
+/* Tarjetas de plan en el carrusel */
+.col-carrusel {
+  width: 700px;
+  padding: 0.5rem;
+}
+
+.carrusel-card {
+  border: none;
+  background-color: #fff;
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+}
+
+.card-carrusel-img {
+  width: 100%;
+  height: 350px; /* ajusta la altura según tus necesidades */
+  object-fit: cover;
+}
+
+.card-carrusel-img:hover {
+  cursor: pointer;
+}
+
   

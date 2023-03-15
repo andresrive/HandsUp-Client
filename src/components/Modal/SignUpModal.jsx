@@ -3,6 +3,7 @@ import { Link, useNavigate } from "react-router-dom";
 import authService from "../../services/auth.service";
 import { Modal, Button, Form } from "react-bootstrap";
 import LoginModal from "./LoginModal";
+import './SignUpModal.css'
 
 export default function SignUpModal({ onClose }) {
   const [email, setEmail] = useState("");
@@ -44,19 +45,19 @@ export default function SignUpModal({ onClose }) {
   };
 
   return (
-    <Modal show={true} onHide={handleClose}>
-      <div className="modal-content">
-        <div className="modal-header">
-          <h2>Sign Up</h2>
-          <button className="close-button" onClick={handleClose}>
+    <Modal className="my-modal-sign" show={true} onHide={handleClose}>
+      <div className="modal-content-sign">
+        <div className="modal-header-sign">
+          <h2 className="modal.title-sign">Sign Up</h2>
+          <button className="close-button-sign" onClick={handleClose}>
             x
           </button>
         </div>
-        <div className="modal-body">
-          <Form.Group className="form-group" controlId="formBasicUsername">
-            <Form.Label className="modal.form" >User Name:</Form.Label>
+        <div className="modal-body-sign">
+          <Form.Group className="form-group-sign" controlId="formBasicUsername">
+            <Form.Label className="modal.form-sign" >User Name:</Form.Label>
             <Form.Control
-              className="form-control"
+              className="form-control-sign"
               type="text"
               placeholder="Enter username"
               value={username}
@@ -65,8 +66,8 @@ export default function SignUpModal({ onClose }) {
           </Form.Group>
 
           <Form onSubmit={handleSignupSubmit}>
-            <Form.Group className="form-group" controlId="formBasicEmail">
-              <Form.Label>Email:</Form.Label>
+            <Form.Group className="form-group-sign" controlId="formBasicEmail">
+              <Form.Label className="form-label-sign">Email:</Form.Label>
               <Form.Control
                 type="email"
                 placeholder="Enter email"
@@ -75,8 +76,8 @@ export default function SignUpModal({ onClose }) {
               />
             </Form.Group>
 
-            <Form.Group className="form-group" controlId="formBasicPassword">
-              <Form.Label className="form-label" >Password:</Form.Label>
+            <Form.Group className="form-group-sign" controlId="formBasicPassword">
+              <Form.Label className="form-label-sign" >Password:</Form.Label>
               <Form.Control
                 type="password"
                 placeholder="Password"
@@ -85,30 +86,22 @@ export default function SignUpModal({ onClose }) {
               />
             </Form.Group>
 
-            <Form.Group className="form-group" controlId="formBasicPasswordRepeat">
-              <Form.Label className="form-label">Repeat Password:</Form.Label>
+            <Form.Group className="form-group-sign" controlId="formBasicPasswordRepeat">
+              <Form.Label className="form-label-sign">Repeat Password:</Form.Label>
               <Form.Control
-                className="form-control"
+                className="form-control-sign"
                 type="password"
                 placeholder="Repeat Password"
                 value={passwordRepeat}
                 onChange={handlePasswordRepeat}
               />
             </Form.Group>
-
-            {/* <button
-              className="close-button"
-              type="button"
-              onClick={handleClose}
-            >
-              Close
-            </button> */}
-            <Button variant="primary" type="submit">
+            <Button className="btn-primary1-sign"  type="submit">
               Sign Up
             </Button>
           </Form>
 
-          {errorMessage && <p className="error-message">{errorMessage}</p>}
+          {errorMessage && <p className="error-message-sign">{errorMessage}</p>}
 
           <p>Already have an account?</p>
           <Link to="#" onClick={handleModalOpen}>
