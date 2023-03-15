@@ -5,6 +5,7 @@ import { uploadImage } from "../../services/upload.service"
 import { AuthContext } from "../../context/auth.context"
 import Calendar from '../Calendar'
 import MyCkEditor from "../../inputEditor/MyCkEditor";
+import './FormEditPlan.css'
 
 export default function FormEditPlan({ planId }) {
 
@@ -77,29 +78,32 @@ export default function FormEditPlan({ planId }) {
 
     console.log("AUTHOR",)
 
-    return (<>
-        <form onSubmit={handleSubmit}>
-            <div className="form-floating mb-3">
-                <input type="text" className="form-control" id="floatingTitle" value={title} onChange={(e) => setTitle(e.target.value)} />
-                <label htmlFor="floatingTitle">Title</label>
-            </div>
-            <div className="form-floating">
-                <MyCkEditor descriptionHandler={descriptionHandler} />
-            </div>
-            <div className="mb-3">
-                <label htmlFor="formFile" className="form-label">Add your image here</label>
-                <input className="form-control" type="file" onChange={(e) => handleFileUpload(e)} id="formFile" name="images" />
-            </div>
-            <div className="mb-3">
-                <Calendar onRangeChange={handleRangeChange} />
-            </div>
-            <div className="form-floating mb-3">
-                <input type="text" className="form-control" id="floatingDestination" value={destination} onChange={(e) => setDestination(e.target.value)} />
-                <label htmlFor="floatingDestination">Destination</label>
-            </div>
-            {<button className="btn btn-info" type="submit">Edit plan</button>}
-            <Link to={`/plans/${planId}`}><button>Go back</button></Link>
-            <button className="btn btn-danger" type="button" onClick={() => deleteHandler(planId)}>Delete plan</button>
-        </form>
-    </>)
+
+    return (
+        <>
+            <form onSubmit={handleSubmit}>
+                <div className="form-floating mb-3">
+                    <input type="text" className="form-control" id="floatingTitle" value={title} onChange={(e) => setTitle(e.target.value)} />
+                    <label htmlFor="floatingTitle">Title</label>
+                </div>
+                <div className="form-floating">
+                    <MyCkEditor descriptionHandler={descriptionHandler} />
+                </div>
+                <div className="mb-3">
+                    <label htmlFor="formFile" className="form-label">Add your image here</label>
+                    <input className="form-control" type="file" onChange={(e) => handleFileUpload(e)} id="formFile" name="images" />
+                </div>
+                <div className="mb-3">
+                    <Calendar onRangeChange={handleRangeChange} />
+                </div>
+                <div className="form-floating mb-3">
+                    <input type="text" className="form-control" id="floatingDestination" value={destination} onChange={(e) => setDestination(e.target.value)} />
+                    <label htmlFor="floatingDestination">Destination</label>
+                </div>
+                {<button className="btn btn-info" type="submit">Edit plan</button>}
+                <Link to={`/plans/${planId}`}><button>Go back</button></Link>
+                <button className="btn btn-danger" type="button" onClick={() => deleteHandler(planId)}>Delete plan</button>
+            </form>
+        </>
+    )
 }

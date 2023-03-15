@@ -1,9 +1,9 @@
 import React, { useState, useContext, useEffect } from 'react';
-import "./ProfilePage.css";
 import { Link, useNavigate } from "react-router-dom"
 import { addAvatar } from '../../services/upload.service';
 import routeService from '../../services/route.service';
 import { AuthContext } from '../../context/auth.context';
+import Navbar from '../Navbar/Navbar';
 
 function FormEditProfile() {
 
@@ -59,28 +59,54 @@ function FormEditProfile() {
     console.log("CURRENT USER", currentUser)
 
     return (
-        <div>
-            <h1>Profile page</h1>
+        <>
+            <Navbar />
+            <div>
+                <h1>Profile page</h1>
 
-            <form onSubmit={handleSubmit}>
-                <img src={avatarUrl} className="card-img-top" alt="avatar" />
-                <div className="form-floating mb-3">
-                    <input type="text" className="form-control" id="floatingUsername" value={username} onChange={(e) => setUsername(e.target.value)} />
-                    <label htmlFor="floatingUsername">Username</label>
-                </div>
-                <div className="form-floating">
-                    <textarea type="text" className="form-control" id="floatingEmail" style={{ height: 100 }} value={email} onChange={(e) => setEmail(e.target.value)} />
-                    <label htmlFor="floatingEmail">Email</label>
-                </div>
-                <div className="mb-3">
-                    <label htmlFor="formAvatar" className="form-label">Change your avatar</label>
-                    <input className="form-control" type="file" onChange={(e) => handleFileUpload(e)} name="images" id="formAvatar" />
-                </div>
+                <form onSubmit={handleSubmit}>
+                    <img src={avatarUrl} className="card-img-top" alt="avatar" />
+                    <div className="form-floating mb-3">
+                        <input
+                            type="text"
+                            className="form-control"
+                            id="floatingUsername"
+                            value={username}
+                            onChange={(e) => setUsername(e.target.value)}
+                        />
+                        <label htmlFor="floatingUsername">Username</label>
+                    </div>
+                    <div className="form-floating">
+                        <textarea
+                            type="text"
+                            className="form-control"
+                            id="floatingEmail"
+                            style={{ height: 100 }}
+                            value={email}
+                            onChange={(e) => setEmail(e.target.value)}
+                        />
+                        <label htmlFor="floatingEmail">Email</label>
+                    </div>
+                    <div className="mb-3">
+                        <label htmlFor="formAvatar" className="form-label">
+                            Change your avatar
+                        </label>
+                        <input
+                            className="form-control"
+                            type="file"
+                            onChange={(e) => handleFileUpload(e)}
+                            name="images"
+                            id="formAvatar"
+                        />
+                    </div>
 
-                <button className="btn btn-info" type="submit">Edit profile</button>
-                {/* <Link to={`/plans/${plansId}`}><button>Go back</button></Link> */}
-            </form>
-        </div>
+                    <button className="btn btn-info" type="submit">
+                        Edit profile
+                    </button>
+                    {/* <Link to={`/plans/${plansId}`}><button>Go back</button></Link> */}
+                </form>
+            </div>
+        </>
     );
 }
 

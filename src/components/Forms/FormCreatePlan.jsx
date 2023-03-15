@@ -52,11 +52,7 @@ export default function FormCreatePlan() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-
-    console.log("handleSubmit: ", e);
-    console.log("DATE TO:", fromDate);
-    console.log("DATE FROM:", toDate);
-
+    
     routeService
       .createPlan({ title, description, images, fromDate, toDate, destination })
       //importar la date de calendar?
@@ -73,71 +69,50 @@ export default function FormCreatePlan() {
   return (
     <>
       <Navbar />
-      {/* <form onSubmit={handleSubmit}>
-            <div classNameName="form-floating mb-3">
-                <input type="text" classNameName="form-control" id="floatingTitle" value={title} onChange={(e) => setTitle(e.target.value)} />
-                <label htmlFor="floatingTitle">Title</label>
-            </div>
-            <div classNameName="form-floating">
-                <MyCkEditor descriptionHandler={descriptionHandler} />
-            </div>
-            <div classNameName="mb-3">
-                <label htmlFor="formFileMultiple" classNameName="form-label">Add your image here</label>
-                <input classNameName="form-control" type="file" onChange={(e) => handleFileUpload(e)} id="formFileMultiple" name="images" />
-            </div>
-            <div classNameName="mb-3">
-                <Calendar onRangeChange={handleRangeChange} />
-            </div>
-            <div classNameName="mb-3">
-                <label htmlFor="formDestination" classNameName="form-label">Add a destination</label>
-                <input classNameName="form-control" type="text" value={destination} onChange={(e) => setDestination(e.target.value)} id="formDestination" />
-            </div>
-            <button type="submit" classNameName="btn btn-info">Create plan</button>
-        </form> */}
       <div className="form-container-plans mt-5">
         <form onSubmit={handleSubmit}>
-          <div className="form-floating-plans">
+          <div className="form-floating form-floating-plans">
             <input
               type="text"
-              className="form-control-plans"
+              className="form-control form-control-plans"
               id="floatingTitle"
               value={title}
               onChange={(e) => setTitle(e.target.value)}
             />
-            <label for="floatingTitle">Title</label>
+            <label HtmlFor="floatingTitle">Title</label>
           </div>
 
-          <div className="form-floating-plans">
+          <div className="form-floating form-floating-plans">
             <input
-              className="form-control-plans"
+              className="form-control form-control-plans"
               type="text"
               value={destination}
               onChange={(e) => setDestination(e.target.value)}
               id="formDestination"
             />
-            <label for="formDestination">Add a destination</label>
+            <label HtmlFor="formDestination">Add a destination</label>
           </div>
 
-          <div className="row-plans">
-            <div className="col-plans">
-              <div className="form-floating-plans">
+          <div className="row row-plans">
+            <div className="col col-plans">
+              <div className="form-floating form-floating-plans">
                 <input
-                  className="form-control-plans"
+                  className="form-control form-control-plans"
                   type="file"
                   onChange={(e) => handleFileUpload(e)}
                   id="formFileMultiple"
                   name="images"
                 />
-                <label for="formFileMultiple">Add your image here</label>
+                <label HtmlFor="formFileMultiple">Add your image here</label>
               </div>
             </div>
 
-            <div className="col-plans">
+            <div className="col col-plans ">
               <Calendar onRangeChange={handleRangeChange} />
             </div>
           </div>
 
-          <div className="form-floating-plans">
+          <div className="form-floating form-floating-plans">
             <MyCkEditor descriptionHandler={descriptionHandler} />
           </div>
 

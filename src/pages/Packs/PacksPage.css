@@ -1,36 +1,36 @@
-  .plan-container {
+.pack-container {
     display: flex;
     justify-content: center;
     align-items: center;
     flex-wrap: wrap;
   }
   
-  .plan-container .col {
+  .pack-container .col {
     flex-basis: 20%;
   }
   
-  .plan-container .card {
+  .pack-container .card {
     border: none;
     background-color: #f8f9fa;
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
     transition: transform 0.2s ease-in-out;
   }
   
-  .plan-container .card:hover {
+  .pack-container .card:hover {
     transform: translateY(-5px);
   }
   
-  .plan-container .card-img-top {
+  .pack-container .card-img-top {
     height: 200px;
     object-fit: cover;
   }
   
-  .plan-container .card-title {
+  .pack-container .card-title {
     font-size: 1.2rem;
     font-weight: bold;
   }
   
-  .plan-container .card-text {
+  .pack-container .card-text {
     font-size: 1rem;
     margin-bottom: 0.5rem;
   }
@@ -51,13 +51,13 @@
     color: #f8f9fa;
   }
 
-  .planPage-container {
+  .packPage-container {
     position: relative;
     height: 400px;
     overflow: hidden;
   }
   
-  .planPage-container img {
+  .packPage-container img {
     position: absolute;
     top: 50%;
     left: 50%;
@@ -67,15 +67,10 @@
     object-fit: cover;
   }
   
-  .planPage-container .search-bar-container {
+  .packPage-container .search-bar-container {
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
     z-index: 1;
   }
-
-  
-  
-  
-  

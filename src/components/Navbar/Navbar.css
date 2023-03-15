@@ -20,15 +20,11 @@
   .buton:hover {
     letter-spacing: 3px;
     background-color: #0b0a0a; 
-    color: #FFF;
-    box-shadow: rgb(255 215 0 / 50%) 0px 7px 29px 0px; 
+    color: #FFF; 
   }
-  
   .buton:active {
     letter-spacing: 3px;
-    background-color: #FFA500; 
     color: #FFF;
-    box-shadow: rgb(255 165 0 / 50%) 0px 0px 0px 0px;
     transform: translateY(10px);
     transition: 100ms;
   }

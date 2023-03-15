@@ -1,0 +1,72 @@
+form {
+    display: flex;
+    flex-direction: column;
+    max-width: 500px;
+    margin: 0 auto;
+  }
+  
+  .form-floating {
+    margin-bottom: 1rem;
+  }
+  
+  .form-floating label {
+    padding: 0.25rem 0.5rem;
+    margin-left: 1rem;
+    font-size: 0.9rem;
+    color: #495057;
+    pointer-events: none;
+    position: absolute;
+    top: 50%;
+    left: 16px;
+    transform: translateY(-50%);
+    transition: all 0.2s ease-in-out;
+  }
+  
+  .form-floating input,
+  .form-floating textarea {
+    padding: 1rem;
+    font-size: 1rem;
+    border: none;
+    border-radius: 0;
+    border-bottom: 1px solid #ced4da;
+    background-color: transparent;
+    box-shadow: none !important;
+  }
+  
+  .form-floating input:focus,
+  .form-floating textarea:focus {
+    outline: none;
+    box-shadow: none !important;
+    border-color: #007bff;
+  }
+  
+  .form-floating input:focus + label,
+  .form-floating textarea:focus + label,
+  .form-floating input:not(:placeholder-shown) + label,
+  .form-floating textarea:not(:placeholder-shown) + label {
+    font-size: 0.75rem;
+    color: #007bff;
+    top: 0;
+    transform: translateY(-50%);
+  }
+  
+  .btn {
+    padding: 0.5rem 1rem;
+    font-size: 1rem;
+    font-weight: 500;
+    line-height: 1.5;
+    border-radius: 0.25rem;
+    transition: all 0.2s ease-in-out;
+  }
+  
+  .btn-info {
+    color: #fff;
+    background-color: #007bff;
+    border-color: #007bff;
+  }
+  
+  .btn-info:hover {
+    background-color: #0069d9;
+    border-color: #0062cc;
+  }
+  

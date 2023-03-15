@@ -24,7 +24,7 @@ export default function SignUpModal({ onClose }) {
       .signup(requestBody)
       .then((response) => {
         onClose(); // cerrar modal al registrarse
-        navigate("/login");
+        navigate("/");
       })
       .catch((error) => {
         const errorDescription = error.response.data.message;
@@ -96,13 +96,13 @@ export default function SignUpModal({ onClose }) {
               />
             </Form.Group>
 
-            <button
+            {/* <button
               className="close-button"
               type="button"
               onClick={handleClose}
             >
               Close
-            </button>
+            </button> */}
             <Button variant="primary" type="submit">
               Sign Up
             </Button>

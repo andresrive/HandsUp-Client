@@ -4,8 +4,13 @@ import routeService from "../../services/route.service";
 import Navbar from "../../components/Navbar/Navbar";
 import "./PlanDetailsPage.css";
 import { AuthContext } from "../../context/auth.context";
+import MyChatComponent from "../../components/talkjs/MyChatComponent";
 
 function PlanDetailsPage() {
+    const [showChat, setShowChat] = useState(false);
+    const handleShowChat = () => {
+        setShowChat(!showChat);
+    };
     const { planId } = useParams();
 
     const { user } = useContext(AuthContext)
@@ -13,6 +18,8 @@ function PlanDetailsPage() {
     const [currentUser, setCurrentUser] = useState(null)
     const [plan, setPlan] = useState(0);
     const [isLoading, setIsLoading] = useState(true)
+
+    //   const [plan, setPlan] = useState({});
 
     const [html, setHtml] = useState("");
     useEffect(() => {
@@ -44,33 +51,43 @@ function PlanDetailsPage() {
     return (
         <>
             <Navbar />
-            <div className="details-Page">
-                <div className="card">
-                    <img
-                        src={plan.images}
-                        className="details-img card-img-top mx-auto"
-                        alt={plan.title}
-                    />
-                    <div className="details-body card-body">
-                        <h5 className="details-title card-title">Name: {plan.title}</h5>
-                        <div className="details-text card-text">
-                            <p>
-                                <strong>Description:</strong>
-                            </p>
-                            <div dangerouslySetInnerHTML={{ __html: html }}></div>
-                        </div>
-                        <div className="button-group">
-                            <Link to="/">
-                                <button className="details-button">Join plan</button>
-                            </Link>
-                            {!isLoading && currentUser._id === plan.author._id && <Link to={`/plans/${planId}/edit`}>
-                                <button className="details-button">Edit plan</button>
-                            </Link>}
+            <div className="details-container">
+                <div className="details-Page">
+                    <div className="card">
+                        <img
+                            src={plan.images}
+                            className="details-img card-img-top mx-auto"
+                            alt={plan.title}
+                        />
+                        <div className="details-body card-body">
+                            <h5 className="details-title card-title">Name: {plan.title}</h5>
+                            <div className="details-text card-text">
+                                <p>
+                                    <strong>Description:</strong>
+                                </p>
+                                <div dangerouslySetInnerHTML={{ __html: html }}></div>
+                            </div>
+                            <div className="button-group">
+                                {/* <Link to=""> */}
+                                <button className="details-button" onClick={handleShowChat}>
+                                    Join plan
+                                </button>
+                                {/* </Link> */}
+                                {!isLoading && currentUser._id === plan.author._id && <Link to={`/plans/${planId}/edit`}>
+                                    <button className="details-button">Edit plan</button>
+                                </Link>}
+                            </div>
                         </div>
                     </div>
                 </div>
+                {/* <div className="chat">
+      {showChat && <MyChatComponent plan={plan} />}
+        
+      </div> */}
+                <div className={`chat ${showChat ? "showNow" : ""}`}>
+                    {showChat && <MyChatComponent plan={plan} />}
+                </div>
             </div>
-
         </>
     );
 }
