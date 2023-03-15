@@ -73,7 +73,9 @@ function PlanDetailsPage() {
                                     Join plan
                                 </button>
                                 {/* </Link> */}
+                                {console.log(plan.author._id)}
                                 {!isLoading && currentUser._id === plan.author._id && <Link to={`/plans/${planId}/edit`}>
+
                                     <button className="details-button">Edit plan</button>
                                 </Link>}
                             </div>
