@@ -8,6 +8,7 @@ import ImageHome from "../../assets/planes.jpeg";
 import Carrusel from "../../components/Card&Carrusel/Carrusel";
 import CardsPacks from "../../components/Card&Carrusel/CardsPacks";
 import { AuthContext } from "../../context/auth.context";
+import { Link } from "react-router-dom";
 
 export default function HomePage() {
   const [showModal, setShowModal] = useState(false);
@@ -44,12 +45,14 @@ export default function HomePage() {
             </div>
           </div>
           <CardsPacks />
-          <div className="homepage-img-container mt-5">
+          <div className="homepage-img-container mt-4">
             <img src={ImageHome} alt="imageHome" />
             <div className="carrusel-img-container">
               <h2 className=" text-homepage text-center">
-                Maybe Prefer a Complete Adventure
+              Explore the World with Our Travel Packs
               </h2>
+              <p>Welcome to our travel packages website. We specialize in creating unique experiences so you can enjoy your vacation to the fullest. We offer a wide selection of travel packages for all tastes and budgets, from international destinations to weekend getaways. Our goal is to provide you with an unforgettable and worry-free trip. Plus, you can customize each travel package according to your needs and preferences. Start planning your next adventure with us today!</p>
+              <Link className="boton-about" to="/packs">vamos a plans</Link>
             </div>
           </div>
           <Cards />

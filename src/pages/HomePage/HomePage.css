@@ -124,6 +124,23 @@ h2{
     font-weight: bold;
     text-align: center;
   }
-
+  .homepage-img-container p{
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.5rem;
+  }
   
+  .boton-about{
+    display: inline-block;
+    background-color: white;
+    color: black;
+    text-align: center;
+    padding: 10px 20px;
+    border: 2px solid black;
+    border-radius: 5px;
+    text-decoration: none;
+  }
   
+  .boton-about:hover {
+    background-color: black;
+    color: white;
+  }
