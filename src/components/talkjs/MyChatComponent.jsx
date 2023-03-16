@@ -33,7 +33,6 @@ function MyChatComponent({ plan }) {
         })
 
         const people = plan.participants.map(participant => {
-          console.log("PARTICIPANT ID", participant)
           return new Talk.User({
             id: participant._id,
             name: participant.username,
@@ -41,7 +40,6 @@ function MyChatComponent({ plan }) {
             photoUrl: participant.images,
           });
         });
-        console.log("PLAN IMAGES", plan.images)
 
         const conversation = window.talkSession.getOrCreateConversation(plan._id);
         people.forEach(participant => {
