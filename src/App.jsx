@@ -9,6 +9,7 @@ import LoginPage from "./pages/LoginPage/LoginPage";
 
 import IsPrivateUser from "./components/IsPrivate/isPrivateUser";
 import IsPrivateCompany from "./components/IsPrivate/isPrivateCompany";
+import IsPrivateForUsers from "./components/IsPrivate/isPrivateForUsers";
 import IsPrivate from "./components/IsPrivate/IsPrivate";
 import IsAnon from "./components/IsAnon/IsAnon";
 
@@ -36,12 +37,12 @@ function App() {
         <Route path="/plans" element={<PlansPage />} />
         <Route path="/plans/:planId" element={<PlanDetailsPage />} />
         <Route path="/plans/create" element={<IsPrivateCompany><PlanCreatePage /></IsPrivateCompany>} />
-        <Route path="/plans/:planId/edit" element={<IsPrivateCompany><PlanEditPage /></IsPrivateCompany>} /> {/*isUserId*/}
+        <Route path="/plans/:planId/edit" element={<IsPrivateUser><PlanEditPage /></IsPrivateUser>} /> {/*isUserId*/}
 
         <Route path="/packs" element={<PacksPage />} />
         <Route path="/packs/:packId" element={<PacksDetailsPage />} />
-        <Route path="/packs/create" element={<IsPrivate><PacksCreatePage /></IsPrivate>} /> {/*isCompany*/}
-        <Route path="/packs/:packId/edit" element={<IsPrivate><PacksEditPage /></IsPrivate>} />
+        <Route path="/packs/create" element={<IsPrivateForUsers><PacksCreatePage /></IsPrivateForUsers>} /> {/*isCompany*/}
+        <Route path="/packs/:packId/edit" element={<IsPrivateForUsers><PacksEditPage /></IsPrivateForUsers>} />
       </Routes>
     </div>
   );

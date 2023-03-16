@@ -146,11 +146,7 @@ import MyChatComponent from "../../components/talkjs/MyChatComponent";
 
 function PackDetailsPage() {
   const { packId } = useParams();
-  const [showChat, setShowChat] = useState(false);
-  //   const handleShowChat = () => {
-  //     setShowChat(!showChat);
-  //   };
-
+  
   const { user } = useContext(AuthContext)
 
   const [currentUser, setCurrentUser] = useState(null)
