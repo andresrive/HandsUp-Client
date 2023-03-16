@@ -17,6 +17,7 @@ export default function HomePage() {
 
   useEffect(() => {
     setIsLoading(false)
+
   }, [])
 
   const handleGetStarted = () => {
