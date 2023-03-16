@@ -65,11 +65,6 @@
 .btn-plans:hover {
   background-color: #00020344;
 }
-/* 
-.btn-plans:focus {
-  outline: 0;
-  box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
-} */
 
 .row-plans {
   display: flex;
@@ -92,4 +87,3 @@
     max-width: 50%;
   }
 }
-

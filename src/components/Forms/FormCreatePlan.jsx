@@ -113,7 +113,7 @@ export default function FormCreatePlan() {
             </div>
           </div>
 
-          <div className="form-floating form-floating-plans">
+          <div className="form-floating form-floating-plans ">
             <MyCkEditor descriptionHandler={descriptionHandler} />
           </div>
 
