@@ -7,7 +7,7 @@ import routeService from "../../services/route.service";
 function IsPrivateUser({ children }) {
   const { isLoggedIn, isLoading, user } = useContext(AuthContext);
   const {planId} = useParams();
-  const [plan, setPlan] = useState(0)
+  const [plan, setPlan] = useState([])
   const [loading, setLoading] = useState(true)
 
   useEffect(() => {
@@ -20,7 +20,7 @@ function IsPrivateUser({ children }) {
 }, []);
 
   // If the authentication is still loading ⏳
-  if (isLoading) {
+  if (loading) {
     return <Loading />;
   }
 

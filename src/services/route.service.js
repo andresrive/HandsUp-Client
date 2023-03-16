@@ -48,6 +48,9 @@ class RouteService {
   joinPlan = async (id, requestsBody) => {
     return this.api.post(`/plans/${id}/join`, requestsBody, this.headersObject)
   }
+  joinPack = async (id, requestsBody) => {
+    return this.api.post(`/packs/${id}/join`, requestsBody, this.headersObject)
+  }
 
   updateOnePlan = async (id, requestBody) => {
     return this.api.put(`/plans/${id}/edit`, requestBody, this.headersObject);
