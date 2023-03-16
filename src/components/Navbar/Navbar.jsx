@@ -11,7 +11,7 @@ export default function Navbar() {
     setShowLoginModal(false);
   };
 
-  const { isLoggedIn, logOutUser } = useContext(AuthContext);
+  const { isLoggedIn, logOutUser, user } = useContext(AuthContext);
 
   const [dropdownOpen, setDropdownOpen] = useState(false);
   const [dropdownOpen2, setDropdownOpen2] = useState(false);
@@ -68,16 +68,17 @@ export default function Navbar() {
                 className={`dropdown-menu ${dropdownOpen ? "show" : ""}`}
                 aria-labelledby="navbarDropdownMenuLink"
               >
-              <li>
+                <li>
                   <Link className="dropdown-item" to="/plans">
                     All Plans
                   </Link>
                 </li>
-                <li>
-                  <Link className="dropdown-item" to="/plans/create">
-                    Create Plan
-                  </Link>
-                </li>
+                {isLoggedIn &&
+                  <li>
+                    <Link className="dropdown-item" to="/plans/create">
+                      Create Plan
+                    </Link>
+                  </li>}
               </ul>
             </li>
             <li
@@ -99,23 +100,24 @@ export default function Navbar() {
                 className={`dropdown-menu ${dropdownOpen2 ? "show" : ""}`}
                 aria-labelledby="navbarDropdownMenuLink2"
               >
-              <li>
+                <li>
                   <Link className="dropdown-item  " to="/packs">
                     All Packs
                   </Link>
                 </li>
-                <li>
-                  <Link className="dropdown-item  " to="/packs/create">
-                    Create Pack
-                  </Link>
-                </li>
+                {isLoggedIn && user.isCompany &&
+                  <li>
+                    <Link className="dropdown-item  " to="/packs/create">
+                      Create Pack
+                    </Link>
+                  </li>}
               </ul>
             </li>
-            <li className="nav-item">
+            {isLoggedIn && <li className="nav-item">
               <Link className="nav-link active" aria-current="page" to="/profile">
                 Profile
               </Link>
-            </li>
+            </li>}
           </ul>
           <div className="d-flex">
             {isLoggedIn ? (
@@ -141,6 +143,6 @@ export default function Navbar() {
         </div>
       </div>
     </nav>
-    
+
   );
 }

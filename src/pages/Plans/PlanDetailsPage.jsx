@@ -82,8 +82,8 @@ function PlanDetailsPage() {
                                 <div className="details-text card-text">
                                     <div dangerouslySetInnerHTML={{ __html: html }}></div>
                                 </div>
-                                <p>{plan.fromDate} / {plan.toDate}</p>
-                                <p>`There are {plan.participants.length}` people in this plan</p>
+                                <div>{plan.fromDate} / {plan.toDate}</div>
+                                <div><p>There are {plan.participants.length} people enrolled in this plan</p></div>
                                 <div className="button-group">
                                     {/* <Link to=""> */}
                                     {/* {isLoggedIn && currentUser && */}

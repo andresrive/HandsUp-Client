@@ -193,10 +193,14 @@ function PackDetailsPage() {
             />
             <div className="details-body card-body">
               <h5 className="details-title card-title">{pack.title}</h5>
+              <h6><i>{pack.destination}</i></h6>
               <div className="details-text card-text">
                 <div dangerouslySetInnerHTML={{ __html: html }}></div>
               </div>
-
+              <div>{pack.fromDate} / {pack.toDate}</div>
+              <div>{pack.itinerary}</div>
+              <div><p>There are {pack.participants.length} people enrolled in this pack</p></div>
+              <div>€{pack.price}</div>
               <div className="button-group">
                 {/* <Link to=""> */}
                 {isLoggedIn && currentUser &&
