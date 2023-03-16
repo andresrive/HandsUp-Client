@@ -51,7 +51,7 @@ h2{
     display: inline-block;
     border-radius: 6em;
     transition: all .2s;
-    border: none;
+    border: 2px solid black;
     font-family: 'Poppins', sans-serif;;
     font-weight: 500;
     color: black;
@@ -136,11 +136,17 @@ h2{
     text-align: center;
     padding: 10px 20px;
     border: 2px solid black;
-    border-radius: 5px;
+    border-radius: 25px;
     text-decoration: none;
   }
   
   .boton-about:hover {
     background-color: black;
     color: white;
+  }
+
+  .titles-home{
+    font-size: 3rem;
+    font-weight: bold;
+    font-family: 'Poppins', sans-serif;
   }
