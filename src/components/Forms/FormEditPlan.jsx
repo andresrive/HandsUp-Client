@@ -1,18 +1,14 @@
-import { useContext, useEffect, useState } from "react"
+/* eslint-disable */
+import {  useEffect, useState } from "react"
 import routeService from "../../services/route.service"
 import { useNavigate, Link } from "react-router-dom"
 import { uploadImage } from "../../services/upload.service"
-import { AuthContext } from "../../context/auth.context"
 import Calendar from '../Calendar'
 import MyCkEditor from "../../inputEditor/MyCkEditor";
 import './FormEditPlan.css'
 import Navbar from "../Navbar/Navbar"
 
 export default function FormEditPlan({ planId }) {
-
-    // const { user } = useContext(AuthContext)
-
-    // const [currentUser, setCurrentUser] = useState(null)
 
     const navigate = useNavigate()
 

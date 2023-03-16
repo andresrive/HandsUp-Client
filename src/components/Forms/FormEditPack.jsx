@@ -1,3 +1,4 @@
+/* eslint-disable */
 import { useContext, useEffect, useState } from "react"
 import routeService from "../../services/route.service"
 import { useNavigate, Link } from "react-router-dom"
@@ -9,10 +10,6 @@ import './FormEditPack.css'
 import Navbar from "../Navbar/Navbar"
 
 export default function FormEditPack({ packId }) {
-
-    // const { user } = useContext(AuthContext)
-
-    // const [currentUser, setCurrentUser] = useState(null)
 
     const navigate = useNavigate()
 

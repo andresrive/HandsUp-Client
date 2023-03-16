@@ -61,9 +61,6 @@ function LoginModal({ showModal, setShowModal }) {
               />
             </Form.Group>
             {errorMessage && <p className="error-message">{errorMessage}</p>}
-            {/* <button className="btn-secondary2" onClick={() => setShowModal(false)}>
-              Close
-            </button> */}
             <button className="btn-primary1" type="submit">
               Log in
             </button>

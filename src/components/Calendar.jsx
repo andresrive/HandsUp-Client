@@ -1,4 +1,5 @@
-import React, { useEffect, useState } from 'react';
+/* eslint-disable */
+import React, { useState } from 'react';
 import { DayPicker } from 'react-day-picker';
 import 'react-day-picker/dist/style.css';
 import moment from 'moment'
@@ -8,22 +9,7 @@ export default function App({ onRangeChange, dateTo, dateFrom }) {
     const [selectedRange, setSelectedRange] = useState('');
     const [fromDate, setfromDate] = useState(dateFrom);
     const [toDate, settoDate] = useState(dateTo);
-
-    // useEffect(() => {
-    //     console.log("FROMDATE USEEFFECT", fromDate)
-
-    // }, [fromDate])
-
-    // useEffect(() => {
-    //     console.log("TODATE USEEFFECT", toDate)
-
-    // }, [toDate])
-
-    // useEffect(() => {
-    //     console.log("SELECTEDRANGE USEEFFECT", selectedRange)
-    //     // console.log(moment(selectedRange.from, "DD-MM-YYYY"))
-    // }, [selectedRange])
-
+    
     const handleFromChange = (e) => {
         setfromDate(e.target.value);
     };
@@ -43,9 +29,6 @@ export default function App({ onRangeChange, dateTo, dateFrom }) {
 
 
     };
-
-
-
     return (
         <DayPicker
             mode="range"

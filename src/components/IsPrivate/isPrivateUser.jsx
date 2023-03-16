@@ -5,7 +5,7 @@ import Loading from "../Loading/Loading";
 import routeService from "../../services/route.service";
 
 function IsPrivateUser({ children }) {
-  const { isLoggedIn, isLoading, user } = useContext(AuthContext);
+  const { isLoggedIn, user } = useContext(AuthContext);
   const {planId} = useParams();
   const [plan, setPlan] = useState([])
   const [loading, setLoading] = useState(true)
@@ -17,6 +17,7 @@ function IsPrivateUser({ children }) {
             setLoading(false)
         })
         .catch((err) => console.log(err));
+        //eslint-disable-next-line
 }, []);
 
   // If the authentication is still loading ⏳

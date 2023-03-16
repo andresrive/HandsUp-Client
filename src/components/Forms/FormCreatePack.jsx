@@ -1,3 +1,4 @@
+/* eslint-disable */
 import { useState } from "react";
 import { uploadImage } from "../../services/upload.service.js";
 import { useNavigate } from "react-router-dom";
