@@ -62,7 +62,7 @@ export default function Navbar() {
                 aria-expanded="false"
                 onClick={() => console.log("Clicked Plans Link")}
               >
-                Plans
+                PLANS
               </Link>
               <ul
                 className={`dropdown-menu ${dropdownOpen ? "show" : ""}`}
@@ -70,13 +70,13 @@ export default function Navbar() {
               >
                 <li>
                   <Link className="dropdown-item" to="/plans">
-                    All Plans
+                    ALL PLANS
                   </Link>
                 </li>
                 {isLoggedIn &&
                   <li>
                     <Link className="dropdown-item" to="/plans/create">
-                      Create Plan
+                      CREATE PLAN
                     </Link>
                   </li>}
               </ul>
@@ -94,7 +94,7 @@ export default function Navbar() {
                 data-bs-toggle="dropdown"
                 aria-expanded="false"
               >
-                Packs
+                PACKS
               </Link>
               <ul
                 className={`dropdown-menu ${dropdownOpen2 ? "show" : ""}`}
@@ -102,20 +102,20 @@ export default function Navbar() {
               >
                 <li>
                   <Link className="dropdown-item  " to="/packs">
-                    All Packs
+                    ALL PACKS
                   </Link>
                 </li>
                 {isLoggedIn && user.isCompany &&
                   <li>
                     <Link className="dropdown-item  " to="/packs/create">
-                      Create Pack
+                      CREATE PACK
                     </Link>
                   </li>}
               </ul>
             </li>
             {isLoggedIn && <li className="nav-item">
               <Link className="nav-link active" aria-current="page" to="/profile">
-                Profile
+                PROFILE
               </Link>
             </li>}
           </ul>
