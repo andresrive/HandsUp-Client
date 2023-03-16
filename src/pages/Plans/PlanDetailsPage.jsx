@@ -5,6 +5,7 @@ import Navbar from "../../components/Navbar/Navbar";
 import "./PlanDetailsPage.css";
 import { AuthContext } from "../../context/auth.context";
 import MyChatComponent from "../../components/talkjs/MyChatComponent";
+import LoginModal from "../../components/Modal/LoginModal";
 
 function PlanDetailsPage() {
     const { planId } = useParams();
@@ -13,13 +14,25 @@ function PlanDetailsPage() {
         if (currentUser) {
             setShowChat(!showChat);
         }
+        if (!isLoggedIn){
+            handleShowLogin()
+        }
         routeService.joinPlan(planId)
-        .then(response => {
-            console.log("Hola:", response.data)
-        })
+            .then(response => {
+                console.log("Hola:", response.data)
+            })
+        
     }
+    const [showLoginModal, setShowLoginModal] = useState(false);
 
-    const { user } = useContext(AuthContext)
+    const handleShowLogin = () => {
+        setShowLoginModal(true)
+    };
+    const handleLoginClose = () => {
+        setShowLoginModal(false);
+    };
+
+    const { user, isLoggedIn } = useContext(AuthContext)
 
     const [currentUser, setCurrentUser] = useState(null)
     const [plan, setPlan] = useState(0);
@@ -69,7 +82,7 @@ function PlanDetailsPage() {
                                     <button className="details-button" onClick={handleShowChat}>
                                         Join plan
                                     </button>
-                                    {/* </Link> */}
+                                    {!isLoggedIn && <LoginModal showModal={showLoginModal} setShowModal={handleLoginClose} />}
                                     {user?._id === plan.author._id && <Link to={`/plans/${planId}/edit`}>
                                         <button className="details-button">Edit plan</button>
                                     </Link>}

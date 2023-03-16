@@ -17,5 +17,4 @@ const uploadImage = (file) => {
 };
 
 
-
 export { uploadImage }

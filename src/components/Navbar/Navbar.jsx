@@ -73,7 +73,7 @@ export default function Navbar() {
                     All Plans
                   </Link>
                 </li>
-                {isLoggedIn &&
+                {isLoggedIn && !user.isCompany &&
                   <li>
                     <Link className="dropdown-item" to="/plans/create">
                       Create Plan

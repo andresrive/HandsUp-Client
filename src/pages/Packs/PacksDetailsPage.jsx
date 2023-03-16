@@ -1,5 +1,3 @@
-
-
 import { useState, useEffect, useContext } from "react";
 import { useParams, Link } from "react-router-dom";
 import routeService from "../../services/route.service";
@@ -7,19 +5,23 @@ import Navbar from "../../components/Navbar/Navbar";
 import "./PacksDetailsPage.css";
 import { AuthContext } from "../../context/auth.context";
 import MyChatComponent from "../../components/talkjs/MyChatComponent";
+import LoginModal from "../../components/Modal/LoginModal";
+import AlertPackJoin from "../../components/Alert/AlertPackJoin";
 
 function PackDetailsPage() {
   const { packId } = useParams();
-  
-  const handleShowChat = () => {
-    
-    routeService.joinPack(packId)
-    .then(response => {
-        console.log("Hola:", response.data)
-    })
-}
 
-  const { user } = useContext(AuthContext)
+  const handleShowChat = () => {
+
+    routeService.joinPack(packId)
+      .then(response => {
+        console.log("Hola:", response.data)
+      })
+
+    handleShowLogin()
+  }
+
+  const { user, isLoggedIn } = useContext(AuthContext)
 
   const [currentUser, setCurrentUser] = useState(null)
   const [loading, setLoading] = useState(true)
@@ -45,6 +47,15 @@ function PackDetailsPage() {
     setCurrentUser(user);
   }, [user]);
 
+  const [showLoginModal, setShowLoginModal] = useState(false);
+
+  const handleShowLogin = () => {
+    setShowLoginModal(true)
+  };
+  const handleLoginClose = () => {
+    setShowLoginModal(false);
+  };
+
   return (
     <>
       <Navbar />
@@ -64,18 +75,17 @@ function PackDetailsPage() {
                 </div>
 
                 <div className="button-group">
-                  {/* <Link to=""> */}
+
                   <button className="details-button" onClick={handleShowChat} >
                     Join plan
                   </button>
-                  {/* </Link> */}
+                  {isLoggedIn ? (<AlertPackJoin showModal={showLoginModal} setShowModal={handleLoginClose} /> ): (<LoginModal showModal={showLoginModal} setShowModal={handleLoginClose} />)}
                   {currentUser?.isCompany && <Link to={`/packs/${packId}/edit`}>
                     <button className="details-button">Edit plan</button>
                   </Link>}
                 </div>
               </div>
             </div>
-            {/* {showChat && <MyChatComponent plan={plan} />} */}
           </div>
         </div>
       }
