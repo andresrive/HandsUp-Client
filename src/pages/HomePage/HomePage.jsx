@@ -32,15 +32,15 @@ export default function HomePage() {
           {showModal && <SignUpModal onClose={() => setShowModal(false)} />}
         </div>
       </div>
-      <Cards />
-      <div className="homepage-img-container">
+      <CardsPacks />
+      <div className="homepage-img-container mt-5">
         <img src={ImageHome} alt="imageHome" />
         <div className="carrusel-img-container">
-          <h2 className="text-center">Maybe Prefer a Complete Adventure</h2>
-          <Carrusel />
+          <h2 className=" text-homepage text-center">Maybe Prefer a Complete Adventure</h2>
+          
         </div>
       </div>
-      <CardsPacks />
+      <Cards />
       <div className="homepage-container mt-5">
         <h2 className=" titles-home text-center">
           Maybe Prefer a Complete Adventure
