@@ -8,6 +8,7 @@ import ImageHome from "../../assets/planes.jpeg";
 import Carrusel from "../../components/Card&Carrusel/Carrusel";
 import CardsPacks from "../../components/Card&Carrusel/CardsPacks";
 import { AuthContext } from "../../context/auth.context";
+import ModalGenerico from "../../components/Modal/ModalGenerico";
 
 export default function HomePage() {
   const [showModal, setShowModal] = useState(false);
@@ -37,6 +38,7 @@ export default function HomePage() {
 
         </div>
       </div>
+      <ModalGenerico>hasada</ModalGenerico>
       <Cards />
       <div className="homepage-img-container">
         <img src={ImageHome} alt="imageHome" />
