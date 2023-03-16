@@ -30,7 +30,7 @@ function ProfilePage() {
       {!isLoading &&
         <>
           <Navbar />
-          <div className='container-profile'>
+          <div className='container-profile text-center mt-5'>
 
             {currentUser && user._id === currentUser._id && <img src={currentUser.images} className="card-img-top-avatar" alt="avatar" />}
 

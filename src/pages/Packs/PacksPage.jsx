@@ -1,4 +1,3 @@
-
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import routeService from "../../services/route.service";
@@ -39,10 +38,7 @@ export default function PacksPage() {
               <div className="card-body text-center">
                 <h5 className="card-title">{pack.title}</h5>
                 <p className="card-text">{pack.destination}</p>
-                <p className="card-text">{pack.toDate}</p>
-                <p className="card-text">{pack.author}</p>
-                <p className="card-text">{pack.date}</p>
-                <div dangerouslySetInnerHTML={{ __html: pack.description }}></div>
+                <p className="card-text">{pack.fromDate} / {pack.toDate}</p>
                 <p className="card-text"> {pack.price} Euros</p>
                 <Link to={`/packs/${pack._id}`} className=" btn-details">
                   View

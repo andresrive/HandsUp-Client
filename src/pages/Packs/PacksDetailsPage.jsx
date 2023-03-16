@@ -40,7 +40,7 @@ function PackDetailsPage() {
         setLoading(false)
       })
       .catch((err) => console.log(err));
-      /* eslint-disable-next-line */
+    /* eslint-disable-next-line */
   }, []);
 
   useEffect(() => {
@@ -70,16 +70,19 @@ function PackDetailsPage() {
               />
               <div className="details-body card-body">
                 <h5 className="details-title card-title">{pack.title}</h5>
+                <h6><i>{pack.destination}</i></h6>
                 <div className="details-text card-text">
                   <div dangerouslySetInnerHTML={{ __html: html }}></div>
                 </div>
-
+                <div><p>From: {pack.fromDate} / To: {pack.toDate}</p></div>
+                <div><p>There are {pack.participants.length} people enrolled in this pack</p></div>
+                <div><p>Price: {pack.price}€</p></div>
                 <div className="button-group">
 
                   <button className="details-button" onClick={handleShowChat} >
                     Join plan
                   </button>
-                  {isLoggedIn ? (<AlertPackJoin showModal={showLoginModal} setShowModal={handleLoginClose} /> ): (<LoginModal showModal={showLoginModal} setShowModal={handleLoginClose} />)}
+                  {isLoggedIn ? (<AlertPackJoin showModal={showLoginModal} setShowModal={handleLoginClose} />) : (<LoginModal showModal={showLoginModal} setShowModal={handleLoginClose} />)}
                   {currentUser?.isCompany && <Link to={`/packs/${packId}/edit`}>
                     <button className="details-button">Edit plan</button>
                   </Link>}
@@ -93,4 +96,3 @@ function PackDetailsPage() {
   );
 }
 export default PackDetailsPage;
-

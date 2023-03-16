@@ -71,9 +71,7 @@ function FormEditProfile() {
             {!isLoading &&
                 <>
                     <Navbar />
-                    <div>
-                        <h1>Profile page</h1>
-
+                    <div className="mt-5 mb-5">
                         <form onSubmit={handleSubmit}>
                             <img src={avatarUrl} className="card-img-top" alt="avatar" />
                             <div className="form-floating mb-3">
