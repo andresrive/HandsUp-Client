@@ -38,7 +38,8 @@ export default function PlansPage() {
               <div className="card-body text-center">
                 <h5 className="card-title">{plan.title}</h5>
                 <p className="card-text">{plan.destination}</p>
-                <p className="card-text">{plan.toDate}</p>
+                <p className="card-text">From:{plan.fromDate}</p>
+                <p className="card-text">To:{plan.toDate}</p>
                 <Link to={`/plans/${plan._id}`} className=" btn-details">
                   View
                 </Link>

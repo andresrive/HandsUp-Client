@@ -83,7 +83,7 @@
 
 .chat {
   position: absolute; /*Agrega position absolute*/
-  right: -120%; /*Mueve el chat a la derecha del details container*/
+  right: -100%; /*Mueve el chat a la derecha del details container*/
   top: 14%; /*Agrega top 0*/
   width: 400px;
   background-color: #fff;

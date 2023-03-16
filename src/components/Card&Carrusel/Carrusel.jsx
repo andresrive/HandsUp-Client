@@ -55,7 +55,7 @@ export default function Carrusel() {
       <Carousel className="carrusel-container">
         <Carousel.Item className="carrusel-item">
           <div className="d-flex flex-row">
-            {plans.slice(0, 4).map((plan) => (
+            {plans.slice(0, 3).map((plan) => (
               <div
                 key={plan.id}
                 className="col-carrusel "

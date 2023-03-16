@@ -4,7 +4,6 @@ import routeService from "../../services/route.service";
 import Navbar from "../../components/Navbar/Navbar";
 import "./PacksDetailsPage.css";
 import { AuthContext } from "../../context/auth.context";
-import MyChatComponent from "../../components/talkjs/MyChatComponent";
 import LoginModal from "../../components/Modal/LoginModal";
 import AlertPackJoin from "../../components/Alert/AlertPackJoin";
 
@@ -41,6 +40,7 @@ function PackDetailsPage() {
         setLoading(false)
       })
       .catch((err) => console.log(err));
+      /* eslint-disable-next-line */
   }, []);
 
   useEffect(() => {

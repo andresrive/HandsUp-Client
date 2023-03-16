@@ -1,3 +1,4 @@
+/* eslint-disable */
 import { useState } from "react";
 import { uploadImage } from "../../services/upload.service";
 import { useNavigate } from "react-router-dom";
@@ -113,7 +114,7 @@ export default function FormCreatePlan() {
             </div>
           </div>
 
-          <div className="form-floating form-floating-plans">
+          <div className="form-floating form-floating-plans ">
             <MyCkEditor descriptionHandler={descriptionHandler} />
           </div>
 

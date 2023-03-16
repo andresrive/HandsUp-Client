@@ -5,16 +5,7 @@ class RouteService {
     this.api = axios.create({
       baseURL: process.env.REACT_APP_SERVER_URL || "http://localhost:5005/api"
     });
-    // this.api.interceptors.request.use((config) => {
-    //   const storedToken = localStorage.getItem("authToken");
-
-    //   if (storedToken) {
-    //     config.headers = { Authorization: `Bearer ${storedToken}` };
-    //   }
-
-    //   return config;
-    // });
-
+    
     this.headersObject = {
       headers: {
         Authorization: `Bearer ${localStorage.getItem("authToken")}`

@@ -1,6 +1,6 @@
-import Enjoy from '../../assets/enjoy.avif'
-import Meet from '../../assets/meet.avif'
-import Create from '../../assets/create-plan.jpeg'
+import EnjoyTravel from '../../assets/EnjoyTravel.avif'
+import Backpack from '../../assets/backpack.avif'
+import Search from '../../assets/search.avif'
 
 export default function CardsPacks () {
     return (
@@ -8,7 +8,7 @@ export default function CardsPacks () {
         <div className="row">
           <div className="col mx-5">
             <div className="card text-center shadow">
-              <img src={Create} className="card-img-top card-img-small" alt="Imagen 1" />
+              <img src={Search} className="card-img-top card-img-small" alt="Imagen 1" />
               <div className="card-body">
                 <h5 className="card-title">Search Your Pack</h5>
                 <p className="card-text">
@@ -20,7 +20,7 @@ export default function CardsPacks () {
           </div>
           <div className="col mx-5">
             <div className="card text-center shadow">
-              <img src={Meet} className="card-img-top" alt="Imagen 2" />
+              <img src={Backpack} className="card-img-top" alt="Imagen 2" />
               <div className="card-body">
                 <h5 className="card-title">Prepare Your BackPack</h5>
                 <p className="card-text">
@@ -32,7 +32,7 @@ export default function CardsPacks () {
           </div>
           <div className="col mx-5">
             <div className="card text-center shadow">
-              <img src={Enjoy} className="card-img-top" alt="Imagen 3" />
+              <img src={EnjoyTravel} className="card-img-top" alt="Imagen 3" />
               <div className="card-body">
                 <h5 className="card-title">Enjoy It!</h5>
                 <p className="card-text">

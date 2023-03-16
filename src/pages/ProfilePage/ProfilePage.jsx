@@ -1,6 +1,6 @@
 import React, { useState, useContext, useEffect } from 'react';
 import "./ProfilePage.css";
-import { Link, useNavigate } from "react-router-dom"
+import { Link } from "react-router-dom"
 import routeService from '../../services/route.service';
 import { AuthContext } from '../../context/auth.context';
 import Navbar from '../../components/Navbar/Navbar'
@@ -11,9 +11,6 @@ function ProfilePage() {
 
   const [currentUser, setCurrentUser] = useState(null)
 
-  const [username, setUsername] = useState("");
-  const [email, setEmail] = useState("");
-  const [avatarUrl, setAvatarUrl] = useState("");
 
   const [isLoading, setIsLoading] = useState(true)
 

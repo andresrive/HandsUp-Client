@@ -50,6 +50,7 @@ function PlanDetailsPage() {
                 setLoading(false)
             })
             .catch((err) => console.log(err));
+            /* eslint-disable-next-line */
     }, []);
 
     useEffect(() => {
