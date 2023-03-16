@@ -22,7 +22,6 @@ export default function FormEditPack({ packId }) {
     const [toDate, settoDate] = useState("")
     const [fromDate, setfromDate] = useState("")
     const [destination, setDestination] = useState("")
-    const [itinerary, setItinerary] = useState("")
     const [price, setPrice] = useState("")
     const [selectedRange, setSelectedRange] = useState('');
     const [isLoading, setIsLoading] = useState(true)
@@ -36,7 +35,6 @@ export default function FormEditPack({ packId }) {
                 settoDate(response.data.toDate)
                 setfromDate(response.data.fromDate)
                 setDestination(response.data.destination)
-                setItinerary(response.data.itinerary)
                 setPrice(response.data.price)
                 setIsLoading(false)
             })
@@ -74,7 +72,7 @@ export default function FormEditPack({ packId }) {
 
     const handleSubmit = (e) => {
         e.preventDefault()
-        routeService.updateOnePack(packId, { title, description, images, fromDate, toDate, destination, itinerary, price })
+        routeService.updateOnePack(packId, { title, description, images, fromDate, toDate, destination, price })
             .then(result => {
                 setTitle("")
                 setDescription("")
@@ -82,7 +80,6 @@ export default function FormEditPack({ packId }) {
                 settoDate("")
                 setfromDate("")
                 setDestination("")
-                setItinerary("")
                 setPrice("")
                 navigate(`/packs/${packId}`)
             })
@@ -122,17 +119,6 @@ export default function FormEditPack({ packId }) {
                             <div className="form-floating-packs  all-mb mb-3">
                                 <label className="form-label-packs">Description</label>
                                 <MyCkEditor descriptionHandler={descriptionHandler} />
-                            </div>
-
-                            <div className="form-floating-packs all-mb mb-3">
-                                <label htmlFor="floatingItinerary" className="form-label-packs">Itinerary</label>
-                                <input
-                                    type="text"
-                                    className="form-control-packs"
-                                    id="floatingItinerary"
-                                    value={itinerary}
-                                    onChange={(e) => setItinerary(e.target.value)}
-                                />
                             </div>
 
                             <div className="row-packs">
