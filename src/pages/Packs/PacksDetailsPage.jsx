@@ -145,18 +145,14 @@ import { AuthContext } from "../../context/auth.context";
 import MyChatComponent from "../../components/talkjs/MyChatComponent";
 
 function PackDetailsPage() {
-  //   const [showChat, setShowChat] = useState(false);
-  //   const handleShowChat = () => {
-  //     setShowChat(!showChat);
-  //   };
   const { packId } = useParams();
-
+  
   const { user } = useContext(AuthContext)
 
-  const [isLoggedIn, setIsLoggedIn] = useState()
   const [currentUser, setCurrentUser] = useState(null)
-  const [isLoading, setIsLoading] = useState(true)
-  const [pack, setPack] = useState({});
+  const [loading, setLoading] = useState(true)
+  const [pack, setPack] = useState(0);
+
 
   const [html, setHtml] = useState("");
   useEffect(() => {
@@ -168,55 +164,49 @@ function PackDetailsPage() {
       .getOnePack(packId)
       .then((result) => {
         setPack(result.data);
+        setLoading(false)
       })
       .catch((err) => console.log(err));
-  }, [packId]);
+  }, []);
 
   useEffect(() => {
     setCurrentUser(user);
   }, [user]);
 
-  useEffect(() => {
-    setIsLoggedIn(true)
-  }, [user]);
-
   return (
     <>
       <Navbar />
-      <div className="details-container">
-        <div className="details-Page">
-          <div className="card">
-            <img
-              src={pack.images}
-              className="details-img card-img-top mx-auto"
-              alt={pack.title}
-            />
-            <div className="details-body card-body">
-              <h5 className="details-title card-title">{pack.title}</h5>
-              <h6><i>{pack.destination}</i></h6>
-              <div className="details-text card-text">
-                <div dangerouslySetInnerHTML={{ __html: html }}></div>
-              </div>
-              <div>{pack.fromDate} / {pack.toDate}</div>
-              <div>{pack.itinerary}</div>
-              <div><p>There are {pack.participants.length} people enrolled in this pack</p></div>
-              <div>€{pack.price}</div>
-              <div className="button-group">
-                {/* <Link to=""> */}
-                {isLoggedIn && currentUser &&
-                  <button className="details-button" /*onClick={handleShowChat}*/>
+      {!loading &&
+        <div className="details-container">
+          <div className="details-Page">
+            <div className="card">
+              <img
+                src={pack.images[0]}
+                className="details-img card-img-top mx-auto"
+                alt="..."
+              />
+              <div className="details-body card-body">
+                <h5 className="details-title card-title">{pack.title}</h5>
+                <div className="details-text card-text">
+                  <div dangerouslySetInnerHTML={{ __html: html }}></div>
+                </div>
+
+                <div className="button-group">
+                  {/* <Link to=""> */}
+                  <button className="details-button" /*onClick={handleShowChat}*/ >
                     Join plan
-                  </button>}
-                {/* </Link> */}
-                {!isLoading && currentUser._id === pack.author._id && currentUser.isCompany && <Link to={`/packs/${packId}/edit`}>
-                  <button className="details-button">Edit plan</button>
-                </Link>}
+                  </button>
+                  {/* </Link> */}
+                  {currentUser?.isCompany && <Link to={`/packs/${packId}/edit`}>
+                    <button className="details-button">Edit plan</button>
+                  </Link>}
+                </div>
               </div>
             </div>
+            {/* {showChat && <MyChatComponent plan={plan} />} */}
           </div>
-          {/* {showChat && <MyChatComponent plan={plan} />} */}
         </div>
-      </div>
+      }
     </>
   );
 }

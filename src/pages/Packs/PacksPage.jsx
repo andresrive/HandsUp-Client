@@ -91,7 +91,7 @@ export default function PacksPage() {
                 <p className="card-text">{pack.toDate}</p>
                 <p className="card-text">{pack.author}</p>
                 <p className="card-text">{pack.date}</p>
-                <p className="card-text">{pack.description}</p>
+                <div dangerouslySetInnerHTML={{ __html: pack.description }}></div>
                 <p className="card-text"> {pack.price} Euros</p>
                 <Link to={`/packs/${pack._id}`} className=" btn-details">
                   View
