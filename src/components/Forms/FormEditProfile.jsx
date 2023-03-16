@@ -40,6 +40,7 @@ function FormEditProfile() {
         uploadImage(uploadData)
             .then(response => {
                 setAvatarUrl(response.fileUrl);
+                console.log("FOTO SUBIDA")
             })
             .catch(err => console.log("Error while uploading the file: ", err))
     }
