@@ -48,7 +48,7 @@ export default function SignUpModal({ onClose }) {
     <Modal className="my-modal-sign" show={true} onHide={handleClose}>
       <div className="modal-content-sign">
         <div className="modal-header-sign">
-          <h2 className="modal.title-sign">Sign Up</h2>
+          <h2 className="modal.title-sign">Create an account</h2>
           <button className="close-button-sign" onClick={handleClose}>
             x
           </button>
@@ -96,17 +96,12 @@ export default function SignUpModal({ onClose }) {
                 onChange={handlePasswordRepeat}
               />
             </Form.Group>
-            <Button className="btn-primary1-sign"  type="submit">
+            <Button id="btn-signUp"   type="submit">
               Sign Up
             </Button>
           </Form>
 
           {errorMessage && <p className="error-message-sign">{errorMessage}</p>}
-
-          <p>Already have an account?</p>
-          <Link to="#" onClick={handleModalOpen}>
-            Log in
-          </Link>
           <LoginModal showModal={showModal} setShowModal={setShowModal} />
         </div>
       </div>
