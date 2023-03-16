@@ -1,5 +1,5 @@
 import "./HomePage.css";
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import Navbar from "../../components/Navbar/Navbar";
 import videoBg from "../../assets/video3.mp4";
 import SignUpModal from "../../components/Modal/SignUpModal";
@@ -7,10 +7,13 @@ import Cards from "../../components/Card&Carrusel/Cards";
 import ImageHome from "../../assets/planes.jpeg";
 import Carrusel from "../../components/Card&Carrusel/Carrusel";
 import CardsPacks from "../../components/Card&Carrusel/CardsPacks";
+import { AuthContext } from "../../context/auth.context";
 
 export default function HomePage() {
   const [showModal, setShowModal] = useState(false);
   const [loading, setLoading] = useState(true);
+
+  const { isLoggedIn } = useContext(AuthContext)
 
   const handleGetStarted = () => {
     setShowModal(true);
@@ -26,10 +29,12 @@ export default function HomePage() {
           <h1>
             Choose a destination <br /> we will bring the friends
           </h1>
-          <button className="bton" onClick={handleGetStarted}>
-            Get Started
-          </button>
+          {!isLoggedIn &&
+            <button className="bton" onClick={handleGetStarted}>
+              Get Started
+            </button>}
           {showModal && <SignUpModal onClose={() => setShowModal(false)} />}
+
         </div>
       </div>
       <CardsPacks />
