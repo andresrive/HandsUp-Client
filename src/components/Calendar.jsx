@@ -1,55 +1,50 @@
-import React, { useState } from 'react';
-import { format, isAfter, isBefore, isValid, parse } from 'date-fns';
+import React, { useEffect, useState } from 'react';
 import { DayPicker } from 'react-day-picker';
 import 'react-day-picker/dist/style.css';
+import moment from 'moment'
 
-export default function App(props) {
-    const { onRangeChange } = props
+export default function App({ onRangeChange, dateTo, dateFrom }) {
+
     const [selectedRange, setSelectedRange] = useState('');
-    const [fromValue, setFromValue] = useState('');
-    const [toValue, setToValue] = useState('');
+    const [fromDate, setfromDate] = useState(dateFrom);
+    const [toDate, settoDate] = useState(dateTo);
+
+    // useEffect(() => {
+    //     console.log("FROMDATE USEEFFECT", fromDate)
+
+    // }, [fromDate])
+
+    // useEffect(() => {
+    //     console.log("TODATE USEEFFECT", toDate)
+
+    // }, [toDate])
+
+    // useEffect(() => {
+    //     console.log("SELECTEDRANGE USEEFFECT", selectedRange)
+    //     // console.log(moment(selectedRange.from, "DD-MM-YYYY"))
+    // }, [selectedRange])
 
     const handleFromChange = (e) => {
-        setFromValue(e.target.value);
-        const date = parse(e.target.value, 'y-MM-dd', new Date());
-        if (!isValid(date)) {
-            return setSelectedRange({ from: undefined, to: undefined });
-        }
-        if (selectedRange?.to && isAfter(date, selectedRange.to)) {
-            setSelectedRange({ from: selectedRange.to, to: date });
-        } else {
-            setSelectedRange({ from: date, to: selectedRange?.to });
-        }
+        setfromDate(e.target.value);
     };
 
     const handleToChange = (e) => {
-        setToValue(e.target.value);
-        const date = parse(e.target.value, 'y-MM-dd', new Date());
-        if (!isValid(date)) {
-            return setSelectedRange({ from: selectedRange?.from, to: undefined });
-        }
-        if (selectedRange?.from && isBefore(date, selectedRange.from)) {
-            setSelectedRange({ from: date, to: selectedRange.from });
-        } else {
-            setSelectedRange({ from: selectedRange?.from, to: date });
-        }
-        onRangeChange(selectedRange, fromValue, toValue)
+        settoDate(e.target.value);
     };
 
     const handleRangeSelect = (range) => {
         setSelectedRange(range);
-        if (range?.from) {
-            setFromValue(format(range.from, 'y-MM-dd'));
-        } else {
-            setFromValue('');
-        }
-        if (range?.to) {
-            setToValue(format(range.to, 'y-MM-dd'));
-        } else {
-            setToValue('');
-        }
-        onRangeChange(range, fromValue, toValue)
+
+        const formatedFrom = moment(range.from).format("DD-MM-YYYY")
+        const formatedTo = moment(range.to).format("DD-MM-YYYY")
+        setfromDate(formatedFrom)
+        settoDate(formatedTo)
+        onRangeChange(range, formatedFrom, formatedTo)
+
+
     };
+
+
 
     return (
         <DayPicker
@@ -61,7 +56,7 @@ export default function App(props) {
                     <input
                         size={10}
                         placeholder="From Date"
-                        value={fromValue}
+                        value={dateFrom}
                         onChange={handleFromChange}
                         className="input-reset pa2 ma bg-white black ba"
                     />
@@ -69,7 +64,7 @@ export default function App(props) {
                     <input
                         size={10}
                         placeholder="To Date"
-                        value={toValue}
+                        value={dateTo}
                         onChange={handleToChange}
                         className="input-reset pa2 bg-white black ba"
                     />

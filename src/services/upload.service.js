@@ -11,16 +11,11 @@ const errorHandler = (err) => {
 };
 
 const uploadImage = (file) => {
-    return api.post("/plans/create", file)
+    return api.post("/upload", file)
         .then(res => res.data)
         .catch(errorHandler);
 };
 
-const createPlan = (newPlan) => {
-    return api.post("/plans/create", newPlan)
-        .then(res => res.data)
-        .catch(errorHandler)
-};
 
 
-export { uploadImage, createPlan }
+export { uploadImage }

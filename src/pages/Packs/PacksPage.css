@@ -1,0 +1,76 @@
+.pack-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+  
+  .pack-container .col {
+    flex-basis: 20%;
+  }
+  
+  .pack-container .card {
+    border: none;
+    background-color: #f8f9fa;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s ease-in-out;
+  }
+  
+  .pack-container .card:hover {
+    transform: translateY(-5px);
+  }
+  
+  .pack-container .card-img-top {
+    height: 200px;
+    object-fit: cover;
+  }
+  
+  .pack-container .card-title {
+    font-size: 1.2rem;
+    font-weight: bold;
+  }
+  
+  .pack-container .card-text {
+    font-size: 1rem;
+    margin-bottom: 0.5rem;
+  }
+  
+  .btn-details {
+    border-color: #343a40;
+    color: #343a40;
+    transition: all 0.3s ease-in-out;
+    border-radius: 50px;
+    padding: 5px 30px;
+    font-weight: bold;
+    text-decoration: none;
+    border: 1px solid black;
+  }
+  
+  .btn-details:hover {
+    background-color: #343a40;
+    color: #f8f9fa;
+  }
+
+  .packPage-container {
+    position: relative;
+    height: 400px;
+    overflow: hidden;
+  }
+  
+  .packPage-container img {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  
+  .packPage-container .search-bar-container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1;
+  }

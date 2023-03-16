@@ -1,41 +1,52 @@
-import { useState, useEffect} from 'react'
-import { Link } from 'react-router-dom'
-import routeService from '../../services/route.service'
+import { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
+import routeService from "../../services/route.service";
+import Navbar from "../../components/Navbar/Navbar";
+import PlanImage from "../../assets/plans-page.jpeg";
+import SearchBar from "../../components/SearchBar/SearchBar";
+import "./PlanPage.css";
 
 export default function PlansPage() {
-    const [plans, setPlans] = useState([])
+  const [plans, setPlans] = useState([]);
 
-    useEffect(() => {
-        routeService.getAllPlans()
-        .then ((response) => {
-            setPlans(response.data)
-        })
-        
-    },[])
+  const [filteredPlans, setFilteredPlans] = useState("");
+
+  useEffect(() => {
+    routeService.getAllPlans().then((response) => {
+      setPlans(response.data);
+    });
+  }, []);
+
   return (
-    <div className='demo-content'>
-        <h1>All plans</h1>
-        <ul className="list-unstyled">
-          {plans.map((plan) => (
-            <li key={plan._id} className="media mb-4">
+    <>
+      <Navbar />
+      <div class="planPage-container">
+        <img src={PlanImage} alt="imageHome" />
+        <div class="search-bar-container">
+          <SearchBar plans={plans} setFilteredPlans={setFilteredPlans} />
+        </div>
+      </div>
+      <div className="plan-container container-page row row-cols-1 row-cols-md-5 g-4 me-5 ms-5 mt-4">
+        {(filteredPlans || plans).map((plan) => (
+          <div key={plan._id} className="col">
+            <div className="card h-100">
               <img
-                src={plan.image}
+                src={plan.images}
+                className="card-img-top"
                 alt={plan.title}
-                className="mr-3"
-                width="100"
-                height="250"
               />
-              <div className="media-body">
-                <h2>{plan.title}</h2>
-                <p>{plan.description}</p>
-                <Link to={`/plans/${plan._id}`}>Details</Link>
+              <div className="card-body text-center">
+                <h5 className="card-title">{plan.title}</h5>
+                <p className="card-text">{plan.destination}</p>
+                <p className="card-text">{plan.toDate}</p>
+                <Link to={`/plans/${plan._id}`} className=" btn-details">
+                  View
+                </Link>
               </div>
-              <hr className="mt-3 mb-0" />
-              
-            </li>
-          ))}
-        </ul>
-
-    </div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </>
   );
 }
