@@ -60,7 +60,7 @@ function PackDetailsPage() {
     <>
       <Navbar />
       {!loading &&
-        <div className="details-container">
+        <div className="details-container mx-auto">
           <div className="details-Page">
             <div className="card">
               <img
