@@ -17,8 +17,9 @@ export default function HomePage() {
   const { isLoggedIn } = useContext(AuthContext);
 
   useEffect(() => {
-    setIsLoading(false);
-  }, []);
+    setIsLoading(false)
+
+  }, [])
 
   const handleGetStarted = () => {
     setShowModal(true);
