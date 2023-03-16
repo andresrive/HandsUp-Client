@@ -46,7 +46,6 @@ export default function FormEditPack({ packId }) {
 
     const descriptionHandler = (content) => {
         setDescription(content)
-        console.log(description)
     }
 
     const handleFileUpload = (e) => {
@@ -59,8 +58,6 @@ export default function FormEditPack({ packId }) {
 
         uploadImage(uploadData)
             .then(response => {
-                console.log("response is: ", response);
-                // response carries "fileUrl" which we can use to update the state
                 setImages(response.fileUrl);
             })
             .catch(err => console.log("Error while uploading the file: ", err));
@@ -90,10 +87,6 @@ export default function FormEditPack({ packId }) {
             .catch(err => console.log(err))
     }
 
-    // console.log("USER", user)
-
-    // console.log("AUTHOR",)
-
 
     return (
         <>
@@ -115,7 +108,7 @@ export default function FormEditPack({ packId }) {
 
                             <div className="form-floating-packs  all-mb mb-3">
                                 <label className="form-label-packs">Description</label>
-                                <MyCkEditor descriptionHandler={descriptionHandler} />
+                                <MyCkEditor descriptionHandler={descriptionHandler} description={description} />
                             </div>
 
                             <div className="row-packs">

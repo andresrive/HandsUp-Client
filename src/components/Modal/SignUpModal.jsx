@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import {  useNavigate } from "react-router-dom";
 import authService from "../../services/auth.service";
 import { Modal, Button, Form } from "react-bootstrap";
 import LoginModal from "./LoginModal";
@@ -39,10 +39,6 @@ export default function SignUpModal({ onClose }) {
   };
   const [showModal, setShowModal] = useState(false);
 
-  const handleModalOpen = () => {
-    setShowModal(true);
-    onClose()
-  };
 
   return (
     <Modal className="my-modal-sign" show={true} onHide={handleClose}>

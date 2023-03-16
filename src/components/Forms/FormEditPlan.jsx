@@ -100,7 +100,7 @@ export default function FormEditPlan({ planId }) {
                 <>
                     <Navbar />
                     < form onSubmit={handleSubmit}>
-                        <div className="form-floating mb-3">
+                        <div className="form-floating mb-3 mt-5">
                             <input type="text" className="form-control" id="floatingTitle" value={title} onChange={(e) => setTitle(e.target.value)} />
                             <label htmlFor="floatingTitle">Title</label>
                         </div>
@@ -119,8 +119,8 @@ export default function FormEditPlan({ planId }) {
                             <label htmlFor="floatingDestination">Destination</label>
                         </div>
                         {<button className="btn btn-info" type="submit">Edit plan</button>}
-                        <Link to={`/plans/${planId}`}><button>Go back</button></Link>
-                        <button className="btn btn-danger" type="button" onClick={() => deleteHandler(planId)}>Delete plan</button>
+                        <button className="btn btn-danger mt-3" type="button" onClick={() => deleteHandler(planId)}>Delete plan</button>
+                        <Link to={`/plans/${planId}`}><button id="back-btn">Go back</button></Link>
                     </form>
                 </>
             }

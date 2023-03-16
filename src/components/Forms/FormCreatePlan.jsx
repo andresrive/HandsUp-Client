@@ -23,19 +23,10 @@ export default function FormCreatePlan() {
     settoDate(toDate);
 
   };
-
-
-
   const descriptionHandler = (content) => {
     setDescription(content);
     console.log(description);
   };
-
-  // const calendarHandler = (to, from) => {
-  //     setfromDate(from)
-  //     settoDate(to)
-  //     console.log("TO Y FROM", to, from)
-  // }
 
   const navigate = useNavigate();
 
@@ -45,8 +36,6 @@ export default function FormCreatePlan() {
 
     uploadImage(uploadData)
       .then((response) => {
-        console.log("response is: ", response);
-        // response carries "fileUrl" which we can use to update the state
         setImages(response.fileUrl);
       })
       .catch((err) => console.log("Error while uploading the file: ", err));
@@ -57,7 +46,6 @@ export default function FormCreatePlan() {
 
     routeService
       .createPlan({ title, description, images, fromDate, toDate, destination })
-      //importar la date de calendar?
       .then((res) => {
         setTitle("");
         setDescription("");

@@ -20,6 +20,7 @@ import PacksCreatePage from './pages/Packs/PacksCreatePage';
 import PacksDetailsPage from './pages/Packs/PacksDetailsPage';
 import PacksEditPage from './pages/Packs/PacksEditPage';
 import ProfileEditPage from "./pages/ProfilePage/ProfileEditPage";
+import NotFoundPage from "./pages/NotFoundPage/NotFoundPage";
 
 function App() {
   return (
@@ -38,6 +39,7 @@ function App() {
         <Route path="/packs/:packId" element={<PacksDetailsPage />} />
         <Route path="/packs/create" element={<IsPrivateForUsers><PacksCreatePage /></IsPrivateForUsers>} /> {/*isCompany*/}
         <Route path="/packs/:packId/edit" element={<IsPrivateForUsers><PacksEditPage /></IsPrivateForUsers>} />
+        <Route path="*" element={<NotFoundPage />} />
       </Routes>
     </div>
   );
