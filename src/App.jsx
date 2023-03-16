@@ -7,7 +7,8 @@ import ProfilePage from "./pages/ProfilePage/ProfilePage";
 import SignupPage from "./pages/SignupPage/SignupPage";
 import LoginPage from "./pages/LoginPage/LoginPage";
 
-
+import IsPrivateUser from "./components/IsPrivate/isPrivateUser";
+import IsPrivateCompany from "./components/IsPrivate/isPrivateCompany";
 import IsPrivate from "./components/IsPrivate/IsPrivate";
 import IsAnon from "./components/IsAnon/IsAnon";
 
@@ -34,8 +35,8 @@ function App() {
 
         <Route path="/plans" element={<PlansPage />} />
         <Route path="/plans/:planId" element={<PlanDetailsPage />} />
-        <Route path="/plans/create" element={<IsPrivate><PlanCreatePage /></IsPrivate>} />
-        <Route path="/plans/:planId/edit" element={<IsPrivate><PlanEditPage /></IsPrivate>} /> {/*isUserId*/}
+        <Route path="/plans/create" element={<IsPrivateCompany><PlanCreatePage /></IsPrivateCompany>} />
+        <Route path="/plans/:planId/edit" element={<IsPrivateCompany><PlanEditPage /></IsPrivateCompany>} /> {/*isUserId*/}
 
         <Route path="/packs" element={<PacksPage />} />
         <Route path="/packs/:packId" element={<PacksDetailsPage />} />

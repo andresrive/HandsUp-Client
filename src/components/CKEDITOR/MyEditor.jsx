@@ -28,7 +28,7 @@ export default function MyEditor() {
             <div>
             <form>
                 
-                <textarea style={{width: '100%'}} value={text} onChange={(e) => setText(e.target.value)}></textarea>
+                <textarea style={{width: '100%'}} value={parse(text)} onChange={(e) => setText(e.target.value)}></textarea>
             </form>
 
             </div>

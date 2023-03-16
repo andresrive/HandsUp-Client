@@ -13,24 +13,17 @@ function PlanDetailsPage() {
         if (currentUser) {
             setShowChat(!showChat);
         }
-        else {
-
-        }
-        /* routeService.joinPlan(planId)
+        routeService.joinPlan(planId)
         .then(response => {
-            console.log("Hola:", response)
-        }) */
-
+            console.log("Hola:", response.data)
+        })
     }
 
     const { user } = useContext(AuthContext)
 
-    /*     const [isLoggedIn, setIsLoggedIn] = useState(false) */
     const [currentUser, setCurrentUser] = useState(null)
     const [plan, setPlan] = useState(0);
     const [loading, setLoading] = useState(true)
-
-    //   const [plan, setPlan] = useState({});
 
     const [html, setHtml] = useState("");
     useEffect(() => {
@@ -46,23 +39,9 @@ function PlanDetailsPage() {
             .catch((err) => console.log(err));
     }, []);
 
-
-    /*  useEffect(() => {
-         if (plan !== 0) {
-             setIsLoading(false)
-         }
-     }, [isLoading]) */
-
     useEffect(() => {
         setCurrentUser(user);
     }, [user]);
-
-    /* useEffect(() => {
-        setIsLoggedIn(true)
-      }, [user]); */
-
-    console.log("currentUser", user)
-    console.log("PLAN", plan)
 
     return (
         <>
@@ -98,10 +77,6 @@ function PlanDetailsPage() {
                             </div>
                         </div>
                     </div>
-                    {/* <div className="chat">
-      {showChat && <MyChatComponent plan={plan} />}
-        
-      </div> */}
                     <div className={`chat ${showChat ? "showNow" : ""}`}>
                         {showChat && <MyChatComponent plan={plan} />}
                     </div>
