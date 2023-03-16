@@ -1,5 +1,4 @@
 
-
 import { useState, useEffect, useContext } from "react";
 import { useParams, Link } from "react-router-dom";
 import routeService from "../../services/route.service";
@@ -10,14 +9,14 @@ import MyChatComponent from "../../components/talkjs/MyChatComponent";
 
 function PackDetailsPage() {
   const { packId } = useParams();
-  
+
   const handleShowChat = () => {
-    
+
     routeService.joinPack(packId)
-    .then(response => {
+      .then(response => {
         console.log("Hola:", response.data)
-    })
-}
+      })
+  }
 
   const { user } = useContext(AuthContext)
 

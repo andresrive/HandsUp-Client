@@ -13,7 +13,6 @@ export default function FormCreatePack() {
   const [images, setImages] = useState("");
   const [destination, setDestination] = useState("");
   const [price, setPrice] = useState("");
-  const [itinerary, setItinerary] = useState("");
 
   const [selectedRange, setSelectedRange] = useState("");
   const [fromDate, setfromDate] = useState("");
@@ -49,7 +48,7 @@ export default function FormCreatePack() {
 
 
     routeService
-      .createPack({ title, description, images, fromDate, toDate, destination, price, itinerary })
+      .createPack({ title, description, images, fromDate, toDate, destination, price })
       //importar la date de calendar?
       .then((res) => {
         setTitle("");
@@ -58,7 +57,6 @@ export default function FormCreatePack() {
         setfromDate("");
         setDestination("");
         setPrice("");
-        setItinerary("");
         navigate("/packs");
       })
       .catch((err) => console.log("Error while adding the new pack: ", err));
@@ -83,17 +81,6 @@ export default function FormCreatePack() {
           <div className="form-floating-packs  all-mb mb-3">
             <label className="form-label-packs">Description</label>
             <MyCkEditor descriptionHandler={descriptionHandler} />
-          </div>
-
-          <div className="form-floating-packs all-mb mb-3">
-            <label htmlFor="floatingItinerary" className="form-label-packs">Itinerary</label>
-            <input
-              type="text"
-              className="form-control-packs"
-              id="floatingItinerary"
-              value={itinerary}
-              onChange={(e) => setItinerary(e.target.value)}
-            />
           </div>
 
           <div className="row-packs">
