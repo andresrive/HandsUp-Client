@@ -26,7 +26,7 @@ export default function SearchBar({ plans, setFilteredPlans }) {
           className="Search-Bar"
           value={search}
           type="text"
-          placeholder="Search by destination"
+          placeholder="Search..."
           onChange={handleSearch}
         />
       </div>

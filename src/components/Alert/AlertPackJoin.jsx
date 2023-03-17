@@ -10,7 +10,7 @@ function AlertPackJoin({ showModal, setShowModal }) {
             <Modal className="my-modal" show={showModal} onHide={() => setShowModal(false)}>
                 <Modal.Body className="modal-body">
                     <div class="alert alert-primary" role="alert">
-                        Thanks you! You are now inscribate.
+                        Thank you for choosing our travel package. You will recieve the information about the travel via email.
                     </div>
                 </Modal.Body>
             </Modal>

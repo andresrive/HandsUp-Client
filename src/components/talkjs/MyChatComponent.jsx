@@ -6,10 +6,10 @@ import { AuthContext } from '../../context/auth.context';
 function MyChatComponent({ plan }) {
   const chatboxEl = useRef();
   const { user } = useContext(AuthContext);
-  console.log(user)
 
-  // wait for TalkJS to load
+
   const [talkLoaded, setTalkLoaded] = useState(false);
+
 
   Talk.ready
     .then(result => {
