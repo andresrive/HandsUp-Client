@@ -108,7 +108,7 @@ function FormEditProfile() {
                                 />
                             </div>
 
-                            <button className="btn btn-info" type="submit">
+                            <button className="btn-edit-plan" type="submit">
                                 Edit profile
                             </button>
                             {/* <Link to={`/plans/${plansId}`}><button>Go back</button></Link> */}

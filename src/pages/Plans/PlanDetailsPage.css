@@ -70,13 +70,13 @@
   letter-spacing: 3px;
   background-color: #0b0a0a;
   color: #fff;
-  box-shadow: rgba(255, 215, 0, 0.5) 0px 7px 29px 0px;
+  /* box-shadow: rgba(255, 215, 0, 0.5) 0px 7px 29px 0px; */
 }
 
 .details-button:active {
   letter-spacing: 3px;
-  background-color: #ffa500;
-  box-shadow: rgba(255, 165, 0, 0.5) 0px 0px 0px 0px;
+  /* background-color: #ffa500;
+  box-shadow: rgba(255, 165, 0, 0.5) 0px 0px 0px 0px; */
   transform: translateY(10px);
   transition: 100ms;
 }

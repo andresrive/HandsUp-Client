@@ -50,30 +50,49 @@ form {
     transform: translateY(-50%);
   }
   
-  .btn {
+  .btn-edit-plan {
     padding: 0.5rem 1rem;
     font-size: 1rem;
     font-weight: 500;
     line-height: 1.5;
-    border-radius: 0.25rem;
+    border-radius: 25px;
     transition: all 0.2s ease-in-out;
   }
   
-  .btn-info {
+  .btn-edit-plan {
     color: #fff;
+    background-color: black;
    
   }
   
-  .btn-info:hover {
-    background-color: #0069d9;
-    border-color: #0062cc;
+  .btn-edit-plan:hover {
+    background-color: white;
+    border-color: black;
+    color: black
   }
-  #back-btn{
-    padding: 0.5rem 1rem;
+  .back-btn {
+    padding: 0.5rem 13.5rem;
     font-size: 1rem;
     font-weight: 500;
     line-height: 1.5;
-    border-radius: 0.25rem;
+    border-radius: 25px;
     transition: all 0.2s ease-in-out;
+    margin-top: 10px;
+  }
+  
+  .back-btn {
+    color: black;
+    background-color: white;
+   
+  }
+  
+  .back-btn:hover {
+    background-color: black;
+    border-color: white;
+    color: white
+  }
+
+  .btn-danger{
+    border-radius: 25px;
   }
   

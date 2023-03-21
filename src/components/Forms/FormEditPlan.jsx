@@ -118,9 +118,9 @@ export default function FormEditPlan({ planId }) {
                             <input type="text" className="form-control" id="floatingDestination" value={destination} onChange={(e) => setDestination(e.target.value)} />
                             <label htmlFor="floatingDestination">Destination</label>
                         </div>
-                        {<button className="btn btn-info" type="submit">Edit plan</button>}
-                        <button className="btn btn-danger mt-3" type="button" onClick={() => deleteHandler(planId)}>Delete plan</button>
-                        <Link to={`/plans/${planId}`}><button id="back-btn">Go back</button></Link>
+                        {<button className="btn-edit-plan" type="submit">Edit plan</button>}
+                        <button className="btn btn-danger mt-3 rounded-pill" type="button" onClick={() => deleteHandler(planId)}>Delete plan</button>
+                        <Link to={`/plans/${planId}`}><button className="back-btn mb-4 ">Go back</button></Link>
                     </form>
                 </>
             }
