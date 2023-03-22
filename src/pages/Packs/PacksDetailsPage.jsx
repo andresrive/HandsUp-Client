@@ -79,12 +79,12 @@ function PackDetailsPage() {
                 <div><p>Price: {pack.price}€</p></div>
                 <div className="button-group">
 
-                  <button className="details-button" onClick={handleShowChat} >
+                  <button className="details-button-packs" onClick={handleShowChat} >
                     Join plan
                   </button>
                   {isLoggedIn ? (<AlertPackJoin showModal={showLoginModal} setShowModal={handleLoginClose} />) : (<LoginModal showModal={showLoginModal} setShowModal={handleLoginClose} />)}
                   {currentUser?.isCompany && <Link to={`/packs/${packId}/edit`}>
-                    <button className="details-button">Edit plan</button>
+                    <button className="details-button-packs">Edit plan</button>
                   </Link>}
                 </div>
               </div>

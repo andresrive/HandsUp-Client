@@ -47,15 +47,15 @@
 }
 
 .btn-primary1 {
-  background-color: #343a40;
-  color: #f8f9fa;
+  background-color: white;
+  color: black;
   border-radius: 50px;
   transition: all 0.3s ease-in-out;
 }
 
 .btn-primary1:hover {
-  background-color: #f8f9fa;
-  color: #343a40;
+  background-color: black;
+  color: white;
   border-color: #343a40;
 }
 

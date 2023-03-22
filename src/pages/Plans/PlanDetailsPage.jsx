@@ -80,12 +80,12 @@ function PlanDetailsPage() {
                                 <div className="button-group">
                                     {/* <Link to=""> */}
                                     {/* {isLoggedIn && currentUser && */}
-                                    <button className="details-button" onClick={handleShowChat}>
+                                    <button className="details-button-plan" onClick={handleShowChat}>
                                         Join plan
                                     </button>
                                     {!isLoggedIn && <LoginModal showModal={showLoginModal} setShowModal={handleLoginClose} />}
                                     {user?._id === plan.author._id && <Link to={`/plans/${planId}/edit`}>
-                                        <button className="details-button">Edit plan</button>
+                                        <button className="details-button-plan">Edit plan</button>
                                     </Link>}
                                 </div>
                             </div>
