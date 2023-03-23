@@ -19,7 +19,7 @@ export default function SearchBar({ plans, setFilteredPlans }) {
   return (
     <>
       <div className="Search-Bar-title">
-        <h1>Search for a plan that suits you</h1>
+        <h1>Search for a trip that suits you</h1>
       </div>
       <div>
         <input
