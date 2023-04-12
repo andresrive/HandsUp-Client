@@ -5,12 +5,12 @@ Developed as the final project of the web development bootcamp at Ironhack Barce
 ## About
 Hello! We are Andres, Raul and Adrian. We are full-stack developers. This project is aimed at all those curious people who want to meet new people and be able to carry out those plans in the company of totally new people.
 
-![Project_Image]()
+![Project_Image](https://images.pexels.com/photos/1000445/pexels-photo-1000445.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1)
 
 ## Deployment
-You can check the app fully deployed [here]()
+You can check the app fully deployed [here](https://handsup-project.netlify.app/)
 
-If you wish to view the API deployment instead, check [here]()
+If you wish to view the API deployment instead, check [here](https://handsup.fly.dev/api)
 
 ## Work Structure
 
